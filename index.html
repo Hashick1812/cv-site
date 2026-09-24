@@ -22,6 +22,16 @@
       try { seen = sessionStorage.getItem('ik-intro') === '1'; } catch (e) {}
       var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (!seen && !reduce && !/[?&]nointro/.test(location.search)) d.classList.add('intro-open');
+      /* Язык: ?lang=ru|kk|kz|en → сохранённый выбор → язык браузера. */
+      var lang = null, m = location.search.match(/[?&]lang=(ru|kk|kz|en)\b/);
+      if (m) lang = m[1] === 'kz' ? 'kk' : m[1];
+      if (!lang) { try { lang = localStorage.getItem('ik-lang'); } catch (e) {} }
+      if (!/^(ru|kk|en)$/.test(lang || '')) {
+        var nl = ((navigator.languages && navigator.languages[0]) || navigator.language || 'ru').toLowerCase();
+        lang = /^kk/.test(nl) ? 'kk' : /^(ru|uk|be)/.test(nl) ? 'ru' : 'en';
+      }
+      d.lang = lang;
+      if (lang !== 'ru') d.classList.add('i18n-pending');
     })();
   </script>
   <style>
@@ -76,6 +86,14 @@
     .menu a.is-active::after{transform:scaleX(1)}
     .btn-mini{display:inline-flex;align-items:center;gap:8px;padding:9px 12px;border:1px solid var(--line-2);background:transparent;color:var(--gold);font:500 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:border-color .2s,background .2s}
     .btn-mini:hover{border-color:var(--gold);background:var(--gold-dim)}
+    .i18n-pending body{visibility:hidden;animation:i18n-failsafe 0s 2.5s forwards}
+    @keyframes i18n-failsafe{to{visibility:visible}}
+    .lang-switch{display:inline-flex;flex:none;border:1px solid var(--line-2)}
+    .lang-switch button{padding:9px 9px;border:0;background:transparent;color:var(--muted);font:500 10.5px/1 var(--mono);letter-spacing:.08em;cursor:pointer;transition:color .2s,background .2s}
+    .lang-switch button+button{border-left:1px solid var(--line-2)}
+    .lang-switch button:hover{color:var(--gold)}
+    .lang-switch button[aria-pressed="true"]{background:var(--gold);color:#0a0a0a}
+    .menu .menu-replay{display:none}
     .menu-toggle{display:none;width:42px;height:42px;padding:0;border:1px solid var(--line-2);background:transparent;cursor:pointer;position:relative}
     .menu-toggle span{position:absolute;left:11px;right:11px;height:1.5px;background:var(--gold);transition:transform .25s,opacity .25s}
     .menu-toggle span:nth-child(1){top:14px}.menu-toggle span:nth-child(2){top:20px}.menu-toggle span:nth-child(3){top:26px}
@@ -305,6 +323,13 @@
     .intro-hint{font:500 10.5px/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.4)}
     .intro-skip{padding:11px 16px;border:1px solid rgba(255,232,31,.5);background:rgba(0,0,0,.5);color:var(--gold);font:500 11px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;cursor:pointer;transition:background .2s}
     .intro-skip:hover{background:var(--gold-dim)}
+    .intro-ui-left{display:flex;align-items:center;gap:18px}
+    .intro-sound{display:inline-flex;align-items:center;gap:9px;padding:10px 14px;border:1px solid rgba(92,214,255,.45);background:rgba(0,0,0,.5);color:var(--holo);font:500 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:background .2s}
+    .intro-sound:hover{background:var(--holo-dim)}
+    .intro-sound svg{width:16px;height:16px;flex:none}
+    .intro-sound .s-on,.intro-sound .wave{display:none}
+    .intro-sound[aria-pressed="true"] .s-on,.intro-sound[aria-pressed="true"] .wave{display:inline}
+    .intro-sound[aria-pressed="true"] .s-off,.intro-sound[aria-pressed="true"] .mute{display:none}
 
     /* ---------- Адаптив ---------- */
     @media screen and (max-width:1100px){
@@ -371,7 +396,11 @@
       .contact{padding-top:84px}
       .archive-cta{padding:20px}
       .intro-hint{display:none}
-      .intro-ui{justify-content:flex-end}
+      .intro-ui{left:16px;right:16px;bottom:16px}
+      .intro-sound,.intro-skip{padding:10px 11px;font-size:10px;letter-spacing:.1em}
+      .nav-right>[data-replay]{display:none}
+      .menu .menu-replay{display:block;text-align:left;padding:15px 0;border:0;border-bottom:1px solid var(--line);background:none;color:var(--gold);font:500 12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
+      .lang-switch button{padding:8px 6px;font-size:10px;letter-spacing:.04em}
     }
     @media (prefers-reduced-motion:reduce){
       html{scroll-behavior:auto}
@@ -452,48 +481,60 @@
   </style>
 </head>
 <body>
-  <a class="skip-link" href="#main">Перейти к содержанию</a>
+  <a data-i18n class="skip-link" href="#main">Перейти к содержанию</a>
 
   <canvas id="stars" aria-hidden="true"></canvas>
   <div class="nebula" aria-hidden="true"></div>
 
   <!-- Вступительная заставка в стиле «Звёздных войн» -->
-  <div class="intro" id="intro" role="dialog" aria-modal="true" aria-label="Вступительная заставка">
-    <p class="intro-pre" aria-hidden="true">Не так давно, в галактике<br>не так уж далеко…</p>
+  <div data-i18n-attr="aria-label" class="intro" id="intro" role="dialog" aria-modal="true" aria-label="Вступительная заставка">
+    <p data-i18n class="intro-pre" aria-hidden="true">Не так давно, в галактике<br>не так уж далеко…</p>
     <p class="intro-logo" aria-hidden="true"><span>Islam</span><span>Kuttybaev</span></p>
     <div class="crawl-stage" aria-hidden="true">
       <div class="crawl">
-        <p class="ep">Эпизод IV</p>
-        <h2>Новая надежда данных</h2>
-        <p>Идёт эпоха больших данных. Компании по всей галактике тонут в таблицах, разрозненных отчётах и непроверенных гипотезах.</p>
-        <p>Молодой специалист по Data Science ИСЛАМ КУТТЫБАЕВ, прошедший подготовку в академии SDU, вооружён Python, машинным обучением и силой статистики.</p>
-        <p>Присоединившись к команде ТОО «ADAM LABS», он обучает модели, превращает хаос данных в ясные решения и помогает людям учиться и расти, пока тёмная сторона — решения без доказательств — отступает…</p>
+        <p data-i18n class="ep">Эпизод IV</p>
+        <h2 data-i18n>Новая надежда данных</h2>
+        <p data-i18n>Идёт эпоха больших данных. Компании по всей галактике тонут в таблицах, разрозненных отчётах и непроверенных гипотезах.</p>
+        <p data-i18n>Молодой специалист по Data Science ИСЛАМ КУТТЫБАЕВ, прошедший подготовку в академии SDU, вооружён Python, машинным обучением и силой статистики.</p>
+        <p data-i18n>Присоединившись к команде ТОО «ADAM LABS», он обучает модели, превращает хаос данных в ясные решения и помогает людям учиться и расти, пока тёмная сторона — решения без доказательств — отступает…</p>
       </div>
     </div>
     <div class="intro-ui">
-      <span class="intro-hint">Esc · Enter · клик — пропустить</span>
-      <button class="intro-skip" type="button">Пропустить интро ›</button>
+      <div class="intro-ui-left">
+        <button class="intro-sound" type="button" aria-pressed="false">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z" fill="currentColor" fill-opacity=".25"/><path class="wave" d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.6a6 6 0 0 1 0 8.8"/><path class="mute" d="M11 6l4 4M15 6l-4 4"/></svg>
+          <span data-i18n class="s-off">Включить звук</span><span data-i18n class="s-on">Звук включён</span>
+        </button>
+        <span data-i18n class="intro-hint">Esc · Enter · клик — пропустить</span>
+      </div>
+      <button data-i18n class="intro-skip" type="button">Пропустить интро ›</button>
     </div>
   </div>
 
   <header class="topbar">
     <div class="wrap">
-      <a class="brand" href="#top" aria-label="Islam Kuttybaev — в начало">
+      <a data-i18n-attr="aria-label" class="brand" href="#top" aria-label="Islam Kuttybaev — в начало">
         <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true"><circle cx="16" cy="16" r="14.5" stroke="#ffe81f" stroke-opacity=".45"/><path d="M16 4.5l2.1 9.4 9.4 2.1-9.4 2.1-2.1 9.4-2.1-9.4L4.5 16l9.4-2.1z" fill="#ffe81f"/></svg>
         <span>Islam <b>Kuttybaev</b></span>
       </a>
       <div class="nav-right">
-        <nav class="menu" id="menu" aria-label="Разделы">
-          <a href="#dossier">Досье</a>
-          <a href="#mission">Миссия</a>
-          <a href="#experience">Опыт</a>
-          <a href="#skills">Навыки</a>
-          <a href="#certificates">Сертификаты</a>
-          <a href="#education">Образование</a>
-          <a href="#contact">Контакты</a>
+        <nav data-i18n-attr="aria-label" class="menu" id="menu" aria-label="Разделы">
+          <a data-i18n href="#dossier">Досье</a>
+          <a data-i18n href="#mission">Миссия</a>
+          <a data-i18n href="#experience">Опыт</a>
+          <a data-i18n href="#skills">Навыки</a>
+          <a data-i18n href="#certificates">Сертификаты</a>
+          <a data-i18n href="#education">Образование</a>
+          <a data-i18n href="#contact">Контакты</a>
+          <button data-i18n class="menu-replay" type="button" data-replay>▶ Интро</button>
         </nav>
-        <button class="btn-mini" type="button" data-replay title="Воспроизвести вступительную заставку">▶ <span class="lbl">Интро</span></button>
-        <button class="menu-toggle" type="button" aria-controls="menu" aria-expanded="false" aria-label="Меню"><span></span><span></span><span></span></button>
+        <div class="lang-switch" role="group" aria-label="Language / Тіл / Язык" data-i18n-skip>
+          <button type="button" data-lang="kk" lang="kk" title="Қазақша">ҚАЗ</button>
+          <button type="button" data-lang="ru" lang="ru" title="Русский">РУС</button>
+          <button type="button" data-lang="en" lang="en" title="English">ENG</button>
+        </div>
+        <button data-i18n-attr="title" class="btn-mini" type="button" data-replay title="Воспроизвести вступительную заставку">▶ <span data-i18n class="lbl">Интро</span></button>
+        <button data-i18n-attr="aria-label" class="menu-toggle" type="button" aria-controls="menu" aria-expanded="false" aria-label="Меню"><span></span><span></span><span></span></button>
       </div>
     </div>
     <div class="progress-line" aria-hidden="true"><i></i></div>
@@ -505,19 +546,19 @@
       <div class="wrap" id="top">
         <section class="hero">
           <div>
-            <p class="eyebrow" data-reveal>CV · 2026 · Алматы, Казахстан</p>
+            <p data-i18n class="eyebrow" data-reveal>CV · 2026 · Алматы, Казахстан</p>
             <h1 class="hero-title" data-reveal style="--d:1"><span class="solid">Islam</span><span class="outline">Kuttybaev</span></h1>
-            <p class="hero-role" data-reveal style="--d:2">Data Scientist<span class="sep">·</span><span class="co">ТОО «Adam Labs»</span></p>
-            <p class="hero-lead" data-reveal style="--d:3">Data Scientist с фундаментом в статистике и машинном обучении. Строю модели и превращаю разрозненные данные в понятные решения — и умею объяснить их любой аудитории: от студентов до руководства.</p>
+            <p class="hero-role" data-reveal style="--d:2">Data Scientist<span class="sep">·</span><span data-i18n class="co">ТОО «Adam Labs»</span></p>
+            <p data-i18n class="hero-lead" data-reveal style="--d:3">Data Scientist с фундаментом в статистике и машинном обучении. Строю модели и превращаю разрозненные данные в понятные решения — и умею объяснить их любой аудитории: от студентов до руководства.</p>
             <div class="hero-actions" data-reveal style="--d:4">
-              <a class="btn btn-primary" href="#contact">Установить связь</a>
-              <a class="btn" href="#experience">Хроника опыта ↓</a>
-              <button class="btn" type="button" data-print>Сохранить PDF</button>
+              <a data-i18n class="btn btn-primary" href="#contact">Установить связь</a>
+              <a data-i18n class="btn" href="#experience">Хроника опыта ↓</a>
+              <button data-i18n class="btn" type="button" data-print>Сохранить PDF</button>
             </div>
           </div>
 
-          <aside class="frame idcard" data-reveal style="--d:3" aria-label="Краткая карточка">
-            <div class="id-head"><span>Личное дело</span><span>ID · IK-2026</span></div>
+          <aside data-i18n-attr="aria-label" class="frame idcard" data-reveal style="--d:3" aria-label="Краткая карточка">
+            <div class="id-head"><span data-i18n>Личное дело</span><span>ID · IK-2026</span></div>
             <div class="id-who">
               <svg class="avatar" viewBox="0 0 100 100" fill="none" aria-hidden="true">
                 <circle class="spin" cx="50" cy="50" r="47" stroke="currentColor" stroke-opacity=".55" stroke-dasharray="2 5"/>
@@ -531,21 +572,21 @@
               </div>
             </div>
             <dl class="id-rows">
-              <div><dt>Статус</dt><dd><span class="status"><span class="pulse"></span>На миссии</span></dd></div>
-              <div><dt>База</dt><dd>ТОО «Adam Labs», Алматы</dd></div>
-              <div><dt>Академия</dt><dd>SDU · BSc Data Science &amp; Statistics, 4 курс</dd></div>
-              <div><dt>Стек</dt><dd>Python · SQL · R · scikit-learn · Power BI</dd></div>
-              <div><dt>Языки</dt><dd>Казахский · Русский · English B2</dd></div>
+              <div><dt data-i18n>Статус</dt><dd><span data-i18n class="status"><span class="pulse"></span>На миссии</span></dd></div>
+              <div><dt data-i18n>База</dt><dd data-i18n>ТОО «Adam Labs», Алматы</dd></div>
+              <div><dt data-i18n>Академия</dt><dd data-i18n>SDU · BSc Data Science &amp; Statistics, 4&nbsp;курс</dd></div>
+              <div><dt data-i18n>Стек</dt><dd>Python · SQL · R · scikit-learn · Power BI</dd></div>
+              <div><dt data-i18n>Языки</dt><dd data-i18n>Казахский · Русский · English B2</dd></div>
             </dl>
-            <div class="id-foot">› Открыт к профессиональному общению и исследовательским коллаборациям</div>
+            <div data-i18n class="id-foot">› Открыт к профессиональному общению и исследовательским коллаборациям</div>
           </aside>
         </section>
 
         <div class="stats" data-reveal>
-          <div class="stat"><strong>3+ года</strong><span>опыта в Data Science и обучении</span></div>
-          <div class="stat"><strong>4 роли</strong><span>данные · исследования · преподавание</span></div>
-          <div class="stat"><strong>4 курс</strong><span>BSc Data Science · выпуск 2027</span></div>
-          <div class="stat"><strong>B2</strong><span>английский · IELTS 6.0</span></div>
+          <div class="stat"><strong data-i18n>3+ года</strong><span data-i18n>опыта в Data Science и обучении</span></div>
+          <div class="stat"><strong data-i18n>4 роли</strong><span data-i18n>данные · исследования · преподавание</span></div>
+          <div class="stat"><strong data-i18n>4 курс</strong><span data-i18n>BSc Data Science · выпуск 2027</span></div>
+          <div class="stat"><strong>B2</strong><span data-i18n>английский · IELTS 6.0</span></div>
         </div>
       </div>
 
@@ -554,33 +595,33 @@
         <section class="section" id="dossier">
           <div class="saber" aria-hidden="true"><i></i></div>
           <header class="sec-head" data-reveal>
-            <p class="sec-label"><b>01</b>Личное дело</p>
-            <h2>Data Science с вниманием к смыслу</h2>
-            <p class="sec-lead">Веду полный цикл работы с данными: от сбора и очистки до машинного обучения, проверки гипотез и понятной коммуникации результатов. Сейчас применяю это в EdTech — в ТОО «Adam Labs», где данные и модели помогают людям учиться и расти.</p>
+            <p data-i18n class="sec-label"><b>01</b>Личное дело</p>
+            <h2 data-i18n>Data Science с вниманием к смыслу</h2>
+            <p data-i18n class="sec-lead">Веду полный цикл работы с данными: от сбора и очистки до машинного обучения, проверки гипотез и понятной коммуникации результатов. Сейчас применяю это в EdTech — в ТОО «Adam Labs», где данные и модели помогают людям учиться и расти.</p>
           </header>
           <div class="strengths">
             <article class="frame card" data-reveal>
               <svg class="icon" viewBox="0 0 42 42" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="21" cy="21" r="15" stroke-dasharray="3 4"/><circle cx="21" cy="21" r="5" fill="currentColor" fill-opacity=".25"/><circle cx="33" cy="12" r="3.2" fill="currentColor"/></svg>
-              <h3>Полный цикл Data Science</h3>
-              <p>Сбор и очистка данных, EDA, feature engineering, обучение и оценка моделей — без разрывов между этапами и без потери контекста задачи.</p>
+              <h3 data-i18n>Полный цикл Data Science</h3>
+              <p data-i18n>Сбор и очистка данных, EDA, feature engineering, обучение и оценка моделей — без разрывов между этапами и без потери контекста задачи.</p>
             </article>
             <article class="frame card" data-reveal style="--d:1">
               <svg class="icon" viewBox="0 0 42 42" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 35h34"/><path d="M5 34c6 0 8-24 16-24s10 24 16 24"/><path d="M21 10v25" stroke-dasharray="2 3"/></svg>
-              <h3>Статистическая строгость</h3>
-              <p>Регрессия, ANOVA, проверка гипотез, временные ряды и интерпретация моделей через SHAP. Выводы — только с доказательствами.</p>
+              <h3 data-i18n>Статистическая строгость</h3>
+              <p data-i18n>Регрессия, ANOVA, проверка гипотез, временные ряды и интерпретация моделей через SHAP. Выводы — только с доказательствами.</p>
             </article>
             <article class="frame card" data-reveal style="--d:2">
               <svg class="icon" viewBox="0 0 42 42" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="11" cy="21" r="3" fill="currentColor"/><path d="M18 14a10 10 0 0 1 0 14"/><path d="M24 9a17 17 0 0 1 0 24"/><path d="M30 4a24 24 0 0 1 0 34"/></svg>
-              <h3>Ясная коммуникация</h3>
-              <p>3+ года преподавания математики, статистики и Python: объясняю сложное просто и по делу — студентам, коллегам и бизнесу.</p>
+              <h3 data-i18n>Ясная коммуникация</h3>
+              <p data-i18n>3+ года преподавания математики, статистики и Python: объясняю сложное просто и по делу — студентам, коллегам и бизнесу.</p>
             </article>
           </div>
           <div class="interests" data-reveal>
-            <span class="interests-label">Фокус интересов</span>
-            <span class="chip gold">Образовательные данные · EdTech</span>
-            <span class="chip">Прикладное машинное обучение</span>
-            <span class="chip">Статистические исследования</span>
-            <span class="chip">Визуализация данных</span>
+            <span data-i18n class="interests-label">Фокус интересов</span>
+            <span data-i18n class="chip gold">Образовательные данные · EdTech</span>
+            <span data-i18n class="chip">Прикладное машинное обучение</span>
+            <span data-i18n class="chip">Статистические исследования</span>
+            <span data-i18n class="chip">Визуализация данных</span>
           </div>
         </section>
 
@@ -588,47 +629,47 @@
         <section class="section" id="mission">
           <div class="saber" style="--c:var(--gold)" aria-hidden="true"><i></i></div>
           <header class="sec-head" data-reveal>
-            <p class="sec-label"><b>02</b>Текущая миссия</p>
-            <h2>Data Scientist в ТОО «Adam Labs»</h2>
-            <p class="sec-lead">Центр развития и роста человеческих ресурсов «Adam Labs» — IT-компания из Алматы, работающая на стыке образования и технологий.</p>
+            <p data-i18n class="sec-label"><b>02</b>Текущая миссия</p>
+            <h2 data-i18n>Data Scientist в ТОО «Adam Labs»</h2>
+            <p data-i18n class="sec-lead">Центр развития и роста человеческих ресурсов «Adam Labs» — IT-компания из Алматы, работающая на стыке образования и технологий.</p>
           </header>
           <article class="frame mission" data-reveal>
             <div class="mission-top">
               <div>
-                <span class="badge"><span class="pulse"></span>Текущее место работы</span>
+                <span data-i18n class="badge"><span class="pulse"></span>Текущее место работы</span>
                 <h3>Data Scientist</h3>
-                <div class="org">ТОО «Adam Labs» · Центр развития и роста человеческих ресурсов</div>
+                <div data-i18n class="org">ТОО «Adam Labs» · Центр развития и роста человеческих ресурсов</div>
               </div>
               <dl class="meta">
-                <div><dt>Период</dt><dd>настоящее время</dd></div>
-                <div><dt>Локация</dt><dd>Алматы, Казахстан</dd></div>
-                <div><dt>Сфера</dt><dd>EdTech · развитие людей</dd></div>
+                <div><dt data-i18n>Период</dt><dd data-i18n>настоящее время</dd></div>
+                <div><dt data-i18n>Локация</dt><dd data-i18n>Алматы, Казахстан</dd></div>
+                <div><dt data-i18n>Сфера</dt><dd data-i18n>EdTech · развитие людей</dd></div>
               </dl>
             </div>
-            <p class="mission-about">В команде отвечаю за то, чтобы решения о продуктах и образовательных программах опирались на данные и модели, а не на интуицию: готовлю данные, строю и проверяю ML-модели и превращаю результаты в понятные выводы для коллег.</p>
+            <p data-i18n class="mission-about">В команде отвечаю за то, чтобы решения о продуктах и образовательных программах опирались на данные и модели, а не на интуицию: готовлю данные, строю и проверяю ML-модели и превращаю результаты в понятные выводы для коллег.</p>
             <div class="mission-grid">
               <div class="col">
-                <p class="kicker">Зона ответственности</p>
+                <p data-i18n class="kicker">Зона ответственности</p>
                 <ul class="list">
-                  <li>Сбор, очистка и подготовка данных из разных источников с помощью SQL и Python</li>
-                  <li>Исследовательский анализ и feature engineering на данных об обучении и вовлечённости</li>
-                  <li>Построение и оценка ML-моделей: классификация, регрессия, прогнозирование</li>
-                  <li>Интерпретация моделей (SHAP) и статистическая проверка гипотез</li>
-                  <li>Визуализация результатов и рекомендации, понятные не-техническим коллегам</li>
+                  <li data-i18n>Сбор, очистка и подготовка данных из разных источников с помощью SQL и Python</li>
+                  <li data-i18n>Исследовательский анализ и feature engineering на данных об обучении и вовлечённости</li>
+                  <li data-i18n>Построение и оценка ML-моделей: классификация, регрессия, прогнозирование</li>
+                  <li data-i18n>Интерпретация моделей (SHAP) и статистическая проверка гипотез</li>
+                  <li data-i18n>Визуализация результатов и рекомендации, понятные не-техническим коллегам</li>
                 </ul>
               </div>
               <div class="col">
-                <p class="kicker">Что привношу в команду</p>
+                <p data-i18n class="kicker">Что привношу в команду</p>
                 <ul class="list">
-                  <li>Статистическую строгость: гипотезы проверяются тестами, а не ощущениями</li>
-                  <li>Понимание образовательной среды изнутри — 3+ года работы со студентами и учениками</li>
-                  <li>Опыт исследовательской работы: методология, воспроизводимость, аккуратная документация</li>
-                  <li>Умение объяснять результаты простым языком — навык, отточенный преподаванием</li>
+                  <li data-i18n>Статистическую строгость: гипотезы проверяются тестами, а не ощущениями</li>
+                  <li data-i18n>Понимание образовательной среды изнутри — 3+ года работы со студентами и учениками</li>
+                  <li data-i18n>Опыт исследовательской работы: методология, воспроизводимость, аккуратная документация</li>
+                  <li data-i18n>Умение объяснять результаты простым языком — навык, отточенный преподаванием</li>
                 </ul>
               </div>
             </div>
             <div class="mission-foot">
-              <span class="interests-label">Стек миссии</span>
+              <span data-i18n class="interests-label">Стек миссии</span>
               <span class="chip gold">Python</span><span class="chip gold">SQL</span><span class="chip gold">scikit-learn</span><span class="chip">Pandas</span><span class="chip">NumPy</span><span class="chip">SHAP</span><span class="chip">PostgreSQL</span><span class="chip">Power BI</span>
             </div>
           </article>
@@ -638,81 +679,81 @@
         <section class="section" id="experience">
           <div class="saber" aria-hidden="true"><i></i></div>
           <header class="sec-head" data-reveal>
-            <p class="sec-label"><b>03</b>Хроника миссий</p>
-            <h2>Опыт работы в Data Science, исследованиях и обучении</h2>
-            <p class="sec-lead">Четыре роли, которые сформировали мой подход: работа с реальными данными, академическая строгость и умение передавать знания.</p>
+            <p data-i18n class="sec-label"><b>03</b>Хроника миссий</p>
+            <h2 data-i18n>Опыт работы в Data Science, исследованиях и обучении</h2>
+            <p data-i18n class="sec-lead">Четыре роли, которые сформировали мой подход: работа с реальными данными, академическая строгость и умение передавать знания.</p>
           </header>
           <ol class="timeline">
             <li class="t-item current" data-reveal>
-              <div class="t-date"><b>Настоящее время</b>текущая позиция</div>
+              <div data-i18n class="t-date"><b>Настоящее время</b>текущая позиция</div>
               <article class="frame t-card">
                 <header><h3>Data Scientist</h3><span class="type">Data Science</span></header>
-                <div class="org">ТОО «Adam Labs» · Алматы</div>
-                <p class="summary">Data Science в IT-компании сферы образования и развития человеческих ресурсов: подготовка данных, ML-модели, проверка гипотез и рекомендации для команды.</p>
-                <a class="more-link" href="#mission">Подробнее о текущей миссии →</a>
+                <div data-i18n class="org">ТОО «Adam Labs» · Алматы</div>
+                <p data-i18n class="summary">Data Science в IT-компании сферы образования и развития человеческих ресурсов: подготовка данных, ML-модели, проверка гипотез и рекомендации для команды.</p>
+                <a data-i18n class="more-link" href="#mission">Подробнее о текущей миссии →</a>
               </article>
             </li>
             <li class="t-item" data-reveal>
-              <div class="t-date"><b>Февраль — май 2025</b>4 месяца</div>
+              <div data-i18n class="t-date"><b>Февраль — май 2025</b>4 месяца</div>
               <article class="frame t-card">
-                <header><h3>Junior Research Data Analyst</h3><span class="type">Исследование</span></header>
-                <div class="org">Suleyman Demirel University · Каскелен</div>
-                <p class="summary">Поддерживал прикладное статистическое исследование на всех этапах — от сбора данных до оформления результатов.</p>
+                <header><h3>Junior Research Data Analyst</h3><span data-i18n class="type">Исследование</span></header>
+                <div data-i18n class="org">Suleyman Demirel University · Каскелен</div>
+                <p data-i18n class="summary">Поддерживал прикладное статистическое исследование на всех этапах — от сбора данных до оформления результатов.</p>
                 <div class="t-body">
                   <div>
-                    <p class="kicker">Ключевые задачи</p>
+                    <p data-i18n class="kicker">Ключевые задачи</p>
                     <ul class="list">
-                      <li>Собирал, очищал и преобразовывал данные из нескольких источников с Python и Pandas</li>
-                      <li>Проводил исследовательский анализ (EDA), регрессионный анализ и проверку гипотез</li>
-                      <li>Готовил визуальные отчёты, методологические разделы и сводки результатов</li>
+                      <li data-i18n>Собирал, очищал и преобразовывал данные из нескольких источников с Python и Pandas</li>
+                      <li data-i18n>Проводил исследовательский анализ (EDA), регрессионный анализ и проверку гипотез</li>
+                      <li data-i18n>Готовил визуальные отчёты, методологические разделы и сводки результатов</li>
                     </ul>
                   </div>
                   <div>
-                    <p class="kicker">Инструменты</p>
+                    <p data-i18n class="kicker">Инструменты</p>
                     <div class="chips"><span class="chip">Python</span><span class="chip">Pandas</span><span class="chip">EDA</span><span class="chip">Regression</span><span class="chip">Hypothesis testing</span><span class="chip">Data visualization</span></div>
                   </div>
                 </div>
               </article>
             </li>
             <li class="t-item" data-reveal>
-              <div class="t-date"><b>Сентябрь 2023 — н.в.</b>3+ года</div>
+              <div data-i18n class="t-date"><b>Сентябрь 2023 — н.в.</b>3+ года</div>
               <article class="frame t-card">
-                <header><h3>Teaching Assistant — Mathematics &amp; Statistics</h3><span class="type">Преподавание</span></header>
-                <div class="org">Suleyman Demirel University · Каскелен</div>
-                <p class="summary">Помогаю вести курсы математики и статистики для студентов первого курса.</p>
+                <header><h3>Teaching Assistant — Mathematics &amp; Statistics</h3><span data-i18n class="type">Преподавание</span></header>
+                <div data-i18n class="org">Suleyman Demirel University · Каскелен</div>
+                <p data-i18n class="summary">Помогаю вести курсы математики и статистики для студентов первого курса.</p>
                 <div class="t-body">
                   <div>
-                    <p class="kicker">Ключевые задачи</p>
+                    <p data-i18n class="kicker">Ключевые задачи</p>
                     <ul class="list">
-                      <li>Готовлю практические материалы и задания к курсам</li>
-                      <li>Провожу еженедельные занятия для групп из 15–25 студентов</li>
-                      <li>Даю обратную связь по работам и помогаю в организации экзаменов</li>
+                      <li data-i18n>Готовлю практические материалы и задания к курсам</li>
+                      <li data-i18n>Провожу еженедельные занятия для групп из 15–25 студентов</li>
+                      <li data-i18n>Даю обратную связь по работам и помогаю в организации экзаменов</li>
                     </ul>
                   </div>
                   <div>
-                    <p class="kicker">Навыки</p>
+                    <p data-i18n class="kicker">Навыки</p>
                     <div class="chips"><span class="chip">Statistics</span><span class="chip">Mathematics</span><span class="chip">Academic mentoring</span><span class="chip">Public speaking</span></div>
                   </div>
                 </div>
               </article>
             </li>
             <li class="t-item" data-reveal>
-              <div class="t-date"><b>Январь 2023 — н.в.</b>3+ года</div>
+              <div data-i18n class="t-date"><b>Январь 2023 — н.в.</b>3+ года</div>
               <article class="frame t-card">
-                <header><h3>Data Science &amp; Mathematics Tutor</h3><span class="type">Менторство</span></header>
-                <div class="org">Azat Academia · Алматы</div>
-                <p class="summary">Индивидуальные и групповые занятия по математике, статистике, Python и основам Data Science.</p>
+                <header><h3>Data Science &amp; Mathematics Tutor</h3><span data-i18n class="type">Менторство</span></header>
+                <div data-i18n class="org">Azat Academia · Алматы</div>
+                <p data-i18n class="summary">Индивидуальные и групповые занятия по математике, статистике, Python и основам Data Science.</p>
                 <div class="t-body">
                   <div>
-                    <p class="kicker">Ключевые задачи</p>
+                    <p data-i18n class="kicker">Ключевые задачи</p>
                     <ul class="list">
-                      <li>Составляю персональные планы обучения под цели и уровень ученика</li>
-                      <li>Помогаю осваивать анализ данных на практике — на реальных датасетах</li>
-                      <li>Объясняю математику и статистику через прикладные задачи</li>
+                      <li data-i18n>Составляю персональные планы обучения под цели и уровень ученика</li>
+                      <li data-i18n>Помогаю осваивать анализ данных на практике — на реальных датасетах</li>
+                      <li data-i18n>Объясняю математику и статистику через прикладные задачи</li>
                     </ul>
                   </div>
                   <div>
-                    <p class="kicker">Навыки</p>
+                    <p data-i18n class="kicker">Навыки</p>
                     <div class="chips"><span class="chip">Python</span><span class="chip">Data analysis</span><span class="chip">Statistics</span><span class="chip">Mentoring</span></div>
                   </div>
                 </div>
@@ -725,18 +766,18 @@
         <section class="section" id="route">
           <div class="saber" style="--c:var(--green)" aria-hidden="true"><i></i></div>
           <header class="sec-head" data-reveal>
-            <p class="sec-label"><b>04</b>Гиперпространственный маршрут</p>
-            <h2>Карьерный путь в ключевых точках</h2>
-            <p class="sec-lead">От первых учеников до текущей миссии и выпуска — как складывался опыт год за годом.</p>
+            <p data-i18n class="sec-label"><b>04</b>Гиперпространственный маршрут</p>
+            <h2 data-i18n>Карьерный путь в ключевых точках</h2>
+            <p data-i18n class="sec-lead">От первых учеников до текущей миссии и выпуска — как складывался опыт год за годом.</p>
           </header>
           <ol class="route" data-reveal>
-            <li class="stop"><span class="yr">01 · 2023</span><span class="planet" style="--p:var(--purple)"></span><strong>Первые ученики</strong><span class="d">Репетитор по математике и Data Science в Azat Academia</span></li>
-            <li class="stop"><span class="yr">09 · 2023</span><span class="planet"></span><strong>Академия</strong><span class="d">Поступление в SDU на Data Science &amp; Statistics, старт работы Teaching Assistant</span></li>
-            <li class="stop"><span class="yr">2023</span><span class="planet" style="--p:var(--holo)"></span><strong>Первые голокроны</strong><span class="d">IELTS Academic 6.0 и Python for Everybody</span></li>
-            <li class="stop"><span class="yr">2024</span><span class="planet" style="--p:var(--holo)"></span><strong>Прокачка арсенала</strong><span class="d">Сертификаты по Excel-аналитике и оптимизации</span></li>
-            <li class="stop"><span class="yr">02–05 · 2025</span><span class="planet" style="--p:var(--green)"></span><strong>Исследование</strong><span class="d">Junior Research Data Analyst в SDU</span></li>
-            <li class="stop now"><span class="yr">Сейчас</span><span class="planet"></span><strong>Текущая миссия</strong><span class="d">Data Scientist в ТОО «Adam Labs»</span></li>
-            <li class="stop future"><span class="yr">06 · 2027</span><span class="planet"></span><strong>Выпуск</strong><span class="d">BSc Data Science &amp; Statistics (ожидается)</span></li>
+            <li class="stop"><span class="yr">01 · 2023</span><span class="planet" style="--p:var(--purple)"></span><strong data-i18n>Первые ученики</strong><span data-i18n class="d">Репетитор по математике и Data Science в Azat Academia</span></li>
+            <li class="stop"><span class="yr">09 · 2023</span><span class="planet"></span><strong data-i18n>Академия</strong><span data-i18n class="d">Поступление в SDU на Data Science &amp; Statistics, старт работы Teaching Assistant</span></li>
+            <li class="stop"><span class="yr">2023</span><span class="planet" style="--p:var(--holo)"></span><strong data-i18n>Первые голокроны</strong><span data-i18n class="d">IELTS Academic 6.0 и Python for Everybody</span></li>
+            <li class="stop"><span class="yr">2024</span><span class="planet" style="--p:var(--holo)"></span><strong data-i18n>Прокачка арсенала</strong><span data-i18n class="d">Сертификаты по Excel-аналитике и оптимизации</span></li>
+            <li class="stop"><span class="yr">02–05 · 2025</span><span class="planet" style="--p:var(--green)"></span><strong data-i18n>Исследование</strong><span data-i18n class="d">Junior Research Data Analyst в SDU</span></li>
+            <li class="stop now"><span data-i18n class="yr">Сейчас</span><span class="planet"></span><strong data-i18n>Текущая миссия</strong><span data-i18n class="d">Data Scientist в ТОО «Adam Labs»</span></li>
+            <li class="stop future"><span class="yr">06 · 2027</span><span class="planet"></span><strong data-i18n>Выпуск</strong><span data-i18n class="d">BSc Data Science &amp; Statistics (ожидается)</span></li>
           </ol>
         </section>
 
@@ -744,16 +785,16 @@
         <section class="section" id="codex">
           <div class="saber" style="--c:var(--purple)" aria-hidden="true"><i></i></div>
           <header class="sec-head" data-reveal>
-            <p class="sec-label"><b>05</b>Кодекс джедая данных</p>
-            <h2>Как я веду проект по данным</h2>
-            <p class="sec-lead">Пять эпизодов, через которые проходит каждая задача — от вопроса бизнеса до решения.</p>
+            <p data-i18n class="sec-label"><b>05</b>Кодекс джедая данных</p>
+            <h2 data-i18n>Как я веду проект по данным</h2>
+            <p data-i18n class="sec-lead">Пять эпизодов, через которые проходит каждая задача — от вопроса бизнеса до решения.</p>
           </header>
           <div class="codex" data-reveal>
-            <article class="step"><span class="ep">Эпизод</span><span class="num">I</span><h3>Вопрос</h3><p>Уточняю бизнес-задачу, метрики успеха и ограничения — до того, как открыть данные.</p></article>
-            <article class="step"><span class="ep">Эпизод</span><span class="num">II</span><h3>Данные</h3><p>Собираю, очищаю и проверяю качество данных, фиксирую источники и допущения.</p></article>
-            <article class="step"><span class="ep">Эпизод</span><span class="num">III</span><h3>Моделирование</h3><p>EDA, статистические тесты и ML-модели. Ищу сигнал, а не подтверждение ожиданий.</p></article>
-            <article class="step"><span class="ep">Эпизод</span><span class="num">IV</span><h3>Визуализация</h3><p>Дашборды и графики, которые читаются за секунды и отвечают на исходный вопрос.</p></article>
-            <article class="step"><span class="ep">Эпизод</span><span class="num">V</span><h3>Решение</h3><p>Вывод, рекомендация и следующий шаг — понятным языком для любой аудитории.</p></article>
+            <article class="step"><span data-i18n class="ep">Эпизод</span><span class="num">I</span><h3 data-i18n>Вопрос</h3><p data-i18n>Уточняю бизнес-задачу, метрики успеха и ограничения — до того, как открыть данные.</p></article>
+            <article class="step"><span data-i18n class="ep">Эпизод</span><span class="num">II</span><h3 data-i18n>Данные</h3><p data-i18n>Собираю, очищаю и проверяю качество данных, фиксирую источники и допущения.</p></article>
+            <article class="step"><span data-i18n class="ep">Эпизод</span><span class="num">III</span><h3 data-i18n>Моделирование</h3><p data-i18n>EDA, статистические тесты и ML-модели. Ищу сигнал, а не подтверждение ожиданий.</p></article>
+            <article class="step"><span data-i18n class="ep">Эпизод</span><span class="num">IV</span><h3 data-i18n>Визуализация</h3><p data-i18n>Дашборды и графики, которые читаются за секунды и отвечают на исходный вопрос.</p></article>
+            <article class="step"><span data-i18n class="ep">Эпизод</span><span class="num">V</span><h3 data-i18n>Решение</h3><p data-i18n>Вывод, рекомендация и следующий шаг — понятным языком для любой аудитории.</p></article>
           </div>
         </section>
 
@@ -761,46 +802,46 @@
         <section class="section" id="skills">
           <div class="saber" aria-hidden="true"><i></i></div>
           <header class="sec-head" data-reveal>
-            <p class="sec-label"><b>06</b>Арсенал</p>
-            <h2>Навыки и инструменты</h2>
-            <p class="sec-lead">Кайбер-кристаллы, на которых держится ежедневная работа с данными.</p>
+            <p data-i18n class="sec-label"><b>06</b>Арсенал</p>
+            <h2 data-i18n>Навыки и инструменты</h2>
+            <p data-i18n class="sec-lead">Кайбер-кристаллы, на которых держится ежедневная работа с данными.</p>
           </header>
           <div class="arsenal">
             <article class="frame card skill" data-reveal style="--k:var(--gold)">
               <svg class="crystal" viewBox="0 0 24 30" aria-hidden="true"><path d="M12 1l7 9-7 19-7-19z" fill="currentColor" fill-opacity=".3" stroke="currentColor" stroke-width="1.3"/><path d="M5 10h14M12 1v28" stroke="currentColor" stroke-opacity=".6"/></svg>
-              <h3>Программирование</h3>
-              <p>Основные языки для анализа и обработки данных.</p>
+              <h3 data-i18n>Программирование</h3>
+              <p data-i18n>Основные языки для анализа и обработки данных.</p>
               <div class="chips"><span class="chip gold">Python</span><span class="chip gold">SQL</span><span class="chip gold">R</span></div>
             </article>
             <article class="frame card skill" data-reveal style="--d:1;--k:var(--blue)">
               <svg class="crystal" viewBox="0 0 24 30" aria-hidden="true"><path d="M12 1l7 9-7 19-7-19z" fill="currentColor" fill-opacity=".3" stroke="currentColor" stroke-width="1.3"/><path d="M5 10h14M12 1v28" stroke="currentColor" stroke-opacity=".6"/></svg>
-              <h3>Python-экосистема</h3>
-              <p>Обработка, моделирование и визуализация.</p>
+              <h3 data-i18n>Python-экосистема</h3>
+              <p data-i18n>Обработка, моделирование и визуализация.</p>
               <div class="chips"><span class="chip">Pandas</span><span class="chip">NumPy</span><span class="chip">scikit-learn</span><span class="chip">Matplotlib</span><span class="chip">Seaborn</span><span class="chip">Plotly</span></div>
             </article>
             <article class="frame card skill" data-reveal style="--d:2;--k:var(--green)">
               <svg class="crystal" viewBox="0 0 24 30" aria-hidden="true"><path d="M12 1l7 9-7 19-7-19z" fill="currentColor" fill-opacity=".3" stroke="currentColor" stroke-width="1.3"/><path d="M5 10h14M12 1v28" stroke="currentColor" stroke-opacity=".6"/></svg>
-              <h3>Статистика и ML</h3>
-              <p>Методы, которые превращают данные в доказательства.</p>
-              <div class="chips"><span class="chip">Регрессия</span><span class="chip">Проверка гипотез</span><span class="chip">ANOVA</span><span class="chip">Временные ряды</span><span class="chip">Feature engineering</span><span class="chip">Оценка моделей</span><span class="chip">SHAP</span></div>
+              <h3 data-i18n>Статистика и ML</h3>
+              <p data-i18n>Методы, которые превращают данные в доказательства.</p>
+              <div class="chips"><span data-i18n class="chip">Регрессия</span><span data-i18n class="chip">Проверка гипотез</span><span class="chip">ANOVA</span><span data-i18n class="chip">Временные ряды</span><span class="chip">Feature engineering</span><span data-i18n class="chip">Оценка моделей</span><span class="chip">SHAP</span></div>
             </article>
             <article class="frame card skill" data-reveal style="--k:var(--holo)">
               <svg class="crystal" viewBox="0 0 24 30" aria-hidden="true"><path d="M12 1l7 9-7 19-7-19z" fill="currentColor" fill-opacity=".3" stroke="currentColor" stroke-width="1.3"/><path d="M5 10h14M12 1v28" stroke="currentColor" stroke-opacity=".6"/></svg>
-              <h3>BI и визуализация</h3>
-              <p>Дашборды и отчёты для принятия решений.</p>
-              <div class="chips"><span class="chip">Power BI</span><span class="chip">Plotly</span><span class="chip">Excel: сводные таблицы</span><span class="chip">Excel: дашборды</span></div>
+              <h3 data-i18n>BI и визуализация</h3>
+              <p data-i18n>Дашборды и отчёты для принятия решений.</p>
+              <div class="chips"><span class="chip">Power BI</span><span class="chip">Plotly</span><span data-i18n class="chip">Excel: сводные таблицы</span><span data-i18n class="chip">Excel: дашборды</span></div>
             </article>
             <article class="frame card skill" data-reveal style="--d:1;--k:var(--purple)">
               <svg class="crystal" viewBox="0 0 24 30" aria-hidden="true"><path d="M12 1l7 9-7 19-7-19z" fill="currentColor" fill-opacity=".3" stroke="currentColor" stroke-width="1.3"/><path d="M5 10h14M12 1v28" stroke="currentColor" stroke-opacity=".6"/></svg>
-              <h3>Данные и среда</h3>
-              <p>Базы данных и рабочие инструменты.</p>
+              <h3 data-i18n>Данные и среда</h3>
+              <p data-i18n>Базы данных и рабочие инструменты.</p>
               <div class="chips"><span class="chip">PostgreSQL</span><span class="chip">MySQL</span><span class="chip">Jupyter Notebook</span><span class="chip">Google Colab</span><span class="chip">Git / GitHub</span><span class="chip">VS Code</span></div>
             </article>
             <article class="frame card skill" data-reveal style="--d:2;--k:var(--red)">
               <svg class="crystal" viewBox="0 0 24 30" aria-hidden="true"><path d="M12 1l7 9-7 19-7-19z" fill="currentColor" fill-opacity=".3" stroke="currentColor" stroke-width="1.3"/><path d="M5 10h14M12 1v28" stroke="currentColor" stroke-opacity=".6"/></svg>
               <h3>Soft skills</h3>
-              <p>То, что делает анализ полезным для людей.</p>
-              <div class="chips"><span class="chip">Коммуникация результатов</span><span class="chip">Менторство</span><span class="chip">Публичные выступления</span><span class="chip">Академическое письмо</span><span class="chip">Командная работа</span></div>
+              <p data-i18n>То, что делает анализ полезным для людей.</p>
+              <div class="chips"><span data-i18n class="chip">Коммуникация результатов</span><span data-i18n class="chip">Менторство</span><span data-i18n class="chip">Публичные выступления</span><span data-i18n class="chip">Академическое письмо</span><span data-i18n class="chip">Командная работа</span></div>
             </article>
           </div>
         </section>
@@ -809,9 +850,9 @@
         <section class="section" id="certificates">
           <div class="saber" style="--c:var(--holo)" aria-hidden="true"><i></i></div>
           <header class="sec-head" data-reveal>
-            <p class="sec-label"><b>07</b>Архив голокронов</p>
-            <h2>Сертификаты и дополнительное обучение</h2>
-            <p class="sec-lead">Знания, подтверждённые университетами и международными организациями.</p>
+            <p data-i18n class="sec-label"><b>07</b>Архив голокронов</p>
+            <h2 data-i18n>Сертификаты и дополнительное обучение</h2>
+            <p data-i18n class="sec-lead">Знания, подтверждённые университетами и международными организациями.</p>
           </header>
           <div class="holocrons">
             <article class="frame card cert" data-reveal style="--k:var(--gold)">
@@ -819,7 +860,7 @@
               <div>
                 <div class="issuer"><b>2024</b>University of Colorado Boulder</div>
                 <h3>Introduction to Optimization</h3>
-                <p>Линейное программирование, градиентные методы и оптимизация с ограничениями в Python.</p>
+                <p data-i18n>Линейное программирование, градиентные методы и оптимизация с ограничениями в Python.</p>
                 <div class="chips"><span class="chip">Optimization</span><span class="chip">Linear programming</span><span class="chip">Python</span></div>
               </div>
             </article>
@@ -828,7 +869,7 @@
               <div>
                 <div class="issuer"><b>2024</b>Macquarie University</div>
                 <h3>Data Analysis Using Microsoft Excel</h3>
-                <p>Очистка данных, сводные таблицы, статистические функции и дашборды.</p>
+                <p data-i18n>Очистка данных, сводные таблицы, статистические функции и дашборды.</p>
                 <div class="chips"><span class="chip">Excel</span><span class="chip">Pivot tables</span><span class="chip">Dashboards</span></div>
               </div>
             </article>
@@ -837,7 +878,7 @@
               <div>
                 <div class="issuer"><b>2023</b>University of Michigan</div>
                 <h3>Python for Everybody</h3>
-                <p>Структуры данных, работа с файлами, web API и базами данных.</p>
+                <p data-i18n>Структуры данных, работа с файлами, web API и базами данных.</p>
                 <div class="chips"><span class="chip">Python</span><span class="chip">APIs</span><span class="chip">Databases</span></div>
               </div>
             </article>
@@ -846,14 +887,14 @@
               <div>
                 <div class="issuer"><b>2023</b>British Council</div>
                 <h3>IELTS Academic — Band 6.0</h3>
-                <p>Английский уровня B2: чтение, письмо, аудирование и устная речь.</p>
+                <p data-i18n>Английский уровня B2: чтение, письмо, аудирование и устная речь.</p>
                 <div class="chips"><span class="chip">English B2</span><span class="chip">Academic writing</span></div>
               </div>
             </article>
           </div>
           <div class="archive-cta" data-reveal>
-            <p>Архив пополняется — актуальный список сертификатов в профиле LinkedIn.</p>
-            <a class="btn" href="https://www.linkedin.com/in/islam-kuttybaev-106555416/" target="_blank" rel="noopener">Открыть LinkedIn ↗</a>
+            <p data-i18n>Архив пополняется — актуальный список сертификатов в профиле LinkedIn.</p>
+            <a data-i18n class="btn" href="https://www.linkedin.com/in/islam-kuttybaev-106555416/" target="_blank" rel="noopener">Открыть LinkedIn ↗</a>
           </div>
         </section>
 
@@ -861,37 +902,37 @@
         <section class="section" id="education">
           <div class="saber" style="--c:var(--gold)" aria-hidden="true"><i></i></div>
           <header class="sec-head" data-reveal>
-            <p class="sec-label"><b>08</b>Академия</p>
-            <h2>Образование и языки</h2>
+            <p data-i18n class="sec-label"><b>08</b>Академия</p>
+            <h2 data-i18n>Образование и языки</h2>
           </header>
           <div class="academy">
             <article class="frame edu" data-reveal>
-              <p class="kicker">Бакалавриат · 2023 — 2027</p>
+              <p data-i18n class="kicker">Бакалавриат · 2023 — 2027</p>
               <h3 class="degree">BSc — Data Science and Statistics</h3>
-              <p class="where">Suleyman Demirel University (SDU) · Каскелен, Казахстан<br>Сентябрь 2023 — июнь 2027 (ожидается)</p>
+              <p data-i18n class="where">Suleyman Demirel University (SDU) · Каскелен, Казахстан<br>Сентябрь 2023 — июнь 2027 (ожидается)</p>
               <div class="progress">
-                <div class="progress-top"><span>Прогресс обучения</span><b data-study-label>80%</b></div>
+                <div class="progress-top"><span data-i18n>Прогресс обучения</span><b data-study-label>80%</b></div>
                 <div class="bar" data-study><i></i></div>
               </div>
-              <p class="kicker" style="color:var(--holo)">Ключевые дисциплины</p>
+              <p data-i18n class="kicker" style="color:var(--holo)">Ключевые дисциплины</p>
               <div class="chips"><span class="chip">Calculus</span><span class="chip">Linear Algebra</span><span class="chip">Probability Theory</span><span class="chip">Statistics</span><span class="chip">Algorithms &amp; Programming</span><span class="chip">Database Management Systems</span><span class="chip">Modern Regression Analysis</span><span class="chip">Data Wrangling &amp; Visualization</span><span class="chip">Introduction to Machine Learning</span></div>
             </article>
             <article class="frame langs" data-reveal style="--d:1">
-              <p class="kicker">Языки связи</p>
+              <p data-i18n class="kicker">Языки связи</p>
               <div class="lang">
-                <div class="lang-row"><span class="lang-name">Казахский</span><span class="lang-lvl">Свободно</span></div>
+                <div class="lang-row"><span data-i18n class="lang-name">Казахский</span><span data-i18n class="lang-lvl">Свободно</span></div>
                 <div class="cefr" aria-hidden="true"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i></div>
               </div>
               <div class="lang">
-                <div class="lang-row"><span class="lang-name">Русский</span><span class="lang-lvl">Свободно</span></div>
+                <div class="lang-row"><span data-i18n class="lang-name">Русский</span><span data-i18n class="lang-lvl">Свободно</span></div>
                 <div class="cefr" aria-hidden="true"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i></div>
               </div>
               <div class="lang">
-                <div class="lang-row"><span class="lang-name">Английский</span><span class="lang-lvl">B2 · IELTS Academic 6.0</span></div>
+                <div class="lang-row"><span data-i18n class="lang-name">Английский</span><span class="lang-lvl">B2 · IELTS Academic 6.0</span></div>
                 <div class="cefr" aria-hidden="true"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i></i><i></i></div>
                 <div class="cefr-scale" aria-hidden="true"><span>A1</span><span>A2</span><span>B1</span><span>B2</span><span>C1</span><span>C2</span></div>
               </div>
-              <p class="lang-note">Уровень английского подтверждён сертификатом IELTS Academic (British Council, 2023).</p>
+              <p data-i18n class="lang-note">Уровень английского подтверждён сертификатом IELTS Academic (British Council, 2023).</p>
             </article>
           </div>
         </section>
@@ -903,32 +944,72 @@
           <div class="saber" style="--c:var(--gold)" aria-hidden="true"><i></i></div>
           <div class="frame contact-panel" data-reveal>
             <div>
-              <p class="sec-label"><b>09</b>Канал связи открыт</p>
-              <h2>Давайте обсудим вашу задачу с данными.</h2>
-              <p class="sec-lead">Открыт к профессиональному общению, исследовательским коллаборациям и интересным проектам в Data Science и машинном обучении.</p>
+              <p data-i18n class="sec-label"><b>09</b>Канал связи открыт</p>
+              <h2 data-i18n>Давайте обсудим вашу задачу с данными.</h2>
+              <p data-i18n class="sec-lead">Открыт к профессиональному общению, исследовательским коллаборациям и интересным проектам в Data Science и машинном обучении.</p>
             </div>
             <div class="channels">
               <a class="channel" href="mailto:islam0402@list.ru"><span class="k">Email</span><span class="v">islam0402@list.ru</span><span class="arr" aria-hidden="true">→</span></a>
-              <a class="channel" href="tel:+77081930806"><span class="k">Телефон</span><span class="v">+7 708 193 08 06</span><span class="arr" aria-hidden="true">→</span></a>
+              <a class="channel" href="tel:+77081930806"><span data-i18n class="k">Телефон</span><span class="v">+7 708 193 08 06</span><span class="arr" aria-hidden="true">→</span></a>
               <a class="channel" href="https://t.me/rule_46" target="_blank" rel="noopener"><span class="k">Telegram</span><span class="v">@rule_46</span><span class="arr" aria-hidden="true">↗</span></a>
               <a class="channel" href="https://github.com/Hashick1812" target="_blank" rel="noopener"><span class="k">GitHub</span><span class="v">Hashick1812</span><span class="arr" aria-hidden="true">↗</span></a>
               <a class="channel" href="https://www.linkedin.com/in/islam-kuttybaev-106555416/" target="_blank" rel="noopener"><span class="k">LinkedIn</span><span class="v">Islam Kuttybaev</span><span class="arr" aria-hidden="true">↗</span></a>
             </div>
           </div>
           <footer class="footer">
-            <span>© <span data-year>2026</span> Islam Kuttybaev · Алматы, Казахстан</span>
-            <span class="force">Да пребудет с вами сила данных.</span>
+            <span>© 2026 Islam Kuttybaev · <span data-i18n>Алматы, Казахстан</span></span>
+            <span data-i18n class="force">Да пребудет с вами сила данных.</span>
           </footer>
         </div>
       </section>
     </main>
   </div>
 
+  <script src="i18n.js"></script>
   <script>
     (function () {
       var d = document.documentElement;
       var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
       d.classList.add('reveal');
+
+      /* ---------- Языки (RU — в разметке, KK/EN — в i18n.js) ---------- */
+      var DICT = window.I18N || {}, LANGS = ['ru', 'kk', 'en'], curLang = 'ru';
+      function norm(h) { return h.replace(/\s+/g, ' ').trim(); }
+      function tr(ru, lang) { var e = lang !== 'ru' && DICT[ru]; return (e && e[lang]) || ru; }
+      var i18nEls = Array.prototype.map.call(document.querySelectorAll('[data-i18n]'), function (el) { return { el: el, ru: norm(el.innerHTML) }; });
+      var i18nAttrs = [];
+      document.querySelectorAll('[data-i18n-attr]').forEach(function (el) {
+        el.getAttribute('data-i18n-attr').split(',').forEach(function (a) { i18nAttrs.push({ el: el, attr: a, ru: el.getAttribute(a) }); });
+      });
+      var metaDesc = document.querySelector('meta[name="description"]');
+      var ruTitle = document.title, ruDesc = metaDesc ? metaDesc.content : '';
+      function setLang(lang, save) {
+        if (LANGS.indexOf(lang) < 0) lang = 'ru';
+        if (lang !== curLang) {
+          i18nEls.forEach(function (x) { x.el.innerHTML = tr(x.ru, lang); });
+          i18nAttrs.forEach(function (x) { x.el.setAttribute(x.attr, tr(x.ru, lang)); });
+          document.title = tr(ruTitle, lang);
+          if (metaDesc) metaDesc.content = tr(ruDesc, lang);
+          curLang = lang;
+        }
+        d.lang = lang;
+        document.querySelectorAll('.lang-switch [data-lang]').forEach(function (b) {
+          b.setAttribute('aria-pressed', String(b.getAttribute('data-lang') === lang));
+        });
+        if (save) {
+          try { localStorage.setItem('ik-lang', lang); } catch (e) {}
+          try {
+            var u = new URL(location.href);
+            if (lang === 'ru') u.searchParams.delete('lang'); else u.searchParams.set('lang', lang);
+            history.replaceState(null, '', u);
+          } catch (e) {}
+        }
+        d.classList.remove('i18n-pending');
+      }
+      setLang(d.lang);
+      document.querySelectorAll('.lang-switch [data-lang]').forEach(function (b) {
+        b.addEventListener('click', function () { setLang(b.getAttribute('data-lang'), true); });
+      });
 
       /* ---------- Звёздное поле ---------- */
       var cvs = document.getElementById('stars'), ctx = cvs.getContext('2d');
@@ -999,14 +1080,214 @@
         addEventListener('scroll', function () { requestAnimationFrame(draw); }, { passive: true });
       }
 
+      /* ---------- Музыка заставки ----------
+         Оригинальная тема, написана для этого сайта и синтезируется прямо в браузере (Web Audio).
+         Свой трек (с лицензией на использование): укажите путь, например INTRO_TRACK = 'intro.mp3'. */
+      var INTRO_TRACK = '';
+      var AC = window.AudioContext || window.webkitAudioContext;
+      var actx = null, noiseBuf = null, reverbBuf = null, music = null, introStart = 0, soundOn = false;
+      try { soundOn = localStorage.getItem('ik-sound') === '1'; } catch (e) {}
+
+      function audioCtx() {
+        if (!actx) {
+          actx = new AC();
+          var sr = actx.sampleRate, i, c;
+          noiseBuf = actx.createBuffer(1, sr * 3, sr);
+          var nd = noiseBuf.getChannelData(0);
+          for (i = 0; i < nd.length; i++) nd[i] = Math.random() * 2 - 1;
+          var len = Math.floor(sr * 2.8);
+          reverbBuf = actx.createBuffer(2, len, sr);
+          for (c = 0; c < 2; c++) {
+            var ch = reverbBuf.getChannelData(c);
+            for (i = 0; i < len; i++) ch[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 2.4);
+          }
+        }
+        if (actx.state === 'suspended') actx.resume();
+        return actx;
+      }
+      function nm(n) {
+        if (typeof n === 'number') return n;
+        var m = /^([A-G])(b|#)?(\d)$/.exec(n);
+        return { C: 0, D: 2, E: 4, F: 5, G: 7, A: 9, B: 11 }[m[1]] + (m[2] === 'b' ? -1 : m[2] === '#' ? 1 : 0) + (+m[3] + 1) * 12;
+      }
+      function hz(n) { return 440 * Math.pow(2, (nm(n) - 69) / 12); }
+
+      function playTheme(offset) {
+        var ctx = audioCtx(), now = ctx.currentTime, t0 = now - offset + 0.05, nodes = [];
+        var out = ctx.createGain(), comp = ctx.createDynamicsCompressor(), verb = ctx.createConvolver(), wet = ctx.createGain(), bus = ctx.createGain();
+        comp.threshold.value = -24; comp.knee.value = 6; comp.ratio.value = 12; comp.attack.value = 0.003; comp.release.value = 0.25;
+        verb.buffer = reverbBuf; wet.gain.value = 0.3;
+        bus.connect(out); bus.connect(verb); verb.connect(wet); wet.connect(out);
+        out.connect(comp); comp.connect(ctx.destination);
+        out.gain.setValueAtTime(0.0001, now); out.gain.exponentialRampToValueAtTime(0.5, now + 0.3);
+        function at(t) { return t0 + t; }
+        function live(t) { return t0 + t >= now - 0.01; }
+        function osc(type, f, st, end, dest, det) {
+          var o = ctx.createOscillator(); o.type = type; o.frequency.value = f; if (det) o.detune.value = det;
+          o.connect(dest); o.start(st); o.stop(end); nodes.push(o); return o;
+        }
+        /* медь: два расстроенных «пилообразных» голоса + фильтр с атакой + лёгкое вибрато */
+        function brass(n, t, dur, vel, bright) {
+          if (!live(t)) return;
+          var f = hz(n), st = at(t), end = st + dur, g = ctx.createGain(), lp = ctx.createBiquadFilter(), lfo = ctx.createOscillator(), lg = ctx.createGain();
+          lp.type = 'lowpass'; lp.Q.value = 1.1;
+          lp.frequency.setValueAtTime(f * 1.2, st);
+          lp.frequency.linearRampToValueAtTime(Math.min(f * (bright || 6), 5200), st + 0.09);
+          lp.frequency.setTargetAtTime(Math.min(f * 3.2, 3200), st + 0.09, 0.25);
+          g.gain.setValueAtTime(0, st); g.gain.linearRampToValueAtTime(vel, st + 0.05);
+          g.gain.setTargetAtTime(vel * 0.72, st + 0.05, 0.3); g.gain.setTargetAtTime(0, end, 0.08);
+          lfo.frequency.value = 5; lg.gain.setValueAtTime(0, st); lg.gain.linearRampToValueAtTime(f * 0.005, st + 0.6);
+          lfo.connect(lg); lfo.start(st); lfo.stop(end + 0.6); nodes.push(lfo);
+          [-7, 6].forEach(function (det) { lg.connect(osc('sawtooth', f, st, end + 0.6, lp, det).frequency); });
+          lp.connect(g); g.connect(bus);
+        }
+        /* струнные: аккорд из расстроенных голосов с мягкой атакой */
+        function strings(ns, t, dur, vel) {
+          if (!live(t)) return;
+          var st = at(t), end = st + dur, g = ctx.createGain(), lp = ctx.createBiquadFilter();
+          lp.type = 'lowpass'; lp.frequency.value = 1400;
+          g.gain.setValueAtTime(0, st); g.gain.linearRampToValueAtTime(vel, st + 0.35); g.gain.setTargetAtTime(0, end - 0.1, 0.25);
+          ns.forEach(function (n) { [-9, 0, 9].forEach(function (det) { osc('sawtooth', hz(n), st, end + 1, lp, det); }); });
+          lp.connect(g); g.connect(bus);
+        }
+        function bass(n, t, dur, vel) {
+          if (!live(t)) return;
+          var st = at(t), lp = ctx.createBiquadFilter(), g = ctx.createGain();
+          lp.type = 'lowpass'; lp.frequency.setValueAtTime(1000, st); lp.frequency.exponentialRampToValueAtTime(240, st + dur);
+          g.gain.setValueAtTime(0, st); g.gain.linearRampToValueAtTime(vel, st + 0.012); g.gain.exponentialRampToValueAtTime(0.001, st + dur);
+          osc('sawtooth', hz(n), st, st + dur + 0.05, lp); lp.connect(g); g.connect(bus);
+        }
+        /* литавры: тон с «проседанием» высоты + обертон + шумовой удар */
+        function timp(n, t, vel) {
+          if (!live(t)) return;
+          var f = hz(n), st = at(t), g = ctx.createGain(), g2 = ctx.createGain();
+          var o = osc('sine', f, st, st + 1.6, g); o.frequency.setValueAtTime(f * 1.5, st); o.frequency.exponentialRampToValueAtTime(f, st + 0.06);
+          osc('triangle', f * 2, st, st + 0.9, g2);
+          g.gain.setValueAtTime(0, st); g.gain.linearRampToValueAtTime(vel, st + 0.006); g.gain.exponentialRampToValueAtTime(0.001, st + 1.5);
+          g2.gain.setValueAtTime(vel * 0.35, st); g2.gain.exponentialRampToValueAtTime(0.001, st + 0.8);
+          g.connect(bus); g2.connect(bus);
+          var nz = ctx.createBufferSource(), bp = ctx.createBiquadFilter(), ng = ctx.createGain();
+          nz.buffer = noiseBuf; bp.type = 'bandpass'; bp.frequency.value = f * 4; bp.Q.value = 1.2;
+          ng.gain.setValueAtTime(vel * 0.5, st); ng.gain.exponentialRampToValueAtTime(0.001, st + 0.12);
+          nz.connect(bp); bp.connect(ng); ng.connect(bus); nz.start(st); nz.stop(st + 0.2); nodes.push(nz);
+        }
+        function roll(n, t, dur, v0, v1) { for (var x = 0; x < dur; x += 0.07) timp(n, t + x, v0 + (v1 - v0) * x / dur); }
+        function cymbal(t, vel, dur, swell) {
+          if (!live(t)) return;
+          var st = at(t), nz = ctx.createBufferSource(), hp = ctx.createBiquadFilter(), g = ctx.createGain();
+          nz.buffer = noiseBuf; nz.loop = true; hp.type = 'highpass'; hp.frequency.value = 5500;
+          if (swell) { g.gain.setValueAtTime(0.0001, st); g.gain.exponentialRampToValueAtTime(vel, st + dur); g.gain.setValueAtTime(0, st + dur + 0.02); }
+          else { g.gain.setValueAtTime(vel, st); g.gain.exponentialRampToValueAtTime(0.001, st + dur); }
+          nz.connect(hp); hp.connect(g); g.connect(bus); nz.start(st); nz.stop(st + dur + 0.1); nodes.push(nz);
+        }
+
+        /* Партитура: тишина под «Не так давно…», удар на появлении логотипа (6 с), марш под бегущий текст. */
+        var B = 0.6, BAR = 2.4, T0 = 6;
+        function bt(bar, beat) { return T0 + bar * BAR + beat * B; }
+        strings(['C2', 'G2'], 3.2, 2.9, 0.05);
+        cymbal(3.4, 0.16, 2.6, true);
+        roll('G2', 4.9, 1.1, 0.06, 0.32);
+        timp('C2', bt(0, 0), 0.75); cymbal(bt(0, 0), 0.22, 3.2);
+        ['C3', 'G3', 'C4', 'Eb4', 'G4'].forEach(function (n) { brass(n, bt(0, 0), 3 * B, 0.065, 5); });
+        brass('C5', bt(0, 0), 3 * B, 0.15, 7);
+        strings(['C2', 'C3', 'G3'], bt(0, 0), BAR, 0.05);
+        brass('G4', bt(0, 3), 0.45 * B, 0.12); brass('G4', bt(0, 3.5), 0.45 * B, 0.14);
+        var melody = [
+          [['C5', 1], ['D5', .5], ['Eb5', .5], ['D5', 1], ['G4', 1]],
+          [['Eb5', 1], ['D5', .5], ['C5', .5], ['G4', 2]],
+          [['Ab4', 1], ['Bb4', 1], ['C5', 1.5], ['D5', .5]],
+          [['Eb5', 1.5], ['F5', .5], ['G5', 2]],
+          [['F5', 1], ['Eb5', 1], ['D5', 1], ['Bb4', 1]],
+          [['C5', 1], ['G4', 1], ['Ab4', 1], ['F4', 1]],
+          [['G4', 1.5], ['B4', .5], ['D5', 1], ['F5', 1]],
+          [['C5', 4]]
+        ];
+        var chords = [['C3', 'Eb3', 'G3'], ['C3', 'Eb3', 'G3'], ['Ab2', 'C3', 'Eb3'], ['Eb3', 'G3', 'Bb3'], ['Bb2', 'D3', 'F3'], ['F2', 'Ab2', 'C3'], ['G2', 'B2', 'D3', 'F3'], ['C3', 'E3', 'G3', 'C4']];
+        var roots = ['C2', 'C2', 'Ab1', 'Eb2', 'Bb1', 'F2', 'G1', 'C2'];
+        var kettle = ['C2', 'C2', 'Ab1', 'Eb2', 'Bb1', 'F2', 'G1', 'C2'];
+        melody.forEach(function (bar, i) {
+          var n = i + 1, beat = 0;
+          bar.forEach(function (x) {
+            brass(x[0], bt(n, beat), x[1] * B * 0.92, 0.15, 6);
+            if (n >= 3) brass(nm(x[0]) - 12, bt(n, beat), x[1] * B * 0.92, 0.07, 5);
+            beat += x[1];
+          });
+          strings(chords[i], bt(n, 0), BAR, 0.04);
+          if (n < 8) {
+            for (var k = 0; k < 8; k++) bass(roots[i], bt(n, k / 2), 0.24, k % 2 ? 0.1 : 0.18);
+            timp(kettle[i], bt(n, 0), 0.5); if (n !== 7) timp(kettle[i], bt(n, 2), 0.32);
+          }
+        });
+        roll('G1', bt(7, 2), 2 * B, 0.06, 0.36);
+        timp('C2', bt(8, 0), 0.75); cymbal(bt(8, 0), 0.24, 3.4);
+        ['C3', 'G3', 'C4', 'E4', 'G4'].forEach(function (n) { brass(n, bt(8, 0), 4 * B, 0.07, 5); });
+        brass('G5', bt(8, 0), 4 * B, 0.08, 6);
+        strings(['C1', 'C2', 'G2'], bt(8, 0), 2 * BAR, 0.06);
+        return { ctx: ctx, out: out, nodes: nodes };
+      }
+
+      function startMusic() {
+        stopMusic(0.15);
+        var offset = Math.max(0, (performance.now() - introStart) / 1000);
+        if (INTRO_TRACK) {
+          var el = new Audio(INTRO_TRACK);
+          el.volume = 0.8;
+          el.addEventListener('playing', function () {
+            var t = (performance.now() - introStart) / 1000;
+            if (t > 0.5 && t < (el.duration || 0)) el.currentTime = t;
+          }, { once: true });
+          music = { el: el, ok: el.play() };
+          return music;
+        }
+        if (!AC) return null;
+        music = playTheme(offset);
+        return music;
+      }
+      function stopMusic(fade) {
+        if (!music) return;
+        var m = music; music = null;
+        if (m.el) {
+          var v = m.el.volume, steps = Math.max(1, Math.round(fade * 20)), i = 0;
+          var iv = setInterval(function () { i++; m.el.volume = Math.max(0, v * (1 - i / steps)); if (i >= steps) { clearInterval(iv); m.el.pause(); } }, 50);
+          return;
+        }
+        var t = m.ctx.currentTime;
+        m.out.gain.cancelScheduledValues(t);
+        m.out.gain.setValueAtTime(m.out.gain.value, t);
+        m.out.gain.linearRampToValueAtTime(0, t + fade);
+        setTimeout(function () {
+          m.nodes.forEach(function (n) { try { n.stop(); } catch (e) {} });
+          m.out.disconnect();
+        }, fade * 1000 + 120);
+      }
+
       /* ---------- Вступительная заставка ---------- */
       var intro = document.getElementById('intro');
+      var soundBtn = intro.querySelector('.intro-sound');
+      if (!AC && !INTRO_TRACK) soundBtn.hidden = true;
+      function showSound(on) { soundBtn.setAttribute('aria-pressed', String(on)); }
+      function setSound(on) {
+        soundOn = on; showSound(on);
+        try { localStorage.setItem('ik-sound', on ? '1' : '0'); } catch (e) {}
+        if (on && isOpen()) startMusic(); else stopMusic(0.4);
+      }
+      soundBtn.addEventListener('click', function (e) { e.stopPropagation(); setSound(!soundOn); });
+      /* Без клика браузер не даст включить звук: при автозапуске пробуем, а если нельзя — показываем кнопку выключенной. */
+      function tryAutoSound() {
+        var m = startMusic();
+        if (!m) return showSound(false);
+        if (m.el) { m.ok.then(function () { showSound(true); }, function () { stopMusic(0); showSound(false); }); return; }
+        setTimeout(function () { var ok = m.ctx.state === 'running'; showSound(ok); if (!ok) stopMusic(0); }, 250);
+      }
       var skipBtn = intro.querySelector('.intro-skip');
       var lastLine = intro.querySelector('.crawl p:last-child');
       var INTRO_MS = 42000, introTimer = 0, crawlWatch = 0, afterIntro = [];
       function isOpen() { return d.classList.contains('intro-open'); }
       function whenIntroDone(fn) { if (isOpen()) afterIntro.push(fn); else fn(); }
-      function openIntro() {
+      function openIntro(auto) {
+        introStart = performance.now();
+        showSound(false);
+        if (soundOn) { if (auto) tryAutoSound(); else { startMusic(); showSound(true); } }
         intro.classList.remove('play', 'leaving');
         d.classList.add('intro-open');
         void intro.offsetWidth;
@@ -1029,6 +1310,7 @@
         clearInterval(crawlWatch);
         try { sessionStorage.setItem('ik-intro', '1'); } catch (e) {}
         intro.classList.add('leaving');
+        stopMusic(1.4);
         jumpToLightspeed();
         setTimeout(function () {
           d.classList.remove('intro-open');
@@ -1038,12 +1320,14 @@
       }
       intro.addEventListener('click', closeIntro);
       document.addEventListener('keydown', function (e) {
-        if (isOpen() && (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); closeIntro(); }
+        if (!isOpen()) return;
+        var onSound = e.target.closest && e.target.closest('.intro-sound');
+        if (e.key === 'Escape' || (!onSound && (e.key === 'Enter' || e.key === ' '))) { e.preventDefault(); closeIntro(); }
       });
       document.querySelectorAll('[data-replay]').forEach(function (b) {
-        b.addEventListener('click', function () { if (!reduce) openIntro(); });
+        b.addEventListener('click', function () { if (!reduce) openIntro(false); });
       });
-      if (isOpen()) openIntro();
+      if (isOpen()) openIntro(true);
 
       /* ---------- Появление секций ---------- */
       whenIntroDone(function () {
@@ -1077,7 +1361,7 @@
       var toggle = document.querySelector('.menu-toggle'), menu = document.getElementById('menu');
       function setMenu(open) { toggle.setAttribute('aria-expanded', String(open)); menu.classList.toggle('open', open); }
       toggle.addEventListener('click', function () { setMenu(toggle.getAttribute('aria-expanded') !== 'true'); });
-      menu.addEventListener('click', function (e) { if (e.target.closest('a')) setMenu(false); });
+      menu.addEventListener('click', function (e) { if (e.target.closest('a, button')) setMenu(false); });
 
       /* ---------- Прогресс прокрутки ---------- */
       var bar = document.querySelector('.progress-line i');
@@ -1095,7 +1379,6 @@
 
       /* ---------- Прочее ---------- */
       document.querySelectorAll('[data-print]').forEach(function (b) { b.addEventListener('click', function () { window.print(); }); });
-      document.querySelectorAll('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
     })();
   </script>
 </body>
