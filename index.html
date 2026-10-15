@@ -176,6 +176,8 @@
     /* ---------- Флагманский корабль ---------- */
     .destroyer-scene{position:relative;margin:18px 0 20px;height:132px;overflow:hidden;border:1px solid rgba(92,214,255,.18);background:radial-gradient(ellipse at 75% 15%,rgba(92,214,255,.13),transparent 35%),linear-gradient(135deg,rgba(255,255,255,.03),transparent 55%),#060b15}
     .destroyer-scene::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 12% 20%,#fff 0 1px,transparent 1.5px),radial-gradient(circle at 28% 76%,rgba(255,255,255,.8) 0 1px,transparent 1.5px),radial-gradient(circle at 52% 28%,#fff 0 1px,transparent 1.5px),radial-gradient(circle at 81% 56%,#fff 0 1px,transparent 1.5px),radial-gradient(circle at 93% 16%,rgba(92,214,255,.9) 0 1px,transparent 1.5px);background-size:138px 92px,190px 120px,220px 100px,160px 150px,250px 130px;opacity:.75}
+    .destroyer-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:56% center;filter:contrast(1.06) saturate(.9);transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+    .idcard:hover .destroyer-art{transform:scale(1.055)}
     .destroyer{position:absolute;right:-8px;bottom:-12px;width:min(88%,390px);height:auto;color:#b9c8d6;filter:drop-shadow(-10px 8px 13px rgba(0,0,0,.65)) drop-shadow(0 0 12px rgba(92,214,255,.14));transform:rotate(-2deg);transition:transform .7s cubic-bezier(.2,.8,.2,1)}
     .idcard:hover .destroyer{transform:translateX(-12px) translateY(-4px) rotate(-2deg)}
     .destroyer-label{position:absolute;left:12px;bottom:10px;z-index:2;font:500 9px/1.35 var(--mono);letter-spacing:.13em;text-transform:uppercase;color:var(--holo);text-shadow:0 0 8px rgba(92,214,255,.65)}
@@ -567,18 +569,8 @@
 
           <aside data-i18n-attr="aria-label" class="frame idcard" data-reveal style="--d:3" aria-label="Краткая карточка">
             <div class="id-head"><span data-i18n>Личное дело</span><span>ID · IK-2026</span></div>
-            <figure class="destroyer-scene" aria-label="Стилизованная иллюстрация звёздного разрушителя">
-              <svg class="destroyer" viewBox="0 0 520 210" fill="none" aria-hidden="true">
-                <path d="M18 166 L224 31 L500 123 L465 144 L505 155 L370 196 L205 180 Z" fill="#718295" stroke="currentColor" stroke-width="2"/>
-                <path d="M58 159 L234 49 L458 126 L369 180 L208 166 Z" fill="#a9b8c5" stroke="#dce8ef" stroke-opacity=".55"/>
-                <path d="M112 150 L241 67 L399 121 L352 150 L211 150 Z" fill="#7a8c9d" opacity=".9"/>
-                <path d="M204 107 L274 66 L333 86 L286 112 Z" fill="#d3dfe6" stroke="#ecf7ff" stroke-opacity=".55"/>
-                <path d="M272 66 L290 48 L310 54 L319 76" stroke="#d3dfe6" stroke-width="5"/>
-                <path d="M220 129 L422 133 M181 151 L362 171 M257 96 L300 109 M314 145 L397 145" stroke="#44576b" stroke-width="3"/>
-                <path d="M70 159 L20 166 L55 174" stroke="#5cd6ff" stroke-width="2" opacity=".9"/>
-                <circle cx="294" cy="50" r="7" fill="#5cd6ff"/><circle cx="294" cy="50" r="13" stroke="#5cd6ff" stroke-opacity=".4"/>
-                <circle cx="175" cy="142" r="3" fill="#ffe81f"/><circle cx="205" cy="132" r="3" fill="#ffe81f"/><circle cx="350" cy="134" r="3" fill="#ffe81f"/>
-              </svg>
+            <figure class="destroyer-scene" aria-label="Кинематографичный звёздный разрушитель в глубоком космосе">
+              <img class="destroyer-art" src="assets/star-destroyer-hero.png" alt="Звёздный разрушитель на фоне туманности и звёзд">
               <figcaption class="destroyer-label"><b>Portfolio flagship</b>Data-driven mission control</figcaption>
             </figure>
             <div class="id-who">
