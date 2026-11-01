@@ -128,7 +128,7 @@
     }
     ctx.globalAlpha = 1;
   }
-  function loop(now) { draw(now); raf = requestAnimationFrame(loop); }
+  function loop(now) { if(!d.classList.contains('motion-paused')) draw(now); else last=now; raf = requestAnimationFrame(loop); }
   function warp() { if (!reduce) warpStart = performance.now(); }
   function tiltCamera(dist, dur) { if (!reduce) cam = { from: camY, to: camY + dist, start: performance.now(), dur: dur }; }
   var lastW = 0, rt = 0;
@@ -257,17 +257,18 @@
   function jumpTo(id) {
     var el = document.getElementById(id);
     if (!el || jumping) return;
-    if (reduce) { el.scrollIntoView(); return; }
+    if (reduce || d.classList.contains('cv-mode') || d.classList.contains('motion-paused')) { el.scrollIntoView({behavior:'instant'}); return; }
     jumping = true;
     warp();
     d.classList.add('jumping');
+    document.dispatchEvent(new CustomEvent('hyperspace', {detail:id}));
     setTimeout(function () {
       el.scrollIntoView({ behavior: 'instant', block: 'start' });
       el.querySelectorAll('[data-reveal]').forEach(function (r) { r.classList.add('in'); });
       if (el.getAttribute('data-tint')) d.style.setProperty('--tint', el.getAttribute('data-tint'));
       try { history.replaceState(null, '', location.search + '#' + id); } catch (e) {}
-    }, 620);
-    setTimeout(function () { d.classList.remove('jumping'); jumping = false; }, 1500);
+    }, 1250);
+    setTimeout(function () { d.classList.remove('jumping'); jumping = false; }, 2200);
   }
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a[data-jump]');

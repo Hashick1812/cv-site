@@ -22,7 +22,7 @@
       d.classList.add('js');
       try { seen = sessionStorage.getItem('ik-intro') === '1'; } catch (e) {}
       var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (!seen && !reduce && !/[?&]nointro/.test(location.search)) d.classList.add('intro-open');
+      if (!seen && !reduce && /[?&]intro=1/.test(location.search)) d.classList.add('intro-open');
       /* Язык: ?lang=ru|kk|kz|en → сохранённый выбор → язык браузера. */
       var lang = null, m = location.search.match(/[?&]lang=(ru|kk|kz|en)\b/);
       if (m) lang = m[1] === 'kz' ? 'kk' : m[1];
@@ -36,6 +36,7 @@
     })();
   </script>
   <link rel="stylesheet" href="assets/site.css">
+  <link rel="stylesheet" href="assets/bridge.css">
 </head>
 <body>
   <a data-i18n class="skip-link" href="#main">Перейти к содержанию</a>
@@ -89,7 +90,7 @@
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="7" fill="#e8b56d"/><path d="M3 15.5c5 3.2 13 3.2 18 0" stroke="#ffe81f" stroke-width="1.6" fill="none"/></svg>
         <span><span class="first">Islam </span><b>Kuttybaev</b></span>
       </a>
-      <div class="nav-right">
+      <div class="nav-right"><button class="cv-toggle" type="button" aria-pressed="false">Краткое CV</button>
         <a data-i18n class="nav-link" href="#top" data-jump>Навигация</a>
         <a data-i18n class="nav-link" href="#terminal" data-jump>Терминал</a>
         <a data-i18n-attr="aria-label" class="icon-btn map-btn" href="#top" data-jump aria-label="Навигация">
@@ -141,17 +142,19 @@
           <path class="edge" d="M70 0 132 760M1370 0l-62 760M0 24c260 18 460 26 720 26s460-8 720-26" fill="none"/>
           <g class="rivets"><circle cx="40" cy="120"/><circle cx="52" cy="300"/><circle cx="66" cy="480"/><circle cx="80" cy="660"/><circle cx="1400" cy="120"/><circle cx="1388" cy="300"/><circle cx="1374" cy="480"/><circle cx="1360" cy="660"/></g>
         </svg>
+        <div class="bridge-structure" aria-hidden="true"><div class="bridge-ceiling"></div><div class="bridge-beam beam-left"></div><div class="bridge-beam beam-right"></div><div class="bridge-deck"></div><div class="crew-deck"></div><div class="console-bank bank-left"></div><div class="console-bank bank-right"></div></div>
         <div class="reticle" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
 
         <div class="wrap pilot">
           <p data-i18n class="hero-pre" style="--i:0">Бортовой журнал · Алматы · 2026</p>
           <h1 class="logo" style="--i:1"><span>Islam</span><span class="o">Kuttybaev</span></h1>
           <p class="hero-role" style="--i:2">Data Scientist · <span data-i18n class="co">ТОО «Adam Labs»</span></p>
-          <p data-i18n class="hero-text" style="--i:3">Строю модели и разбираюсь в данных об обучении. Учусь на 4 курсе SDU по Data Science и статистике, а с 2023 года преподаю математику и Python.</p>
-          <p data-i18n class="pilot-tip" style="--i:4">Вы в кабине моего корабля. Выберите планету в иллюминаторе и прыгайте: на каждой своя часть резюме.</p>
+          <p data-i18n class="hero-text" style="--i:3">Работаю с данными: от очистки и статистического анализа до машинного обучения и понятных результатов. Студент 4 курса Data Science and Statistics в SDU.</p>
+          <div class="hero-shortcuts"><a href="#mustafar">Проекты на GitHub</a><a href="#ilum">Навыки</a><a href="mailto:islam0402@list.ru">Связаться</a><button class="hero-pdf" type="button" data-print>Сохранить PDF</button></div>
+          <p data-i18n class="pilot-tip" style="--i:4">Командный мостик. Выберите раздел на карте и запустите гиперпрыжок — или откройте краткое CV.</p>
         </div>
 
-        <div data-i18n-attr="aria-label" class="dest-field" role="group" aria-label="Пункты назначения">
+        <div data-i18n-attr="aria-label" class="dest-field" role="group" aria-label="Пункты назначения"><div class="galaxy-title">Галактическая карта <span>Выберите раздел</span></div><svg class="galaxy-grid" viewBox="0 0 600 440" preserveAspectRatio="none" aria-hidden="true"><ellipse cx="300" cy="235" rx="265" ry="175"/><ellipse cx="300" cy="235" rx="195" ry="130"/><ellipse cx="300" cy="235" rx="110" ry="75"/><path d="M30 235H570M300 50V420M95 110L505 360M95 360L505 110"/><path class="route-path" d="M96 123L300 123L504 123L504 245L300 245L96 245L96 367L300 367L504 367"/></svg>
         <button class="dest" type="button" data-target="tatooine" style="--x:9%;--y:44%;--s:58px;--c:#f0a95b"><span class="dest-orb"><canvas data-planet="tatooine" data-max="170" aria-hidden="true"></canvas></span><span data-i18n class="dest-name">Татуин</span><span data-i18n class="dest-what">обо мне</span></button>
         <button class="dest" type="button" data-target="coruscant" style="--x:33%;--y:6%;--s:70px;--c:#b48cff"><span class="dest-orb"><canvas data-planet="coruscant" data-max="170" aria-hidden="true"></canvas></span><span data-i18n class="dest-name">Корусант</span><span data-i18n class="dest-what">работа</span></button>
         <button class="dest" type="button" data-target="hoth" style="--x:61%;--y:16%;--s:44px;--c:#a8d2ff"><span class="dest-orb"><canvas data-planet="hoth" data-max="170" aria-hidden="true"></canvas></span><span data-i18n class="dest-name">Хот</span><span data-i18n class="dest-what">исследование</span></button>
@@ -306,9 +309,9 @@
             <div data-reveal>
               <p data-i18n>Проекты по анализу данных и машинному обучению. Код открыт на GitHub.</p>
               <ul class="projects">
-                <li><a href="https://github.com/Hashick1812/Regression_Analysis_Housing" target="_blank" rel="noopener"><span class="pname">Regression Analysis Housing</span><span data-i18n class="pdesc">Регрессионный анализ данных о жилье.</span><span class="parr" aria-hidden="true">↗</span></a></li>
-                <li><a href="https://github.com/Hashick1812/Spotify_songs" target="_blank" rel="noopener"><span class="pname">Spotify Songs</span><span data-i18n class="pdesc">Анализ данных о песнях Spotify.</span><span class="parr" aria-hidden="true">↗</span></a></li>
-                <li><a href="https://github.com/Hashick1812/football-stats-project" target="_blank" rel="noopener"><span class="pname">Football Stats</span><span data-i18n class="pdesc">Проект по футбольной статистике.</span><span class="parr" aria-hidden="true">↗</span></a></li>
+                <li><a href="https://github.com/Hashick1812/Regression_Analysis_Housing" target="_blank" rel="noopener"><span class="pname">Regression Analysis Housing</span><span data-i18n class="pdesc">500 квартир Алматы, 11 признаков и сравнение пяти моделей регрессии. В репозитории: ноутбук, данные и результаты.</span><span class="parr" aria-hidden="true">↗</span></a></li>
+                <li><a href="https://github.com/Hashick1812/Spotify_songs" target="_blank" rel="noopener"><span class="pname">Spotify Songs</span><span data-i18n class="pdesc">Классификация 32 833 треков по 6 жанрам: подготовка признаков, SMOTE, PCA и сравнение моделей.</span><span class="parr" aria-hidden="true">↗</span></a></li>
+                <li><a href="https://github.com/Hashick1812/football-stats-project" target="_blank" rel="noopener"><span class="pname">Football Stats</span><span data-i18n class="pdesc">Анализ создания голевых моментов в пяти европейских лигах: сбор данных, очистка и визуализация SCA/GCA.</span><span class="parr" aria-hidden="true">↗</span></a></li>
                 <li><a href="https://github.com/Hashick1812/garbage-classification" target="_blank" rel="noopener"><span class="pname">Garbage Classification</span><span data-i18n class="pdesc">Классификация мусора с помощью машинного обучения.</span><span class="parr" aria-hidden="true">↗</span></a></li>
               </ul>
               <a data-i18n class="more" href="https://github.com/Hashick1812?tab=repositories" target="_blank" rel="noopener">Все репозитории на GitHub ↗</a>
@@ -423,7 +426,7 @@
             <figure class="holo holo-msg holo--blue" data-reveal>
               <div class="holo-stage wide"><div class="holo-spin wobble" data-layers="7" data-depth="16"><svg class="holo-layer" viewBox="0 0 132 64"><use href="#g-ik"/></svg></div></div>
               <span class="holo-beam" aria-hidden="true"></span><span class="holo-base" aria-hidden="true"></span>
-              <figcaption data-i18n class="holo-quote">«Помогите мне, рекрутер. Вы моя единственная надежда.»</figcaption>
+              <figcaption data-i18n class="holo-quote">Открыт к задачам в аналитике данных, машинном обучении и исследованиях.</figcaption>
             </figure>
           </div>
         </div>
@@ -460,5 +463,6 @@
   <script src="assets/holo.js"></script>
   <script src="assets/site.js"></script>
   <script src="assets/console.js"></script>
+  <script src="assets/bridge.js"></script>
 </body>
 </html>

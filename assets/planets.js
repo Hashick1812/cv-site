@@ -137,12 +137,13 @@
     '  float day=smoothstep(-0.15,0.3,ndl);',
     '  vec3 emit; float spec;',
     '  vec3 base=surface(q*uZoom+uSeed,t.y,emit,spec);',
-    '  float light=0.03+1.1*day*clamp(ndl*0.8+0.25,0.0,1.0);',
-    '  vec3 col=base*light;',
+    '  float light=0.018+1.04*day*clamp(ndl*0.8+0.25,0.0,1.0);',
+    '  float grain=snoise(q*92.0+uSeed)*0.035;',
+    '  vec3 col=base*(light+grain*day);',
     '  if(uCloud>0.0){',
     '   float b=a*1.3,cb=cos(b),sb=sin(b);',
     '   vec3 qc=vec3(cb*t.x+sb*t.z,t.y,-sb*t.x+cb*t.z);',
-    '   float cl=smoothstep(0.0,0.6,fbm3(qc*2.3+uSeed+4.0))*uCloud;',
+    '   float cl=smoothstep(-0.04,0.5,fbm(qc*3.4+uSeed+4.0)+0.12*snoise(qc*18.0))*uCloud;',
     '   col=mix(col,uCloudC*(0.025+1.05*day*clamp(ndl*0.8+0.25,0.0,1.0)),cl);',
     '   emit*=1.0-cl; spec*=1.0-cl;',
     '  }',
@@ -186,7 +187,7 @@
   var gl = null, glc = null, progP = null, progN = null, buf = null, uP = {}, uN = {};
   var items = [], raf = 0, lastT = 0, t0 = performance.now();
   /* Качество подстраивается под устройство: если кадр рисуется дольше ~14 мс, снижаем разрешение и частоту. */
-  var quality = 1, interval = 33, costs = [], still = false;
+  var quality = 1, interval = 33, costs = [], still = false, paused = false;
   var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
   var DPR = Math.min(window.devicePixelRatio || 1, 1.5);
 
@@ -313,7 +314,7 @@
   function loop(now) {
     if (still) { raf = 0; return; }
     raf = requestAnimationFrame(loop);
-    if (now - lastT < interval) return; /* ~30 кадров в секунду достаточно для медленного вращения */
+    if (paused || now - lastT < interval) return; /* ~30 кадров в секунду достаточно для медленного вращения */
     lastT = now;
     var t = (now - t0) / 1000, s = performance.now(), n = 0;
     for (var i = 0; i < items.length; i++) if (items[i].visible) { render(items[i], t); n++; }
@@ -398,6 +399,7 @@
 
   window.Planets = {
     types: TYPES,
+    pause: function(on){paused=on;},
     init: function (root) {
       if (!glc) setup();
       Array.prototype.forEach.call((root || document).querySelectorAll('canvas[data-planet]'), function (el) {
