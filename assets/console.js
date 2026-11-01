@@ -231,8 +231,8 @@
 
   /* ---------- Данные со страницы: так терминал всегда совпадает с сайтом и его языком ---------- */
   function planets() {
-    return Array.prototype.map.call(document.querySelectorAll('.dest'), function (b, i) {
-      return { id: b.getAttribute('data-target'), n: i + 1, name: text(b.querySelector('.dest-name')), what: text(b.querySelector('.dest-what')) };
+    return Array.prototype.map.call(document.querySelectorAll('.route .stop'), function (b, i) {
+      return { id: b.getAttribute('href').slice(1), n: i + 1, name: text(b.querySelector('.stop-name')), what: text(b.querySelector('.stop-what')) };
     });
   }
   var ALIAS = {

@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Islam Kuttybaev — Data Scientist</title>
-  <meta name="description" content="Ислам Куттыбаев, Data Scientist в ТОО «Adam Labs», Алматы. Резюме в виде путешествия по планетам: опыт, проекты, навыки и контакты.">
+  <meta name="description" content="Ислам Куттыбаев, Data Scientist в ТОО «Adam Labs», Алматы. Резюме в виде карты галактики: опыт, проекты, навыки и контакты.">
   <meta name="theme-color" content="#03040a">
   <meta property="og:type" content="profile">
   <meta property="og:title" content="Islam Kuttybaev — Data Scientist">
-  <meta property="og:description" content="Data Scientist в ТОО «Adam Labs». Резюме в виде путешествия по планетам.">
+  <meta property="og:description" content="Data Scientist в ТОО «Adam Labs». Резюме в виде карты галактики.">
   <meta property="og:image" content="assets/star-destroyer-hero.png">
   <meta property="og:locale" content="ru_RU">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2303040a'/%3E%3Ccircle cx='16' cy='16' r='9' fill='%23e8b56d'/%3E%3Cpath d='M7 20c5 3 13 3 18 0' stroke='%23ffe81f' stroke-width='2' fill='none'/%3E%3C/svg%3E">
@@ -89,9 +89,9 @@
         <span><span class="first">Islam </span><b>Kuttybaev</b></span>
       </a>
       <div class="nav-right">
-        <a data-i18n class="nav-link" href="#top" data-jump>Навигация</a>
+        <a data-i18n class="nav-link" href="#map" data-jump>Карта галактики</a>
         <a data-i18n class="nav-link" href="#terminal" data-jump>Терминал</a>
-        <a data-i18n-attr="aria-label" class="icon-btn map-btn" href="#top" data-jump aria-label="Навигация">
+        <a data-i18n-attr="aria-label" class="icon-btn map-btn" href="#map" data-jump aria-label="Карта галактики">
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="8" cy="8" r="2.2" fill="currentColor"/><ellipse cx="8" cy="8" rx="6.8" ry="3" transform="rotate(-20 8 8)"/></svg>
         </a>
         <div class="lang-switch" role="group" aria-label="Language / Тіл / Язык" data-i18n-skip>
@@ -99,9 +99,6 @@
           <button type="button" data-lang="ru" lang="ru" title="Русский">РУС</button>
           <button type="button" data-lang="en" lang="en" title="English">ENG</button>
         </div>
-        <button data-i18n-attr="aria-label,title" class="icon-btn sound-btn" type="button" data-sound aria-pressed="false" title="Звук" aria-label="Звук">
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z" fill="currentColor" fill-opacity=".25"/><path class="wave" d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.6a6 6 0 0 1 0 8.8"/><path class="mute" d="M11 6l4 4M15 6l-4 4"/></svg>
-        </button>
         <button data-i18n-attr="aria-label,title" class="icon-btn" type="button" data-replay title="Посмотреть заставку ещё раз" aria-label="Посмотреть заставку ещё раз">
           <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg>
         </button>
@@ -125,57 +122,52 @@
   <div class="page">
     <main id="main">
 
-      <!-- Главный экран: голограмма джедая и планеты, к которым можно прыгнуть -->
+      <!-- Первый экран: Татуин и звёздный разрушитель -->
       <section class="hero" id="top">
-        <div class="wrap hero-grid">
-          <div class="hero-copy">
-            <p data-i18n class="hero-pre" style="--i:0">Резюме · Алматы · 2026</p>
-            <h1 class="logo" style="--i:1"><span>Islam</span><span class="o">Kuttybaev</span></h1>
-            <p class="hero-role" style="--i:2">Data Scientist · <span data-i18n class="co">ТОО «Adam Labs»</span></p>
-            <p data-i18n class="hero-text" style="--i:3">Строю модели и разбираюсь в данных об обучении. Учусь на 4 курсе SDU по Data Science и статистике, а с 2023 года преподаю математику и Python.</p>
-            <div class="hero-actions" style="--i:4">
-              <a data-i18n class="btn primary" href="#yavin4" data-jump>Написать мне</a>
-              <button data-i18n class="btn" type="button" data-print>Скачать PDF</button>
-            </div>
-          </div>
-          <div class="jedi">
-            <div class="jedi-stage" aria-hidden="true">
-              <span class="jedi-beam"></span>
-              <canvas class="jedi-canvas"></canvas>
-              <span class="jedi-base"></span>
-            </div>
-            <div class="jedi-talk" data-i18n-skip>
-              <p class="jedi-name">Мастер Нур · голограмма</p>
-              <p class="jedi-line" aria-live="polite"></p>
-              <div class="jedi-ctrl">
-                <button class="jedi-next" type="button">Дальше ›</button>
-                <button class="jedi-voice" type="button" aria-pressed="false"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 6h3l4-3v10l-4-3H2z" fill="currentColor" fill-opacity=".25"/><path d="M11 5.5a3.5 3.5 0 0 1 0 5"/></svg><span>Голос</span></button>
-              </div>
-            </div>
+        <img class="hero-ship" src="assets/star-destroyer-hero.png" alt="" width="960" height="411">
+        <div class="suns" aria-hidden="true"><i></i><i></i></div>
+        <div class="wrap hero-inner">
+          <p data-i18n class="hero-pre" style="--i:0">Резюме · Алматы · 2026</p>
+          <h1 class="logo" style="--i:1"><span>Islam</span><span class="o">Kuttybaev</span></h1>
+          <p class="hero-role" style="--i:2">Data Scientist · <span data-i18n class="co">ТОО «Adam Labs»</span></p>
+          <p data-i18n class="hero-text" style="--i:3">Строю модели и разбираюсь в данных об обучении. Учусь на 4 курсе SDU по Data Science и статистике, а с 2023 года преподаю математику и Python.</p>
+          <div class="hero-actions" style="--i:4">
+            <a data-i18n class="btn primary" href="#map" data-jump>Открыть карту галактики</a>
+            <a data-i18n class="btn" href="#yavin4" data-jump>Написать мне</a>
+            <button data-i18n class="text-btn" type="button" data-print>Скачать PDF</button>
           </div>
         </div>
-        <div data-i18n-attr="aria-label" class="route" role="group" aria-label="Планеты">
-          <p data-i18n class="route-title">Выберите планету и прыгайте</p>
-          <svg class="lane" aria-hidden="true"><path/></svg>
-          <div class="dests">
-          <button class="dest" type="button" data-target="tatooine" style="--s:60px;--y:8px;--c:#f0a95b"><span class="dest-orb"><canvas data-planet="tatooine" data-max="200" aria-hidden="true"></canvas></span><span data-i18n class="dest-name">Татуин</span><span data-i18n class="dest-what">обо мне</span></button>
-          <button class="dest" type="button" data-target="coruscant" style="--s:74px;--y:-20px;--c:#b48cff"><span class="dest-orb"><canvas data-planet="coruscant" data-max="200" aria-hidden="true"></canvas></span><span data-i18n class="dest-name">Корусант</span><span data-i18n class="dest-what">работа</span></button>
-          <button class="dest" type="button" data-target="hoth" style="--s:50px;--y:6px;--c:#a8d2ff"><span class="dest-orb"><canvas data-planet="hoth" data-max="200" aria-hidden="true"></canvas></span><span data-i18n class="dest-name">Хот</span><span data-i18n class="dest-what">исследование</span></button>
-          <button class="dest" type="button" data-target="dagobah" style="--s:54px;--y:-24px;--c:#8fbf6f"><span class="dest-orb"><canvas data-planet="dagobah" data-max="200" aria-hidden="true"></canvas></span><span data-i18n class="dest-name">Дагоба</span><span data-i18n class="dest-what">преподавание</span></button>
-          <button class="dest" type="button" data-target="mustafar" style="--s:58px;--y:12px;--c:#ff6a2a"><span class="dest-orb"><canvas data-planet="mustafar" data-max="200" aria-hidden="true"></canvas></span><span data-i18n class="dest-name">Мустафар</span><span data-i18n class="dest-what">проекты</span></button>
-          <button class="dest" type="button" data-target="ilum" style="--s:50px;--y:-10px;--c:#5fe4ff"><span class="dest-orb"><canvas data-planet="ilum" data-max="200" aria-hidden="true"></canvas></span><span data-i18n class="dest-name">Илум</span><span data-i18n class="dest-what">навыки</span></button>
-          <button class="dest" type="button" data-target="scarif" style="--s:52px;--y:16px;--c:#2fc6d8"><span class="dest-orb"><canvas data-planet="scarif" data-max="200" aria-hidden="true"></canvas></span><span data-i18n class="dest-name">Скариф</span><span data-i18n class="dest-what">сертификаты</span></button>
-          <button class="dest" type="button" data-target="naboo" style="--s:62px;--y:-18px;--c:#77aaff"><span class="dest-orb"><canvas data-planet="naboo" data-max="200" aria-hidden="true"></canvas></span><span data-i18n class="dest-name">Набу</span><span data-i18n class="dest-what">учёба и языки</span></button>
-          <button class="dest" type="button" data-target="yavin4" style="--s:56px;--y:4px;--c:#ffa25c"><span class="dest-orb"><canvas data-planet="yavin4" data-max="200" aria-hidden="true"></canvas></span><span data-i18n class="dest-name">Явин IV</span><span data-i18n class="dest-what">связь</span></button>
+        <div class="hero-planet" aria-hidden="true">
+          <canvas data-planet="tatooine" data-view="horizon" data-r="1.05" data-cx=".6" data-top=".72" data-light=".6,.5,.62"></canvas>
+        </div>
+      </section>
+
+      <!-- Карта галактики -->
+      <section class="map" id="map">
+        <div class="wrap">
+          <h2 data-i18n class="sec-title" data-reveal>Карта галактики</h2>
+          <p data-i18n class="sec-sub" data-reveal>Девять планет, и на каждой своя часть резюме. Нажмите на любую, чтобы прыгнуть к ней через гиперпространство.</p>
+          <div class="route-wrap" data-reveal>
+          <svg class="lane" aria-hidden="true"><path d=""/></svg>
+          <ol class="route">
+            <li><a class="stop" href="#tatooine" data-jump style="--s:92px;--y:-36px"><canvas data-planet="tatooine" data-max="240" aria-hidden="true"></canvas><span data-i18n class="stop-name">Татуин</span><span data-i18n class="stop-what">обо мне</span></a></li>
+            <li><a class="stop" href="#coruscant" data-jump style="--s:112px;--y:30px"><canvas data-planet="coruscant" data-max="260" aria-hidden="true"></canvas><span data-i18n class="stop-name">Корусант</span><span data-i18n class="stop-what">работа</span></a></li>
+            <li><a class="stop" href="#hoth" data-jump style="--s:80px;--y:-48px"><canvas data-planet="hoth" data-max="220" aria-hidden="true"></canvas><span data-i18n class="stop-name">Хот</span><span data-i18n class="stop-what">исследование</span></a></li>
+            <li><a class="stop" href="#dagobah" data-jump style="--s:88px;--y:22px"><canvas data-planet="dagobah" data-max="220" aria-hidden="true"></canvas><span data-i18n class="stop-name">Дагоба</span><span data-i18n class="stop-what">преподавание</span></a></li>
+            <li><a class="stop" href="#mustafar" data-jump style="--s:84px;--y:-30px"><canvas data-planet="mustafar" data-max="220" aria-hidden="true"></canvas><span data-i18n class="stop-name">Мустафар</span><span data-i18n class="stop-what">проекты</span></a></li>
+            <li><a class="stop" href="#ilum" data-jump style="--s:78px;--y:40px"><canvas data-planet="ilum" data-max="220" aria-hidden="true"></canvas><span data-i18n class="stop-name">Илум</span><span data-i18n class="stop-what">навыки</span></a></li>
+            <li><a class="stop" href="#scarif" data-jump style="--s:96px;--y:-26px"><canvas data-planet="scarif" data-max="240" aria-hidden="true"></canvas><span data-i18n class="stop-name">Скариф</span><span data-i18n class="stop-what">сертификаты</span></a></li>
+            <li><a class="stop" href="#naboo" data-jump style="--s:100px;--y:28px"><canvas data-planet="naboo" data-max="240" aria-hidden="true"></canvas><span data-i18n class="stop-name">Набу</span><span data-i18n class="stop-what">учёба и языки</span></a></li>
+            <li><a class="stop" href="#yavin4" data-jump style="--s:86px;--y:-38px"><canvas data-planet="yavin4" data-max="220" aria-hidden="true"></canvas><span data-i18n class="stop-name">Явин IV</span><span data-i18n class="stop-what">связь</span></a></li>
+          </ol>
           </div>
         </div>
       </section>
 
       <!-- 01 Татуин: обо мне -->
       <section class="world" id="tatooine" data-tint="#f0a95b" style="--c:#f0a95b">
-        <div class="surface" data-scene="tatooine" aria-hidden="true"><div class="surface-pin"><canvas></canvas><div class="surface-shade"></div></div></div>
         <div class="wrap world-inner">
-          <aside class="dossier"><div class="world-planet" aria-hidden="true"><canvas class="main-planet" data-planet="tatooine" data-light="-.5,.5,.7" data-drag></canvas><div class="orbit" style="--tilt:76deg;--dur:34s;--size:15%;--r:-12%"><div class="orbit-ring"><span class="moon"><canvas data-planet="moon" data-max="120"></canvas></span></div></div><span data-i18n class="drag-hint">↻ покрутите планету</span></div><div class="dossier-card"><p data-i18n class="dossier-title">Досье планеты</p><dl class="dossier-data"><div><dt data-i18n>Климат</dt><dd data-i18n>пустыня, два солнца</dd></div><div><dt data-i18n>Раздел</dt><dd data-i18n>обо мне</dd></div><div><dt data-i18n>Координаты</dt><dd data-i18n>Алматы, Казахстан</dd></div></dl></div></aside>
+          <div class="world-planet" aria-hidden="true"><canvas class="main-planet" data-planet="tatooine" data-light="-.5,.5,.7" data-drag></canvas><div class="orbit" style="--tilt:76deg;--dur:34s;--size:15%;--r:-12%"><div class="orbit-ring"><span class="moon"><canvas data-planet="moon" data-max="120"></canvas></span></div></div><span data-i18n class="drag-hint">↻ покрутите планету</span></div>
           <div class="world-body">
             <p data-i18n class="world-tag" data-reveal>01 · обо мне</p>
             <h2 data-i18n class="world-name" data-reveal>Татуин</h2>
@@ -198,9 +190,8 @@
 
       <!-- 02 Корусант: работа -->
       <section class="world flip" id="coruscant" data-tint="#b48cff" style="--c:#b48cff">
-        <div class="surface" data-scene="coruscant" aria-hidden="true"><div class="surface-pin"><canvas></canvas><div class="surface-shade"></div></div></div>
         <div class="wrap world-inner">
-          <aside class="dossier"><div class="world-planet" aria-hidden="true"><canvas class="main-planet" data-planet="coruscant" data-light=".55,.45,.7" data-drag></canvas><div class="orbit" style="--tilt:70deg;--dur:26s;--size:11%;--r:-8%"><div class="orbit-ring"><span class="moon"><canvas data-planet="moon" data-max="100"></canvas></span></div></div><span data-i18n class="drag-hint">↻ покрутите планету</span></div><div class="dossier-card"><p data-i18n class="dossier-title">Досье планеты</p><dl class="dossier-data"><div><dt data-i18n>Климат</dt><dd data-i18n>город на всю планету</dd></div><div><dt data-i18n>Раздел</dt><dd data-i18n>работа</dd></div><div><dt data-i18n>Должность</dt><dd>Data Scientist, Adam Labs</dd></div></dl></div></aside>
+          <div class="world-planet" aria-hidden="true"><canvas class="main-planet" data-planet="coruscant" data-light=".55,.45,.7" data-drag></canvas><div class="orbit" style="--tilt:70deg;--dur:26s;--size:11%;--r:-8%"><div class="orbit-ring"><span class="moon"><canvas data-planet="moon" data-max="100"></canvas></span></div></div><span data-i18n class="drag-hint">↻ покрутите планету</span></div>
           <div class="world-body">
             <p data-i18n class="world-tag" data-reveal>02 · работа сейчас</p>
             <h2 data-i18n class="world-name" data-reveal>Корусант</h2>
@@ -229,9 +220,8 @@
 
       <!-- 03 Хот: исследование -->
       <section class="world" id="hoth" data-tint="#a8d2ff" style="--c:#a8d2ff">
-        <div class="surface" data-scene="hoth" aria-hidden="true"><div class="surface-pin"><canvas></canvas><div class="surface-shade"></div></div></div>
         <div class="wrap world-inner">
-          <aside class="dossier"><div class="world-planet" aria-hidden="true"><canvas class="main-planet" data-planet="hoth" data-light="-.5,.5,.7" data-drag></canvas><div class="orbit" style="--tilt:80deg;--dur:40s;--size:13%;--r:-14%"><div class="orbit-ring"><span class="moon"><canvas data-planet="moonice" data-max="110"></canvas></span></div></div><span data-i18n class="drag-hint">↻ покрутите планету</span></div><div class="dossier-card"><p data-i18n class="dossier-title">Досье планеты</p><dl class="dossier-data"><div><dt data-i18n>Климат</dt><dd data-i18n>вечная зима</dd></div><div><dt data-i18n>Раздел</dt><dd data-i18n>исследование</dd></div><div><dt data-i18n>Период</dt><dd data-i18n>февраль — май 2025</dd></div></dl></div></aside>
+          <div class="world-planet" aria-hidden="true"><canvas class="main-planet" data-planet="hoth" data-light="-.5,.5,.7" data-drag></canvas><div class="orbit" style="--tilt:80deg;--dur:40s;--size:13%;--r:-14%"><div class="orbit-ring"><span class="moon"><canvas data-planet="moonice" data-max="110"></canvas></span></div></div><span data-i18n class="drag-hint">↻ покрутите планету</span></div>
           <div class="world-body">
             <p data-i18n class="world-tag" data-reveal>03 · исследование</p>
             <h2 data-i18n class="world-name" data-reveal>Хот</h2>
@@ -252,9 +242,8 @@
 
       <!-- 04 Дагоба: преподавание -->
       <section class="world flip" id="dagobah" data-tint="#8fbf6f" style="--c:#8fbf6f">
-        <div class="surface" data-scene="dagobah" aria-hidden="true"><div class="surface-pin"><canvas></canvas><div class="surface-shade"></div></div></div>
         <div class="wrap world-inner">
-          <aside class="dossier"><div class="world-planet" aria-hidden="true"><canvas class="main-planet" data-planet="dagobah" data-light=".55,.45,.7" data-drag></canvas><span data-i18n class="drag-hint">↻ покрутите планету</span></div><div class="dossier-card"><p data-i18n class="dossier-title">Досье планеты</p><dl class="dossier-data"><div><dt data-i18n>Климат</dt><dd data-i18n>болота и туман</dd></div><div><dt data-i18n>Раздел</dt><dd data-i18n>преподавание</dd></div><div><dt data-i18n>Стаж</dt><dd data-i18n>с 2023 года</dd></div></dl></div></aside>
+          <div class="world-planet" aria-hidden="true"><canvas class="main-planet" data-planet="dagobah" data-light=".55,.45,.7" data-drag></canvas><span data-i18n class="drag-hint">↻ покрутите планету</span></div>
           <div class="world-body">
             <p data-i18n class="world-tag" data-reveal>04 · преподавание</p>
             <h2 data-i18n class="world-name" data-reveal>Дагоба</h2>
@@ -282,9 +271,8 @@
 
       <!-- 05 Мустафар: проекты -->
       <section class="world" id="mustafar" data-tint="#ff6a2a" style="--c:#ff6a2a">
-        <div class="surface" data-scene="mustafar" aria-hidden="true"><div class="surface-pin"><canvas></canvas><div class="surface-shade"></div></div></div>
         <div class="wrap world-inner">
-          <aside class="dossier"><div class="world-planet" aria-hidden="true"><canvas class="main-planet" data-planet="mustafar" data-light="-.5,.5,.7" data-drag></canvas><span data-i18n class="drag-hint">↻ покрутите планету</span></div><div class="dossier-card"><p data-i18n class="dossier-title">Досье планеты</p><dl class="dossier-data"><div><dt data-i18n>Климат</dt><dd data-i18n>вулканы и лава</dd></div><div><dt data-i18n>Раздел</dt><dd data-i18n>проекты</dd></div><div><dt data-i18n>Код</dt><dd data-i18n>открыт на GitHub</dd></div></dl></div></aside>
+          <div class="world-planet" aria-hidden="true"><canvas class="main-planet" data-planet="mustafar" data-light="-.5,.5,.7" data-drag></canvas><span data-i18n class="drag-hint">↻ покрутите планету</span></div>
           <div class="world-body">
             <p data-i18n class="world-tag" data-reveal>05 · проекты</p>
             <h2 data-i18n class="world-name" data-reveal>Мустафар</h2>
@@ -305,9 +293,8 @@
 
       <!-- 06 Илум: навыки -->
       <section class="world flip" id="ilum" data-tint="#5fe4ff" style="--c:#5fe4ff">
-        <div class="surface" data-scene="ilum" aria-hidden="true"><div class="surface-pin"><canvas></canvas><div class="surface-shade"></div></div></div>
         <div class="wrap world-inner">
-          <aside class="dossier"><div class="world-planet" aria-hidden="true"><canvas class="main-planet" data-planet="ilum" data-light=".55,.45,.7" data-drag></canvas><span data-i18n class="drag-hint">↻ покрутите планету</span></div><div class="dossier-card"><p data-i18n class="dossier-title">Досье планеты</p><dl class="dossier-data"><div><dt data-i18n>Климат</dt><dd data-i18n>лёд и кристаллы</dd></div><div><dt data-i18n>Раздел</dt><dd data-i18n>навыки</dd></div><div><dt data-i18n>Основа</dt><dd>Python, SQL, R</dd></div></dl></div></aside>
+          <div class="world-planet" aria-hidden="true"><canvas class="main-planet" data-planet="ilum" data-light=".55,.45,.7" data-drag></canvas><span data-i18n class="drag-hint">↻ покрутите планету</span></div>
           <div class="world-body">
             <p data-i18n class="world-tag" data-reveal>06 · навыки</p>
             <h2 data-i18n class="world-name" data-reveal>Илум</h2>
@@ -339,9 +326,8 @@
 
       <!-- 07 Скариф: сертификаты -->
       <section class="world" id="scarif" data-tint="#2fc6d8" style="--c:#2fc6d8">
-        <div class="surface" data-scene="scarif" aria-hidden="true"><div class="surface-pin"><canvas></canvas><div class="surface-shade"></div></div></div>
         <div class="wrap world-inner">
-          <aside class="dossier"><div class="world-planet" aria-hidden="true"><canvas class="main-planet" data-planet="scarif" data-light="-.5,.5,.7" data-drag></canvas><span data-i18n class="drag-hint">↻ покрутите планету</span></div><div class="dossier-card"><p data-i18n class="dossier-title">Досье планеты</p><dl class="dossier-data"><div><dt data-i18n>Климат</dt><dd data-i18n>тропики и океан</dd></div><div><dt data-i18n>Раздел</dt><dd data-i18n>сертификаты</dd></div><div><dt data-i18n>Архив</dt><dd data-i18n>курсы и сертификаты</dd></div></dl></div></aside>
+          <div class="world-planet" aria-hidden="true"><canvas class="main-planet" data-planet="scarif" data-light="-.5,.5,.7" data-drag></canvas><span data-i18n class="drag-hint">↻ покрутите планету</span></div>
           <div class="world-body">
             <p data-i18n class="world-tag" data-reveal>07 · сертификаты</p>
             <h2 data-i18n class="world-name" data-reveal>Скариф</h2>
@@ -361,9 +347,8 @@
 
       <!-- 08 Набу: учёба и языки -->
       <section class="world flip" id="naboo" data-tint="#77aaff" style="--c:#77aaff">
-        <div class="surface" data-scene="naboo" aria-hidden="true"><div class="surface-pin"><canvas></canvas><div class="surface-shade"></div></div></div>
         <div class="wrap world-inner">
-          <aside class="dossier"><div class="world-planet" aria-hidden="true"><canvas class="main-planet" data-planet="naboo" data-light=".55,.45,.7" data-drag></canvas><div class="orbit" style="--tilt:72deg;--dur:30s;--size:12%;--r:-10%"><div class="orbit-ring"><span class="moon"><canvas data-planet="moon" data-max="110"></canvas></span></div></div><span data-i18n class="drag-hint">↻ покрутите планету</span></div><div class="dossier-card"><p data-i18n class="dossier-title">Досье планеты</p><dl class="dossier-data"><div><dt data-i18n>Климат</dt><dd data-i18n>озёра и водопады</dd></div><div><dt data-i18n>Раздел</dt><dd data-i18n>учёба и языки</dd></div><div><dt data-i18n>Выпуск</dt><dd data-i18n>лето 2027</dd></div></dl></div></aside>
+          <div class="world-planet" aria-hidden="true"><canvas class="main-planet" data-planet="naboo" data-light=".55,.45,.7" data-drag></canvas><div class="orbit" style="--tilt:72deg;--dur:30s;--size:12%;--r:-10%"><div class="orbit-ring"><span class="moon"><canvas data-planet="moon" data-max="110"></canvas></span></div></div><span data-i18n class="drag-hint">↻ покрутите планету</span></div>
           <div class="world-body">
             <p data-i18n class="world-tag" data-reveal>08 · учёба и языки</p>
             <h2 data-i18n class="world-name" data-reveal>Набу</h2>
@@ -388,13 +373,12 @@
 
       <!-- 09 Явин IV: связь -->
       <section class="world" id="yavin4" data-tint="#ffa25c" style="--c:#ffa25c">
-        <div class="surface" data-scene="yavin4" aria-hidden="true"><div class="surface-pin"><canvas></canvas><div class="surface-shade"></div></div></div>
         <div class="wrap world-inner">
-          <aside class="dossier"><div class="world-planet" aria-hidden="true">
+          <div class="world-planet" aria-hidden="true">
             <canvas class="moon-back" data-planet="yavin" data-light="-.5,.5,.7"></canvas>
             <canvas class="main-planet" data-planet="yavin4" data-light="-.5,.5,.7" data-drag></canvas>
             <span data-i18n class="drag-hint">↻ покрутите планету</span>
-          </div><div class="dossier-card"><p data-i18n class="dossier-title">Досье планеты</p><dl class="dossier-data"><div><dt data-i18n>Климат</dt><dd data-i18n>джунгли</dd></div><div><dt data-i18n>Раздел</dt><dd data-i18n>связь</dd></div><div><dt data-i18n>Канал</dt><dd data-i18n>почта и Telegram</dd></div></dl></div></aside>
+          </div>
           <div class="world-body">
             <p data-i18n class="world-tag" data-reveal>09 · связь</p>
             <h2 data-i18n class="world-name" data-reveal>Явин IV</h2>
@@ -449,9 +433,7 @@
   <script src="assets/music.js"></script>
   <script src="assets/holo.js"></script>
   <script src="assets/hyper.js"></script>
-  <script src="assets/scenes.js"></script>
   <script src="assets/site.js"></script>
   <script src="assets/console.js"></script>
-  <script src="assets/jedi.js"></script>
 </body>
 </html>

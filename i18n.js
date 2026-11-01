@@ -45,9 +45,9 @@ window.I18N = {
     en: "Skip ›",
     kk: "Өткізу ›"
   },
-  "Навигация": {
-    en: "Navigation",
-    kk: "Навигация"
+  "Карта галактики": {
+    en: "Galaxy map",
+    kk: "Галактика картасы"
   },
   "Терминал": {
     en: "Terminal",
@@ -101,6 +101,10 @@ window.I18N = {
     en: "I build models and dig into learning data. I'm a fourth-year Data Science and Statistics student at SDU, and I've been teaching maths and Python since 2023.",
     kk: "Модельдер құрып, оқу деректерін зерттеймін. SDU-да Data Science және статистика бойынша 4-курста оқимын, ал 2023 жылдан бері математика мен Python пәндерін оқытамын."
   },
+  "Открыть карту галактики": {
+    en: "Open the galaxy map",
+    kk: "Галактика картасын ашу"
+  },
   "Написать мне": {
     en: "Get in touch",
     kk: "Маған жазу"
@@ -109,9 +113,9 @@ window.I18N = {
     en: "Download PDF",
     kk: "PDF жүктеу"
   },
-  "Выберите планету и прыгайте": {
-    en: "Pick a planet and jump",
-    kk: "Планетаны таңдап, секіріңіз"
+  "Девять планет, и на каждой своя часть резюме. Нажмите на любую, чтобы прыгнуть к ней через гиперпространство.": {
+    en: "Nine planets, each holding one part of my CV. Click any of them to jump there through hyperspace.",
+    kk: "Тоғыз планета, әрқайсысында түйіндеменің бір бөлігі. Гиперкеңістік арқылы секіру үшін кез келгенін басыңыз."
   },
   "обо мне": {
     en: "about me",
@@ -153,30 +157,6 @@ window.I18N = {
     en: "↻ drag to spin",
     kk: "↻ планетаны айналдырыңыз"
   },
-  "Досье планеты": {
-    en: "Planet dossier",
-    kk: "Планета досьесі"
-  },
-  "Климат": {
-    en: "Climate",
-    kk: "Климаты"
-  },
-  "пустыня, два солнца": {
-    en: "desert, two suns",
-    kk: "шөл, екі күн"
-  },
-  "Раздел": {
-    en: "Section",
-    kk: "Бөлім"
-  },
-  "Координаты": {
-    en: "Coordinates",
-    kk: "Координаттар"
-  },
-  "Алматы, Казахстан": {
-    en: "Almaty, Kazakhstan",
-    kk: "Алматы, Қазақстан"
-  },
   "01 · обо мне": {
     en: "01 · about me",
     kk: "01 · мен туралы"
@@ -216,14 +196,6 @@ window.I18N = {
   "<b>B2</b>английский, IELTS 6.0": {
     en: "<b>B2</b>English, IELTS 6.0",
     kk: "<b>B2</b>ағылшын тілі, IELTS 6.0"
-  },
-  "город на всю планету": {
-    en: "one city covering the planet",
-    kk: "бүкіл планетаны алып жатқан қала"
-  },
-  "Должность": {
-    en: "Role",
-    kk: "Лауазым"
   },
   "02 · работа сейчас": {
     en: "02 · current job",
@@ -265,18 +237,6 @@ window.I18N = {
     en: "Hologram: a regression plane fitted to synthetic data",
     kk: "Голограмма: синтетикалық деректердегі регрессия жазықтығы"
   },
-  "вечная зима": {
-    en: "eternal winter",
-    kk: "мәңгі қыс"
-  },
-  "Период": {
-    en: "Period",
-    kk: "Кезең"
-  },
-  "февраль — май 2025": {
-    en: "February — May 2025",
-    kk: "2025 жылғы ақпан — мамыр"
-  },
   "03 · исследование": {
     en: "03 · research",
     kk: "03 · зерттеу"
@@ -304,18 +264,6 @@ window.I18N = {
   "Готовил графики, раздел о методологии и сводку результатов.": {
     en: "Prepared the charts, the methodology section and the summary of results.",
     kk: "Графиктерді, әдістеме бөлімін және нәтижелер қорытындысын дайындадым."
-  },
-  "болота и туман": {
-    en: "swamps and fog",
-    kk: "батпақ пен тұман"
-  },
-  "Стаж": {
-    en: "Experience",
-    kk: "Тәжірибе"
-  },
-  "с 2023 года": {
-    en: "since 2023",
-    kk: "2023 жылдан бері"
   },
   "04 · преподавание": {
     en: "04 · teaching",
@@ -369,18 +317,6 @@ window.I18N = {
     en: "“To teach is to learn twice.” Yoda never said it, but he could have.",
     kk: "«Үйрету — екі рет үйрену». Йода мұны айтпаған, бірақ айтуы мүмкін еді."
   },
-  "вулканы и лава": {
-    en: "volcanoes and lava",
-    kk: "жанартаулар мен лава"
-  },
-  "Код": {
-    en: "Code",
-    kk: "Код"
-  },
-  "открыт на GitHub": {
-    en: "open on GitHub",
-    kk: "GitHub-та ашық"
-  },
   "05 · проекты": {
     en: "05 · projects",
     kk: "05 · жобалар"
@@ -412,14 +348,6 @@ window.I18N = {
   "Все репозитории на GitHub ↗": {
     en: "All repositories on GitHub ↗",
     kk: "GitHub-тағы барлық репозиторийлер ↗"
-  },
-  "лёд и кристаллы": {
-    en: "ice and crystals",
-    kk: "мұз бен кристалдар"
-  },
-  "Основа": {
-    en: "Core",
-    kk: "Негізі"
   },
   "06 · навыки": {
     en: "06 · skills",
@@ -469,18 +397,6 @@ window.I18N = {
     en: "Holoprojector: core tools",
     kk: "Голопроектор: негізгі құралдар"
   },
-  "тропики и океан": {
-    en: "tropics and ocean",
-    kk: "тропиктер мен мұхит"
-  },
-  "Архив": {
-    en: "Archive",
-    kk: "Мұрағат"
-  },
-  "курсы и сертификаты": {
-    en: "courses and certificates",
-    kk: "курстар мен сертификаттар"
-  },
   "07 · сертификаты": {
     en: "07 · certificates",
     kk: "07 · сертификаттар"
@@ -509,18 +425,6 @@ window.I18N = {
     en: "Full list on LinkedIn ↗",
     kk: "Толық тізім LinkedIn-де ↗"
   },
-  "озёра и водопады": {
-    en: "lakes and waterfalls",
-    kk: "көлдер мен сарқырамалар"
-  },
-  "Выпуск": {
-    en: "Graduation",
-    kk: "Бітіру"
-  },
-  "лето 2027": {
-    en: "summer 2027",
-    kk: "2027 жылғы жаз"
-  },
   "08 · учёба и языки": {
     en: "08 · education and languages",
     kk: "08 · оқу және тілдер"
@@ -548,18 +452,6 @@ window.I18N = {
   "Английский: B2, IELTS Academic 6.0 (British Council, 2023).": {
     en: "English: B2, IELTS Academic 6.0 (British Council, 2023).",
     kk: "Ағылшын тілі: B2, IELTS Academic 6.0 (British Council, 2023)."
-  },
-  "джунгли": {
-    en: "jungle",
-    kk: "джунгли"
-  },
-  "Канал": {
-    en: "Channel",
-    kk: "Арна"
-  },
-  "почта и Telegram": {
-    en: "email and Telegram",
-    kk: "пошта және Telegram"
   },
   "09 · связь": {
     en: "09 · contact",
@@ -625,10 +517,6 @@ window.I18N = {
     en: "Islam Kuttybaev, back to top",
     kk: "Islam Kuttybaev, басына өту"
   },
-  "Звук": {
-    en: "Sound",
-    kk: "Дыбыс"
-  },
   "Посмотреть заставку ещё раз": {
     en: "Watch the intro again",
     kk: "Кіріспені қайта көру"
@@ -641,8 +529,8 @@ window.I18N = {
     en: "Command",
     kk: "Команда"
   },
-  "Ислам Куттыбаев, Data Scientist в ТОО «Adam Labs», Алматы. Резюме в виде путешествия по планетам: опыт, проекты, навыки и контакты.": {
-    en: "Islam Kuttybaev, Data Scientist at Adam Labs LLP, Almaty. A CV as a journey across planets: experience, projects, skills and contacts.",
-    kk: "Ислам Куттыбаев, «Adam Labs» ЖШС-дағы Data Scientist, Алматы. Планеталар бойынша саяхат түріндегі түйіндеме: тәжірибе, жобалар, дағдылар және байланыс."
+  "Ислам Куттыбаев, Data Scientist в ТОО «Adam Labs», Алматы. Резюме в виде карты галактики: опыт, проекты, навыки и контакты.": {
+    en: "Islam Kuttybaev, Data Scientist at Adam Labs LLP, Almaty. A CV laid out as a galaxy map: experience, projects, skills and contacts.",
+    kk: "Ислам Куттыбаев, «Adam Labs» ЖШС-дағы Data Scientist, Алматы. Галактика картасы түріндегі түйіндеме: тәжірибе, жобалар, дағдылар және байланыс."
   }
 };
