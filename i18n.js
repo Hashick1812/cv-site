@@ -457,21 +457,9 @@ window.I18N = {
     en: "10 · holocron",
     kk: "10 · голокрон"
   },
-  "Древнее хранилище знаний джедаев. Коснитесь голокрона, и он откроет канал связи со мной.": {
-    en: "An ancient Jedi vault of knowledge. Touch the holocron and it will open a channel to me.",
-    kk: "Джедайлардың ежелгі білім қоймасы. Голокронды түртіңіз, ол менімен байланыс арнасын ашады."
-  },
-  "Канал связи": {
-    en: "Comms channel",
-    kk: "Байланыс арнасы"
-  },
-  "Написать письмо": {
-    en: "Send an email",
-    kk: "Хат жазу"
-  },
-  "Скопировать адрес": {
-    en: "Copy address",
-    kk: "Мекенжайды көшіру"
+  "Древнее хранилище знаний джедаев. Нажимайте на голокрон: каждый раз он открывает новый канал связи со мной.": {
+    en: "An ancient Jedi vault of knowledge. Click the holocron: each time it opens a new channel to me.",
+    kk: "Джедайлардың ежелгі білім қоймасы. Голокронды басыңыз: ол әр жолы менімен жаңа байланыс арнасын ашады."
   },
   "Алматы": {
     en: "Almaty",
@@ -501,9 +489,9 @@ window.I18N = {
     en: "Command",
     kk: "Команда"
   },
-  "Открыть голокрон": {
-    en: "Open the holocron",
-    kk: "Голокронды ашу"
+  "Голокрон: следующий канал связи": {
+    en: "Holocron: next comms channel",
+    kk: "Голокрон: келесі байланыс арнасы"
   },
   "Ислам Куттыбаев, Data Scientist в ТОО «Adam Labs», Алматы. Резюме в виде карты галактики: опыт, проекты, навыки и контакты.": {
     en: "Islam Kuttybaev, Data Scientist at Adam Labs LLP, Almaty. A CV laid out as a galaxy map: experience, projects, skills and contacts.",

@@ -35,7 +35,7 @@
       if (lang !== 'ru') d.classList.add('i18n-pending');
     })();
   </script>
-  <link rel="stylesheet" href="assets/site.css?v=20261101c">
+  <link rel="stylesheet" href="assets/site.css?v=20261101d">
 </head>
 <body>
   <a data-i18n class="skip-link" href="#main">Перейти к содержанию</a>
@@ -419,9 +419,9 @@
       <section class="world holocron-sec" id="holocron" data-tint="#6fd6ff" style="--c:#6fd6ff">
         <div class="wrap">
           <div class="hc-wrap">
-            <div data-i18n-attr="aria-label" class="holocron" role="button" tabindex="0" aria-pressed="false" aria-label="Открыть голокрон">
+            <div data-i18n-attr="aria-label" class="holocron" role="button" tabindex="0" aria-label="Голокрон: следующий канал связи">
               <div class="hc-float">
-                <div class="hc-cube"><i class="hc-face f1"></i><i class="hc-face f2"></i><i class="hc-face f3"></i><i class="hc-face f4"></i><i class="hc-face f5"></i><i class="hc-face f6"></i></div>
+                <div class="hc-turn"><div class="hc-cube"><i class="hc-face f1"></i><i class="hc-face f2"></i><i class="hc-face f3"></i><i class="hc-face f4"></i><i class="hc-face f5"></i><i class="hc-face f6"></i></div></div>
                 <span class="hc-core" aria-hidden="true"></span>
               </div>
               <span class="hc-proj" aria-hidden="true">hashick1812@gmail.com</span>
@@ -430,15 +430,23 @@
             <div class="hc-text">
               <p data-i18n class="world-tag" data-reveal>10 · голокрон</p>
               <h2 data-i18n class="world-name" data-reveal>Голокрон</h2>
-              <p data-i18n class="lore" data-reveal>Древнее хранилище знаний джедаев. Коснитесь голокрона, и он откроет канал связи со мной.</p>
-              <div class="hc-msg" data-reveal>
-                <p data-i18n class="hc-label">Канал связи</p>
+              <p data-i18n class="lore" data-reveal>Древнее хранилище знаний джедаев. Нажимайте на голокрон: каждый раз он открывает новый канал связи со мной.</p>
+              <div class="hc-msg" data-reveal data-i18n-skip aria-live="polite">
+                <p class="hc-label"><span class="hc-label-t">Канал связи</span> <span class="hc-count">1/6</span> · <span class="hc-name">Gmail</span></p>
                 <a class="hc-mail" href="mailto:hashick1812@gmail.com">hashick1812@gmail.com</a>
                 <div class="hc-actions">
-                  <a data-i18n class="btn primary" href="mailto:hashick1812@gmail.com">Написать письмо</a>
-                  <button data-i18n class="btn" type="button" data-copy="hashick1812@gmail.com">Скопировать адрес</button>
+                  <a class="btn primary hc-go" href="mailto:hashick1812@gmail.com">Написать письмо</a>
+                  <button class="btn hc-copy" type="button" data-copy="hashick1812@gmail.com">Скопировать</button>
                 </div>
               </div>
+              <ul class="hc-list" data-reveal>
+                <li><a class="hc-ch on" data-act="mail" href="mailto:hashick1812@gmail.com"><span class="hc-ch-k">Gmail</span><span class="hc-ch-v">hashick1812@gmail.com</span></a></li>
+                <li><a class="hc-ch" data-act="mail" href="mailto:islam0402@list.ru"><span data-i18n class="hc-ch-k">Почта</span><span class="hc-ch-v">islam0402@list.ru</span></a></li>
+                <li><a class="hc-ch" data-act="call" href="tel:+77081930806"><span data-i18n class="hc-ch-k">Телефон</span><span class="hc-ch-v">+7 708 193 08 06</span></a></li>
+                <li><a class="hc-ch" data-act="tg" href="https://t.me/rule_46" target="_blank" rel="noopener"><span class="hc-ch-k">Telegram</span><span class="hc-ch-v">@rule_46</span></a></li>
+                <li><a class="hc-ch" data-act="in" href="https://www.linkedin.com/in/islam-kuttybaev-106555416/" target="_blank" rel="noopener"><span class="hc-ch-k">LinkedIn</span><span class="hc-ch-v">Islam Kuttybaev</span></a></li>
+                <li><a class="hc-ch" data-act="gh" href="https://github.com/Hashick1812" target="_blank" rel="noopener"><span class="hc-ch-k">GitHub</span><span class="hc-ch-v">Hashick1812</span></a></li>
+              </ul>
             </div>
           </div>
           <footer class="footer">
@@ -450,12 +458,12 @@
     </main>
   </div>
 
-  <script src="i18n.js?v=20261101c"></script>
-  <script src="assets/planets.js?v=20261101c"></script>
-  <script src="assets/music.js?v=20261101c"></script>
-  <script src="assets/holo.js?v=20261101c"></script>
-  <script src="assets/hyper.js?v=20261101c"></script>
-  <script src="assets/site.js?v=20261101c"></script>
-  <script src="assets/console.js?v=20261101c"></script>
+  <script src="i18n.js?v=20261101d"></script>
+  <script src="assets/planets.js?v=20261101d"></script>
+  <script src="assets/music.js?v=20261101d"></script>
+  <script src="assets/holo.js?v=20261101d"></script>
+  <script src="assets/hyper.js?v=20261101d"></script>
+  <script src="assets/site.js?v=20261101d"></script>
+  <script src="assets/console.js?v=20261101d"></script>
 </body>
 </html>

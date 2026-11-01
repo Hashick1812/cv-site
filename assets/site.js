@@ -338,26 +338,64 @@
   document.querySelectorAll('[data-study-label]').forEach(function (el) { el.textContent = pct + '%'; });
   document.querySelectorAll('[data-print]').forEach(function (b) { b.addEventListener('click', function () { window.print(); }); });
 
-  /* ---------- Голокрон связи: открывается по клику и сам, когда до него долистали ---------- */
-  var hc = document.querySelector('.holocron');
+  /* ---------- Голокрон связи: раскрывается, когда до него долистали; по клику переключает канал ---------- */
+  var COPIED = { ru: 'Скопировано ✓', en: 'Copied ✓', kk: 'Көшірілді ✓' };
+  var HC_T = {
+    label: { ru: 'Канал связи', en: 'Comms channel', kk: 'Байланыс арнасы' },
+    copy: { ru: 'Скопировать', en: 'Copy', kk: 'Көшіру' },
+    mail: { ru: 'Написать письмо', en: 'Send an email', kk: 'Хат жазу' },
+    call: { ru: 'Позвонить', en: 'Call', kk: 'Қоңырау шалу' },
+    tg: { ru: 'Написать в Telegram', en: 'Message on Telegram', kk: 'Telegram-ға жазу' },
+    'in': { ru: 'Открыть LinkedIn', en: 'Open LinkedIn', kk: 'LinkedIn-ді ашу' },
+    gh: { ru: 'Открыть GitHub', en: 'Open GitHub', kk: 'GitHub-ты ашу' }
+  };
+  function hcT(k) { return (HC_T[k] || {})[curLang] || (HC_T[k] || {}).ru || ''; }
+  var hc = document.querySelector('.holocron'), hcMsg = document.querySelector('.hc-msg');
+  var chans = Array.prototype.slice.call(document.querySelectorAll('.hc-ch')), cur = 0, turn = 0;
+  function renderHC(animate) {
+    if (!hcMsg || !chans.length) return;
+    var a = chans[cur], v = a.querySelector('.hc-ch-v').textContent, href = a.getAttribute('href'), ext = a.target === '_blank';
+    var mail = hcMsg.querySelector('.hc-mail'), go = hcMsg.querySelector('.hc-go'), cp = hcMsg.querySelector('.hc-copy');
+    hcMsg.querySelector('.hc-label-t').textContent = hcT('label');
+    hcMsg.querySelector('.hc-count').textContent = (cur + 1) + '/' + chans.length;
+    hcMsg.querySelector('.hc-name').textContent = a.querySelector('.hc-ch-k').textContent;
+    [mail, go].forEach(function (el) {
+      el.setAttribute('href', href);
+      if (ext) { el.target = '_blank'; el.rel = 'noopener'; } else { el.removeAttribute('target'); el.removeAttribute('rel'); }
+    });
+    mail.textContent = v;
+    go.textContent = hcT(a.getAttribute('data-act'));
+    cp.textContent = hcT('copy');
+    cp.setAttribute('data-copy', v);
+    chans.forEach(function (x, i) { x.classList.toggle('on', i === cur); });
+    var proj = hc && hc.querySelector('.hc-proj'); if (proj) proj.textContent = v;
+    if (animate) { hcMsg.classList.remove('swap'); void hcMsg.offsetWidth; hcMsg.classList.add('swap'); }
+  }
   if (hc) {
-    var setHC = function (on) { hc.classList.toggle('open', on); hc.setAttribute('aria-pressed', String(on)); };
-    hc.addEventListener('click', function () { setHC(!hc.classList.contains('open')); });
-    hc.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setHC(!hc.classList.contains('open')); } });
+    var openHC = function () { hc.classList.add('open'); };
+    var nextHC = function () {
+      openHC();
+      cur = (cur + 1) % chans.length; turn++;
+      hc.style.setProperty('--turn', turn);
+      hc.classList.add('switch');
+      setTimeout(function () { hc.classList.remove('switch'); renderHC(true); }, reduce ? 0 : 260);
+    };
+    hc.addEventListener('click', nextHC);
+    hc.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); nextHC(); } });
     if ('IntersectionObserver' in window) {
       var hio = new IntersectionObserver(function (es) {
-        if (es[0].isIntersecting) { hio.disconnect(); setTimeout(function () { setHC(true); }, reduce ? 0 : 900); }
+        if (es[0].isIntersecting) { hio.disconnect(); setTimeout(openHC, reduce ? 0 : 900); }
       }, { threshold: .5 });
       hio.observe(hc);
-    }
+    } else openHC();
   }
-  var COPIED = { ru: 'Скопировано ✓', en: 'Copied ✓', kk: 'Көшірілді ✓' };
+  renderHC(false);
+  document.addEventListener('langchange', function () { renderHC(false); });
   document.querySelectorAll('[data-copy]').forEach(function (b) {
     b.addEventListener('click', function () {
-      var txt = b.getAttribute('data-copy'), before = b.innerHTML;
-      var done = function () { b.textContent = COPIED[curLang] || COPIED.ru; setTimeout(function () { b.innerHTML = before; }, 1800); };
-      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(done, function () { location.href = 'mailto:' + txt; });
-      else location.href = 'mailto:' + txt;
+      var txt = b.getAttribute('data-copy'), before = b.textContent;
+      var done = function () { b.textContent = COPIED[curLang] || COPIED.ru; setTimeout(function () { b.textContent = before; }, 1800); };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(done, function () {});
     });
   });
 
