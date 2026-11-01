@@ -13,21 +13,21 @@ window.I18N = {
     en: "Episode IV",
     kk: "IV эпизод"
   },
-  "Новая надежда данных": {
-    en: "A New Hope for Data",
-    kk: "Деректердің жаңа үміті"
+  "Новая модель": {
+    en: "A New Model",
+    kk: "Жаңа модель"
   },
-  "Идёт эпоха больших данных. Компании по всей галактике тонут в таблицах, разрозненных отчётах и непроверенных гипотезах.": {
-    en: "It is the era of big data. Companies across the galaxy are drowning in spreadsheets, scattered reports and untested hypotheses.",
-    kk: "Үлкен деректер дәуірі. Галактиканың түкпір-түкпіріндегі компаниялар кестелерге, шашыраңқы есептерге және тексерілмеген гипотезаларға батып барады."
+  "Галактика тонет в данных. Отчёты спорят друг с другом, графики вводят в заблуждение, а решения принимают наугад.": {
+    en: "The galaxy is drowning in data. Reports contradict each other, charts mislead, and decisions are made at random.",
+    kk: "Галактика деректерге батып барады. Есептер бір-біріне қайшы келеді, графиктер адастырады, ал шешімдер кездейсоқ қабылданады."
   },
-  "Молодой специалист по Data Science ИСЛАМ КУТТЫБАЕВ, прошедший подготовку в академии SDU, вооружён Python, машинным обучением и силой статистики.": {
-    en: "A young data scientist, ISLAM KUTTYBAEV, trained at the SDU academy, is armed with Python, machine learning and the power of statistics.",
-    kk: "SDU академиясында дайындықтан өткен жас Data Science маманы ИСЛАМ КУТТЫБАЕВ Python, машиналық оқыту және статистика күшімен қаруланған."
+  "Молодой Data Scientist ИСЛАМ КУТТЫБАЕВ проходит последний, четвёртый год обучения в академии SDU. Его оружие: Python, SQL и статистика.": {
+    en: "A young data scientist, ISLAM KUTTYBAEV, is in his fourth and final year at the SDU academy. His weapons: Python, SQL and statistics.",
+    kk: "Жас Data Scientist ИСЛАМ КУТТЫБАЕВ SDU академиясындағы соңғы, төртінші оқу жылында. Оның қаруы: Python, SQL және статистика."
   },
-  "Присоединившись к команде ТОО «ADAM LABS», он обучает модели, превращает хаос данных в ясные решения и помогает людям учиться и расти, пока тёмная сторона — решения без доказательств — отступает…": {
-    en: "Having joined the team at ADAM LABS LLP, he trains models, turns data chaos into clear decisions and helps people learn and grow, while the dark side — decisions without evidence — retreats…",
-    kk: "«ADAM LABS» ЖШС командасына қосылған ол модельдерді оқытады, деректер хаосын айқын шешімдерге айналдырады және адамдарға оқып, дамуға көмектеседі. Ал қараңғы тарап — дәлелсіз шешімдер — шегінуде…"
+  "Теперь он служит в ТОО «ADAM LABS» и учит модели отличать сигнал от шума, чтобы люди могли учиться лучше…": {
+    en: "Now he serves at ADAM LABS LLP, teaching models to tell signal from noise so that people can learn better…",
+    kk: "Енді ол «ADAM LABS» ЖШС-да қызмет етіп, адамдар жақсырақ оқи алуы үшін модельдерді сигналды шудан ажыратуға үйретеді…"
   },
   "Включить звук": {
     en: "Enable sound",
@@ -37,756 +37,456 @@ window.I18N = {
     en: "Sound on",
     kk: "Дыбыс қосулы"
   },
-  "Esc · Enter · клик — пропустить": {
-    en: "Esc · Enter · click — skip",
-    kk: "Esc · Enter · басу — өткізу"
+  "Esc, Enter или клик: пропустить": {
+    en: "Esc, Enter or click: skip",
+    kk: "Esc, Enter немесе басу: өткізу"
   },
-  "Пропустить интро ›": {
-    en: "Skip intro ›",
-    kk: "Интроны өткізу ›"
+  "Пропустить ›": {
+    en: "Skip ›",
+    kk: "Өткізу ›"
   },
-  "Досье": {
-    en: "Dossier",
-    kk: "Досье"
+  "Карта галактики": {
+    en: "Galaxy map",
+    kk: "Галактика картасы"
   },
-  "Миссия": {
-    en: "Mission",
-    kk: "Миссия"
+  "Татуин": {
+    en: "Tatooine",
+    kk: "Татуин"
   },
-  "Опыт": {
-    en: "Experience",
-    kk: "Тәжірибе"
+  "Корусант": {
+    en: "Coruscant",
+    kk: "Корусант"
   },
-  "Навыки": {
-    en: "Skills",
-    kk: "Дағдылар"
+  "Хот": {
+    en: "Hoth",
+    kk: "Хот"
   },
-  "Сертификаты": {
-    en: "Certificates",
-    kk: "Сертификаттар"
+  "Дагоба": {
+    en: "Dagobah",
+    kk: "Дагоба"
   },
-  "Образование": {
-    en: "Education",
-    kk: "Білім"
+  "Мустафар": {
+    en: "Mustafar",
+    kk: "Мустафар"
   },
-  "Контакты": {
-    en: "Contact",
-    kk: "Байланыс"
+  "Илум": {
+    en: "Ilum",
+    kk: "Илум"
   },
-  "▶ Интро": {
-    en: "▶ Intro",
-    kk: "▶ Интро"
+  "Скариф": {
+    en: "Scarif",
+    kk: "Скариф"
   },
-  "Интро": {
-    en: "Intro",
-    kk: "Интро"
+  "Набу": {
+    en: "Naboo",
+    kk: "Набу"
   },
-  "CV · 2026 · Алматы, Казахстан": {
-    en: "CV · 2026 · Almaty, Kazakhstan",
-    kk: "CV · 2026 · Алматы, Қазақстан"
+  "Явин IV": {
+    en: "Yavin IV",
+    kk: "Явин IV"
+  },
+  "Резюме · Алматы · 2026": {
+    en: "CV · Almaty · 2026",
+    kk: "Түйіндеме · Алматы · 2026"
   },
   "ТОО «Adam Labs»": {
     en: "Adam Labs LLP",
     kk: "«Adam Labs» ЖШС"
   },
-  "Data Scientist с фундаментом в статистике и машинном обучении. Строю модели и превращаю разрозненные данные в понятные решения — и умею объяснить их любой аудитории: от студентов до руководства.": {
-    en: "Data Scientist with a solid foundation in statistics and machine learning. I build models and turn scattered data into clear decisions — and can explain them to any audience, from students to leadership.",
-    kk: "Статистика мен машиналық оқытуға берік негізделген Data Scientist. Модельдер құрып, шашыраңқы деректерді түсінікті шешімдерге айналдырамын және оларды кез келген аудиторияға — студенттерден басшылыққа дейін — түсіндіре аламын."
+  "Строю модели и разбираюсь в данных об обучении. Учусь на 4 курсе SDU по Data Science и статистике, а с 2023 года преподаю математику и Python.": {
+    en: "I build models and dig into learning data. I'm a fourth-year Data Science and Statistics student at SDU, and I've been teaching maths and Python since 2023.",
+    kk: "Модельдер құрып, оқу деректерін зерттеймін. SDU-да Data Science және статистика бойынша 4-курста оқимын, ал 2023 жылдан бері математика мен Python пәндерін оқытамын."
   },
-  "Установить связь": {
+  "Открыть карту галактики": {
+    en: "Open the galaxy map",
+    kk: "Галактика картасын ашу"
+  },
+  "Написать мне": {
     en: "Get in touch",
-    kk: "Байланысу"
+    kk: "Маған жазу"
   },
-  "Хроника опыта ↓": {
-    en: "Experience log ↓",
-    kk: "Тәжірибе шежіресі ↓"
+  "Скачать PDF": {
+    en: "Download PDF",
+    kk: "PDF жүктеу"
   },
-  "Сохранить PDF": {
-    en: "Save as PDF",
-    kk: "PDF сақтау"
+  "Девять планет, и на каждой своя часть резюме. Нажмите на любую, чтобы прыгнуть к ней через гиперпространство.": {
+    en: "Nine planets, each holding one part of my CV. Click any of them to jump there through hyperspace.",
+    kk: "Тоғыз планета, әрқайсысында түйіндеменің бір бөлігі. Гиперкеңістік арқылы секіру үшін кез келгенін басыңыз."
   },
-  "Личное дело": {
-    en: "Personnel file",
-    kk: "Жеке іс"
+  "обо мне": {
+    en: "about me",
+    kk: "мен туралы"
   },
-  "Статус": {
-    en: "Status",
-    kk: "Мәртебе"
+  "работа": {
+    en: "work",
+    kk: "жұмыс"
   },
-  "<span class=\"pulse\"></span>На миссии": {
-    en: "<span class=\"pulse\"></span>On a mission",
-    kk: "<span class=\"pulse\"></span>Миссияда"
+  "исследование": {
+    en: "research",
+    kk: "зерттеу"
   },
-  "База": {
-    en: "Base",
-    kk: "База"
+  "преподавание": {
+    en: "teaching",
+    kk: "оқыту"
   },
-  "ТОО «Adam Labs», Алматы": {
-    en: "Adam Labs LLP, Almaty",
-    kk: "«Adam Labs» ЖШС, Алматы"
+  "проекты": {
+    en: "projects",
+    kk: "жобалар"
   },
-  "Академия": {
-    en: "Academy",
-    kk: "Академия"
+  "навыки": {
+    en: "skills",
+    kk: "дағдылар"
   },
-  "SDU · BSc Data Science &amp; Statistics, 4&nbsp;курс": {
-    en: "SDU · BSc Data Science &amp; Statistics, 4th&nbsp;year",
-    kk: "SDU · BSc Data Science &amp; Statistics, <span style=\"white-space:nowrap\">4-курс</span>"
+  "сертификаты": {
+    en: "certificates",
+    kk: "сертификаттар"
   },
-  "Стек": {
-    en: "Stack",
-    kk: "Стек"
+  "учёба и языки": {
+    en: "education and languages",
+    kk: "оқу және тілдер"
+  },
+  "связь": {
+    en: "contact",
+    kk: "байланыс"
+  },
+  "01 · обо мне": {
+    en: "01 · about me",
+    kk: "01 · мен туралы"
+  },
+  "Пустынная планета с двумя солнцами. Отсюда начинаются все большие истории, и моя тоже.": {
+    en: "A desert planet with two suns. Every big story starts here, and so does mine.",
+    kk: "Екі күні бар шөл планета. Барлық үлкен оқиғалар осы жерден басталады, менікі де."
+  },
+  "Привет, я Ислам": {
+    en: "Hi, I'm Islam",
+    kk: "Сәлем, мен Исламмын"
+  },
+  "Я Data Scientist из Алматы. Работаю в ТОО «Adam Labs» и учусь на 4 курсе Suleyman Demirel University по направлению Data Science and Statistics. Выпуск летом 2027 года.": {
+    en: "I'm a data scientist based in Almaty. I work at Adam Labs LLP and I'm in my fourth year of Data Science and Statistics at Suleyman Demirel University, graduating in summer 2027.",
+    kk: "Мен Алматыда тұратын Data Scientist маманымын. «Adam Labs» ЖШС-да жұмыс істеймін және Suleyman Demirel University-де Data Science and Statistics бағыты бойынша 4-курста оқимын. 2027 жылдың жазында бітіремін."
+  },
+  "До Adam Labs я четыре месяца был младшим исследовательским аналитиком в университете. С 2023 года преподаю: веду практику по математике и статистике в SDU и занимаюсь с учениками в Azat Academia.": {
+    en: "Before Adam Labs I spent four months as a junior research analyst at the university. I've been teaching since 2023: I run maths and statistics practice sessions at SDU and tutor students at Azat Academia.",
+    kk: "Adam Labs-қа дейін университетте төрт ай кіші зерттеуші-аналитик болдым. 2023 жылдан бері оқытамын: SDU-да математика мен статистика бойынша практикалық сабақтар жүргіземін және Azat Academia-да оқушылармен жұмыс істеймін."
+  },
+  "Больше всего меня интересуют прикладное машинное обучение, статистические исследования и данные в образовании.": {
+    en: "I'm most interested in applied machine learning, statistical research and data in education.",
+    kk: "Мені бәрінен бұрын қолданбалы машиналық оқыту, статистикалық зерттеулер және білім берудегі деректер қызықтырады."
+  },
+  "<b>Алматы</b>Казахстан": {
+    en: "<b>Almaty</b>Kazakhstan",
+    kk: "<b>Алматы</b>Қазақстан"
+  },
+  "<b>4 курс</b>SDU, выпуск 2027": {
+    en: "<b>4th year</b>SDU, class of 2027",
+    kk: "<b>4-курс</b>SDU, 2027 түлегі"
+  },
+  "<b>3+ года</b>преподаю": {
+    en: "<b>3+ years</b>of teaching",
+    kk: "<b>3+ жыл</b>оқытамын"
+  },
+  "<b>B2</b>английский, IELTS 6.0": {
+    en: "<b>B2</b>English, IELTS 6.0",
+    kk: "<b>B2</b>ағылшын тілі, IELTS 6.0"
+  },
+  "02 · работа сейчас": {
+    en: "02 · current job",
+    kk: "02 · қазіргі жұмыс"
+  },
+  "Город размером с планету, где огни не гаснут даже ночью. Здесь я работаю сейчас.": {
+    en: "A city the size of a planet, where the lights never go out. This is where I work now.",
+    kk: "Планета көлеміндей қала, мұнда түнде де шамдар сөнбейді. Қазір осында жұмыс істеймін."
+  },
+  "ТОО «Adam Labs» · Алматы · по настоящее время": {
+    en: "Adam Labs LLP · Almaty · present",
+    kk: "«Adam Labs» ЖШС · Алматы · қазіргі уақытқа дейін"
+  },
+  "Adam Labs (Центр развития и роста человеческих ресурсов) — IT-компания из Алматы, которая работает в сфере образования.": {
+    en: "Adam Labs (a centre for human resources development and growth) is an Almaty-based IT company working in education.",
+    kk: "Adam Labs (Адами ресурстарды дамыту және өсу орталығы) — білім беру саласында жұмыс істейтін алматылық IT-компания."
+  },
+  "Чем занимаюсь:": {
+    en: "What I do:",
+    kk: "Немен айналысамын:"
+  },
+  "Собираю и чищу данные из разных источников на SQL и Python.": {
+    en: "Collect and clean data from different sources with SQL and Python.",
+    kk: "SQL және Python көмегімен әртүрлі көздерден деректерді жинап, тазалаймын."
+  },
+  "Исследую данные об обучении и вовлечённости, готовлю признаки для моделей.": {
+    en: "Explore learning and engagement data and build features for models.",
+    kk: "Оқу және белсенділік деректерін зерттеп, модельдерге белгілер дайындаймын."
+  },
+  "Строю и проверяю модели: классификация, регрессия, прогнозы.": {
+    en: "Build and validate models: classification, regression, forecasting.",
+    kk: "Модельдер құрып, тексеремін: классификация, регрессия, болжау."
+  },
+  "Объясняю результаты команде через графики и короткие выводы.": {
+    en: "Explain the results to the team with charts and short takeaways.",
+    kk: "Нәтижелерді командаға графиктер мен қысқа қорытындылар арқылы түсіндіремін."
+  },
+  "03 · исследование": {
+    en: "03 · research",
+    kk: "03 · зерттеу"
+  },
+  "Ледяная планета, где база «Эхо» месяцами ловила слабые сигналы. Здесь моя исследовательская работа.": {
+    en: "An ice planet where Echo Base spent months listening for faint signals. This is my research work.",
+    kk: "«Эхо» базасы айлар бойы әлсіз сигналдарды тыңдаған мұзды планета. Мұнда менің зерттеу жұмысым."
+  },
+  "Suleyman Demirel University, Каскелен · февраль — май 2025": {
+    en: "Suleyman Demirel University, Kaskelen · February — May 2025",
+    kk: "Suleyman Demirel University, Қаскелең · ақпан — мамыр 2025"
+  },
+  "Помогал вести прикладное статистическое исследование: от сбора данных до текста отчёта.": {
+    en: "Helped run an applied statistical study, from data collection to the written report.",
+    kk: "Қолданбалы статистикалық зерттеуді жүргізуге көмектестім: деректерді жинаудан есептің мәтініне дейін."
+  },
+  "Собирал данные из нескольких источников, чистил и приводил их к одному виду в Python и pandas.": {
+    en: "Collected data from several sources, cleaned it and brought it to one format with Python and pandas.",
+    kk: "Бірнеше көзден деректерді жинап, тазалап, Python мен pandas-та бір форматқа келтірдім."
+  },
+  "Делал разведочный анализ, регрессионные модели и проверку гипотез.": {
+    en: "Did exploratory analysis, regression modelling and hypothesis testing.",
+    kk: "Барлау талдауын, регрессиялық модельдерді және гипотезаларды тексеруді жасадым."
+  },
+  "Готовил графики, раздел о методологии и сводку результатов.": {
+    en: "Prepared the charts, the methodology section and the summary of results.",
+    kk: "Графиктерді, әдістеме бөлімін және нәтижелер қорытындысын дайындадым."
+  },
+  "04 · преподавание": {
+    en: "04 · teaching",
+    kk: "04 · оқыту"
+  },
+  "Туманное болото, где мастер Йода учил Люка. Здесь я сам учу других.": {
+    en: "A misty swamp where Master Yoda trained Luke. This is where I teach others.",
+    kk: "Йода шебер Люкті оқытқан тұманды батпақ. Мұнда мен өзім басқаларды оқытамын."
+  },
+  "Teaching Assistant, математика и статистика": {
+    en: "Teaching Assistant, Mathematics and Statistics",
+    kk: "Teaching Assistant, математика және статистика"
+  },
+  "Suleyman Demirel University, Каскелен · с сентября 2023": {
+    en: "Suleyman Demirel University, Kaskelen · since September 2023",
+    kk: "Suleyman Demirel University, Қаскелең · 2023 жылдың қыркүйегінен бері"
+  },
+  "Веду еженедельную практику для групп по 15–25 студентов первого курса.": {
+    en: "Run weekly practice sessions for groups of 15–25 first-year students.",
+    kk: "15–25 бірінші курс студентінен тұратын топтарға апта сайын практикалық сабақ өткіземін."
+  },
+  "Готовлю задания и материалы к занятиям.": {
+    en: "Prepare assignments and materials for the sessions.",
+    kk: "Сабақтарға тапсырмалар мен материалдар дайындаймын."
+  },
+  "Проверяю работы, даю обратную связь и помогаю на экзаменах.": {
+    en: "Grade work, give feedback and help during exams.",
+    kk: "Жұмыстарды тексеріп, кері байланыс беремін және емтихандарда көмектесемін."
+  },
+  "Репетитор по математике и Data Science": {
+    en: "Maths and Data Science tutor",
+    kk: "Математика және Data Science репетиторы"
+  },
+  "Azat Academia, Алматы · с января 2023": {
+    en: "Azat Academia, Almaty · since January 2023",
+    kk: "Azat Academia, Алматы · 2023 жылдың қаңтарынан бері"
+  },
+  "Занимаюсь индивидуально и в группах: математика, статистика, Python и основы Data Science.": {
+    en: "One-to-one and group lessons: maths, statistics, Python and Data Science basics.",
+    kk: "Жеке және топпен сабақ беремін: математика, статистика, Python және Data Science негіздері."
+  },
+  "Под каждого ученика составляю свой план занятий.": {
+    en: "I make a separate plan for every student.",
+    kk: "Әр оқушыға жеке сабақ жоспарын құрамын."
+  },
+  "Разбираем анализ данных на реальных датасетах.": {
+    en: "We practise data analysis on real datasets.",
+    kk: "Деректерді талдауды нақты датасеттерде үйренеміз."
+  },
+  "«Учить значит учиться дважды». Йода такого не говорил, но мог бы.": {
+    en: "“To teach is to learn twice.” Yoda never said it, but he could have.",
+    kk: "«Үйрету — екі рет үйрену». Йода мұны айтпаған, бірақ айтуы мүмкін еді."
+  },
+  "05 · проекты": {
+    en: "05 · projects",
+    kk: "05 · жобалар"
+  },
+  "Огненная планета, где всё куётся в лаве. Здесь мои проекты.": {
+    en: "A fiery planet where everything is forged in lava. These are my projects.",
+    kk: "Бәрі лавада соғылатын отты планета. Мұнда менің жобаларым."
+  },
+  "Проекты по анализу данных и машинному обучению. Код открыт на GitHub.": {
+    en: "Data analysis and machine learning projects. The code is open on GitHub.",
+    kk: "Деректерді талдау және машиналық оқыту жобалары. Коды GitHub-та ашық."
+  },
+  "Регрессионный анализ данных о жилье.": {
+    en: "Regression analysis of housing data.",
+    kk: "Тұрғын үй деректерінің регрессиялық талдауы."
+  },
+  "Анализ данных о песнях Spotify.": {
+    en: "Analysis of Spotify song data.",
+    kk: "Spotify әндері туралы деректерді талдау."
+  },
+  "Проект по футбольной статистике.": {
+    en: "A football statistics project.",
+    kk: "Футбол статистикасы бойынша жоба."
+  },
+  "Классификация мусора с помощью машинного обучения.": {
+    en: "Garbage classification with machine learning.",
+    kk: "Машиналық оқыту арқылы қоқысты жіктеу."
+  },
+  "Все репозитории на GitHub ↗": {
+    en: "All repositories on GitHub ↗",
+    kk: "GitHub-тағы барлық репозиторийлер ↗"
+  },
+  "06 · навыки": {
+    en: "06 · skills",
+    kk: "06 · дағдылар"
+  },
+  "Ледяной мир, где джедаи находят кристаллы для световых мечей. Здесь мой набор инструментов.": {
+    en: "An ice world where the Jedi find crystals for their lightsabers. This is my toolkit.",
+    kk: "Джедайлар жарық семсерлеріне кристалдар табатын мұзды әлем. Мұнда менің құралдар жиынтығым."
   },
   "Языки": {
     en: "Languages",
     kk: "Тілдер"
   },
-  "Казахский · Русский · English B2": {
-    en: "Kazakh · Russian · English B2",
-    kk: "Қазақша · Орысша · English B2"
-  },
-  "› Открыт к профессиональному общению и исследовательским коллаборациям": {
-    en: "› Open to professional networking and research collaborations",
-    kk: "› Кәсіби байланыс пен зерттеу ынтымақтастығына ашықпын"
-  },
-  "3+ года": {
-    en: "3+ years",
-    kk: "3+ жыл"
-  },
-  "опыта в Data Science и обучении": {
-    en: "in Data Science and teaching",
-    kk: "Data Science пен оқытудағы тәжірибе"
-  },
-  "4 роли": {
-    en: "4 roles",
-    kk: "4 рөл"
-  },
-  "данные · исследования · преподавание": {
-    en: "data · research · teaching",
-    kk: "деректер · зерттеу · оқыту"
-  },
-  "4 курс": {
-    en: "4th year",
-    kk: "4-курс"
-  },
-  "BSc Data Science · выпуск 2027": {
-    en: "BSc Data Science · class of 2027",
-    kk: "BSc Data Science · 2027 түлегі"
-  },
-  "английский · IELTS 6.0": {
-    en: "English · IELTS 6.0",
-    kk: "ағылшын тілі · IELTS 6.0"
-  },
-  "<b>01</b>Личное дело": {
-    en: "<b>01</b>Personnel file",
-    kk: "<b>01</b>Жеке іс"
-  },
-  "Data Science с вниманием к смыслу": {
-    en: "Data Science with a focus on meaning",
-    kk: "Мағынаға мән беретін Data Science"
-  },
-  "Веду полный цикл работы с данными: от сбора и очистки до машинного обучения, проверки гипотез и понятной коммуникации результатов. Сейчас применяю это в EdTech — в ТОО «Adam Labs», где данные и модели помогают людям учиться и расти.": {
-    en: "I run the full data cycle: from collection and cleaning to machine learning, hypothesis testing and clear communication of results. Today I apply this in EdTech at Adam Labs LLP, where data and models help people learn and grow.",
-    kk: "Деректермен жұмыстың толық циклін жүргіземін: жинау мен тазалаудан бастап машиналық оқытуға, гипотезаларды тексеруге және нәтижелерді түсінікті жеткізуге дейін. Қазір мұны EdTech саласында — «Adam Labs» ЖШС-да қолданамын, мұнда деректер мен модельдер адамдарға оқып, дамуға көмектеседі."
-  },
-  "Полный цикл Data Science": {
-    en: "End-to-end Data Science",
-    kk: "Data Science толық циклі"
-  },
-  "Сбор и очистка данных, EDA, feature engineering, обучение и оценка моделей — без разрывов между этапами и без потери контекста задачи.": {
-    en: "Data collection and cleaning, EDA, feature engineering, model training and evaluation — with no gaps between stages and no loss of context.",
-    kk: "Деректерді жинау және тазалау, EDA, feature engineering, модельдерді оқыту және бағалау — кезеңдер арасында үзіліссіз және міндеттің контекстін жоғалтпай."
-  },
-  "Статистическая строгость": {
-    en: "Statistical rigour",
-    kk: "Статистикалық дәлдік"
-  },
-  "Регрессия, ANOVA, проверка гипотез, временные ряды и интерпретация моделей через SHAP. Выводы — только с доказательствами.": {
-    en: "Regression, ANOVA, hypothesis testing, time series and model interpretation with SHAP. Conclusions come only with evidence.",
-    kk: "Регрессия, ANOVA, гипотезаларды тексеру, уақыттық қатарлар және SHAP арқылы модельдерді түсіндіру. Қорытынды — тек дәлелмен."
-  },
-  "Ясная коммуникация": {
-    en: "Clear communication",
-    kk: "Түсінікті коммуникация"
-  },
-  "3+ года преподавания математики, статистики и Python: объясняю сложное просто и по делу — студентам, коллегам и бизнесу.": {
-    en: "3+ years of teaching maths, statistics and Python: I explain complex things simply and to the point — to students, colleagues and business.",
-    kk: "Математика, статистика және Python пәндерін 3+ жыл оқыту: күрделіні қарапайым әрі нақты түсіндіремін — студенттерге, әріптестерге және бизнеске."
-  },
-  "Фокус интересов": {
-    en: "Areas of interest",
-    kk: "Қызығушылық бағыттары"
-  },
-  "Образовательные данные · EdTech": {
-    en: "Educational data · EdTech",
-    kk: "Білім беру деректері · EdTech"
-  },
-  "Прикладное машинное обучение": {
-    en: "Applied machine learning",
-    kk: "Қолданбалы машиналық оқыту"
-  },
-  "Статистические исследования": {
-    en: "Statistical research",
-    kk: "Статистикалық зерттеулер"
-  },
-  "Визуализация данных": {
-    en: "Data visualization",
-    kk: "Деректерді визуализациялау"
-  },
-  "<b>02</b>Текущая миссия": {
-    en: "<b>02</b>Current mission",
-    kk: "<b>02</b>Ағымдағы миссия"
-  },
-  "Data Scientist в ТОО «Adam Labs»": {
-    en: "Data Scientist at Adam Labs LLP",
-    kk: "«Adam Labs» ЖШС-дағы Data Scientist"
-  },
-  "Центр развития и роста человеческих ресурсов «Adam Labs» — IT-компания из Алматы, работающая на стыке образования и технологий.": {
-    en: "Adam Labs, a centre for human resources development and growth, is an Almaty-based IT company working at the intersection of education and technology.",
-    kk: "«Adam Labs» адами ресурстарды дамыту және өсу орталығы — білім мен технологиялар тоғысында жұмыс істейтін алматылық IT-компания."
-  },
-  "<span class=\"pulse\"></span>Текущее место работы": {
-    en: "<span class=\"pulse\"></span>Current position",
-    kk: "<span class=\"pulse\"></span>Қазіргі жұмыс орны"
-  },
-  "ТОО «Adam Labs» · Центр развития и роста человеческих ресурсов": {
-    en: "Adam Labs LLP · Centre for Human Resources Development and Growth",
-    kk: "«Adam Labs» ЖШС · Адами ресурстарды дамыту және өсу орталығы"
-  },
-  "Период": {
-    en: "Period",
-    kk: "Кезең"
-  },
-  "настоящее время": {
-    en: "present",
-    kk: "қазіргі уақыт"
-  },
-  "Локация": {
-    en: "Location",
-    kk: "Орналасуы"
-  },
-  "Алматы, Казахстан": {
-    en: "Almaty, Kazakhstan",
-    kk: "Алматы, Қазақстан"
-  },
-  "Сфера": {
-    en: "Field",
-    kk: "Сала"
-  },
-  "EdTech · развитие людей": {
-    en: "EdTech · people development",
-    kk: "EdTech · адамдарды дамыту"
-  },
-  "В команде отвечаю за то, чтобы решения о продуктах и образовательных программах опирались на данные и модели, а не на интуицию: готовлю данные, строю и проверяю ML-модели и превращаю результаты в понятные выводы для коллег.": {
-    en: "In the team, I make sure that decisions about products and educational programmes rely on data and models rather than intuition: I prepare data, build and validate ML models and turn results into clear insights for colleagues.",
-    kk: "Командада өнімдер мен білім беру бағдарламалары туралы шешімдердің интуицияға емес, деректер мен модельдерге сүйенуіне жауап беремін: деректерді дайындаймын, ML-модельдерді құрып, тексеремін және нәтижелерді әріптестерге түсінікті қорытындыларға айналдырамын."
-  },
-  "Зона ответственности": {
-    en: "Responsibilities",
-    kk: "Жауапкершілік аймағы"
-  },
-  "Сбор, очистка и подготовка данных из разных источников с помощью SQL и Python": {
-    en: "Collecting, cleaning and preparing data from multiple sources with SQL and Python",
-    kk: "SQL және Python көмегімен әртүрлі көздерден деректерді жинау, тазалау және дайындау"
-  },
-  "Исследовательский анализ и feature engineering на данных об обучении и вовлечённости": {
-    en: "Exploratory analysis and feature engineering on learning and engagement data",
-    kk: "Оқу және белсенділік деректері бойынша зерттеушілік талдау және feature engineering"
-  },
-  "Построение и оценка ML-моделей: классификация, регрессия, прогнозирование": {
-    en: "Building and evaluating ML models: classification, regression, forecasting",
-    kk: "ML-модельдерді құру және бағалау: классификация, регрессия, болжау"
-  },
-  "Интерпретация моделей (SHAP) и статистическая проверка гипотез": {
-    en: "Model interpretation (SHAP) and statistical hypothesis testing",
-    kk: "Модельдерді түсіндіру (SHAP) және гипотезаларды статистикалық тексеру"
-  },
-  "Визуализация результатов и рекомендации, понятные не-техническим коллегам": {
-    en: "Visualizing results and making recommendations that non-technical colleagues can act on",
-    kk: "Нәтижелерді визуализациялау және техникалық емес әріптестерге түсінікті ұсыныстар"
-  },
-  "Что привношу в команду": {
-    en: "What I bring to the team",
-    kk: "Командаға қосатын үлесім"
-  },
-  "Статистическую строгость: гипотезы проверяются тестами, а не ощущениями": {
-    en: "Statistical rigour: hypotheses are tested, not guessed",
-    kk: "Статистикалық дәлдік: гипотезалар сезіммен емес, тестпен тексеріледі"
-  },
-  "Понимание образовательной среды изнутри — 3+ года работы со студентами и учениками": {
-    en: "An insider’s understanding of education — 3+ years of working with students and learners",
-    kk: "Білім беру ортасын іштей түсіну — студенттермен және оқушылармен 3+ жыл жұмыс"
-  },
-  "Опыт исследовательской работы: методология, воспроизводимость, аккуратная документация": {
-    en: "Research experience: methodology, reproducibility, careful documentation",
-    kk: "Зерттеу тәжірибесі: әдістеме, қайталанымдылық, мұқият құжаттама"
-  },
-  "Умение объяснять результаты простым языком — навык, отточенный преподаванием": {
-    en: "Explaining results in plain language — a skill honed by teaching",
-    kk: "Нәтижелерді қарапайым тілмен түсіндіру — оқытушылықпен шыңдалған дағды"
-  },
-  "Стек миссии": {
-    en: "Mission stack",
-    kk: "Миссия стегі"
-  },
-  "<b>03</b>Хроника миссий": {
-    en: "<b>03</b>Mission log",
-    kk: "<b>03</b>Миссиялар шежіресі"
-  },
-  "Опыт работы в Data Science, исследованиях и обучении": {
-    en: "Experience in Data Science, research and teaching",
-    kk: "Data Science, зерттеу және оқыту саласындағы тәжірибе"
-  },
-  "Четыре роли, которые сформировали мой подход: работа с реальными данными, академическая строгость и умение передавать знания.": {
-    en: "Four roles that shaped my approach: working with real data, academic rigour and the ability to pass on knowledge.",
-    kk: "Көзқарасымды қалыптастырған төрт рөл: нақты деректермен жұмыс, академиялық дәлдік және білімді жеткізе білу."
-  },
-  "<b>Настоящее время</b>текущая позиция": {
-    en: "<b>Present</b>current role",
-    kk: "<b>Қазіргі уақыт</b>ағымдағы лауазым"
-  },
-  "ТОО «Adam Labs» · Алматы": {
-    en: "Adam Labs LLP · Almaty",
-    kk: "«Adam Labs» ЖШС · Алматы"
-  },
-  "Data Science в IT-компании сферы образования и развития человеческих ресурсов: подготовка данных, ML-модели, проверка гипотез и рекомендации для команды.": {
-    en: "Data Science at an IT company in education and human resources development: data preparation, ML models, hypothesis testing and recommendations for the team.",
-    kk: "Білім беру және адами ресурстарды дамыту саласындағы IT-компанияда Data Science: деректерді дайындау, ML-модельдер, гипотезаларды тексеру және командаға ұсыныстар."
-  },
-  "Подробнее о текущей миссии →": {
-    en: "More about the current mission →",
-    kk: "Ағымдағы миссия туралы толығырақ →"
-  },
-  "<b>Февраль — май 2025</b>4 месяца": {
-    en: "<b>February — May 2025</b>4 months",
-    kk: "<b>Ақпан — мамыр 2025</b>4 ай"
-  },
-  "Исследование": {
-    en: "Research",
-    kk: "Зерттеу"
-  },
-  "Suleyman Demirel University · Каскелен": {
-    en: "Suleyman Demirel University · Kaskelen",
-    kk: "Suleyman Demirel University · Қаскелең"
-  },
-  "Поддерживал прикладное статистическое исследование на всех этапах — от сбора данных до оформления результатов.": {
-    en: "Supported an applied statistical study at every stage — from data collection to the write-up of results.",
-    kk: "Қолданбалы статистикалық зерттеуді барлық кезеңде қолдадым — деректерді жинаудан бастап нәтижелерді рәсімдеуге дейін."
-  },
-  "Ключевые задачи": {
-    en: "Key tasks",
-    kk: "Негізгі міндеттер"
-  },
-  "Собирал, очищал и преобразовывал данные из нескольких источников с Python и Pandas": {
-    en: "Collected, cleaned and transformed data from several sources with Python and Pandas",
-    kk: "Python және Pandas көмегімен бірнеше көзден деректерді жинадым, тазаладым және түрлендірдім"
-  },
-  "Проводил исследовательский анализ (EDA), регрессионный анализ и проверку гипотез": {
-    en: "Performed exploratory data analysis (EDA), regression analysis and hypothesis testing",
-    kk: "Зерттеушілік талдау (EDA), регрессиялық талдау және гипотезаларды тексеру жүргіздім"
-  },
-  "Готовил визуальные отчёты, методологические разделы и сводки результатов": {
-    en: "Prepared visual reports, methodology sections and summaries of findings",
-    kk: "Визуалды есептер, әдістемелік бөлімдер мен нәтижелер қорытындысын дайындадым"
-  },
-  "Инструменты": {
-    en: "Tools",
-    kk: "Құралдар"
-  },
-  "<b>Сентябрь 2023 — н.в.</b>3+ года": {
-    en: "<b>September 2023 — present</b>3+ years",
-    kk: "<b>Қыркүйек 2023 — қазір</b>3+ жыл"
-  },
-  "Преподавание": {
-    en: "Teaching",
-    kk: "Оқыту"
-  },
-  "Помогаю вести курсы математики и статистики для студентов первого курса.": {
-    en: "I help run mathematics and statistics courses for first-year students.",
-    kk: "Бірінші курс студенттеріне арналған математика және статистика курстарын жүргізуге көмектесемін."
-  },
-  "Готовлю практические материалы и задания к курсам": {
-    en: "Prepare practice materials and assignments for the courses",
-    kk: "Курстарға практикалық материалдар мен тапсырмалар дайындаймын"
-  },
-  "Провожу еженедельные занятия для групп из 15–25 студентов": {
-    en: "Run weekly sessions for groups of 15–25 students",
-    kk: "15–25 студенттен тұратын топтарға апта сайын сабақ өткіземін"
-  },
-  "Даю обратную связь по работам и помогаю в организации экзаменов": {
-    en: "Give feedback on assignments and help organise exams",
-    kk: "Жұмыстарға кері байланыс беремін және емтихандарды ұйымдастыруға көмектесемін"
-  },
-  "<b>Январь 2023 — н.в.</b>3+ года": {
-    en: "<b>January 2023 — present</b>3+ years",
-    kk: "<b>Қаңтар 2023 — қазір</b>3+ жыл"
-  },
-  "Менторство": {
-    en: "Mentoring",
-    kk: "Тәлімгерлік"
-  },
-  "Azat Academia · Алматы": {
-    en: "Azat Academia · Almaty",
-    kk: "Azat Academia · Алматы"
-  },
-  "Индивидуальные и групповые занятия по математике, статистике, Python и основам Data Science.": {
-    en: "One-to-one and group lessons in mathematics, statistics, Python and Data Science fundamentals.",
-    kk: "Математика, статистика, Python және Data Science негіздері бойынша жеке және топтық сабақтар."
-  },
-  "Составляю персональные планы обучения под цели и уровень ученика": {
-    en: "Design personal learning plans around each student’s goals and level",
-    kk: "Оқушының мақсаты мен деңгейіне қарай жеке оқу жоспарларын құрамын"
-  },
-  "Помогаю осваивать анализ данных на практике — на реальных датасетах": {
-    en: "Help students master data analysis in practice, on real datasets",
-    kk: "Деректерді талдауды тәжірибеде — нақты датасеттерде меңгеруге көмектесемін"
-  },
-  "Объясняю математику и статистику через прикладные задачи": {
-    en: "Explain maths and statistics through applied problems",
-    kk: "Математика мен статистиканы қолданбалы есептер арқылы түсіндіремін"
-  },
-  "<b>04</b>Гиперпространственный маршрут": {
-    en: "<b>04</b>Hyperspace route",
-    kk: "<b>04</b>Гиперкеңістік бағыты"
-  },
-  "Карьерный путь в ключевых точках": {
-    en: "Career path at a glance",
-    kk: "Мансап жолының негізгі кезеңдері"
-  },
-  "От первых учеников до текущей миссии и выпуска — как складывался опыт год за годом.": {
-    en: "From my first students to the current mission and graduation — how my experience has grown year by year.",
-    kk: "Алғашқы оқушылардан ағымдағы миссия мен бітіруге дейін — тәжірибем жыл сайын қалай қалыптасты."
-  },
-  "Первые ученики": {
-    en: "First students",
-    kk: "Алғашқы оқушылар"
-  },
-  "Репетитор по математике и Data Science в Azat Academia": {
-    en: "Maths and Data Science tutor at Azat Academia",
-    kk: "Azat Academia-да математика және Data Science репетиторы"
-  },
-  "Поступление в SDU на Data Science &amp; Statistics, старт работы Teaching Assistant": {
-    en: "Enrolled at SDU in Data Science &amp; Statistics and started as a Teaching Assistant",
-    kk: "SDU-ға Data Science &amp; Statistics мамандығына түсу, Teaching Assistant ретінде жұмыстың басталуы"
-  },
-  "Первые голокроны": {
-    en: "First holocrons",
-    kk: "Алғашқы голокрондар"
-  },
-  "IELTS Academic 6.0 и Python for Everybody": {
-    en: "IELTS Academic 6.0 and Python for Everybody",
-    kk: "IELTS Academic 6.0 және Python for Everybody"
-  },
-  "Прокачка арсенала": {
-    en: "Upgrading the arsenal",
-    kk: "Арсеналды жетілдіру"
-  },
-  "Сертификаты по Excel-аналитике и оптимизации": {
-    en: "Certificates in Excel analytics and optimization",
-    kk: "Excel-талдау және оңтайландыру бойынша сертификаттар"
-  },
-  "Junior Research Data Analyst в SDU": {
-    en: "Junior Research Data Analyst at SDU",
-    kk: "SDU-да Junior Research Data Analyst"
-  },
-  "Сейчас": {
-    en: "Now",
-    kk: "Қазір"
-  },
-  "Текущая миссия": {
-    en: "Current mission",
-    kk: "Ағымдағы миссия"
-  },
-  "Выпуск": {
-    en: "Graduation",
-    kk: "Бітіру"
-  },
-  "BSc Data Science &amp; Statistics (ожидается)": {
-    en: "BSc Data Science &amp; Statistics (expected)",
-    kk: "BSc Data Science &amp; Statistics (күтілуде)"
-  },
-  "<b>05</b>Кодекс джедая данных": {
-    en: "<b>05</b>The data Jedi code",
-    kk: "<b>05</b>Деректер джедайының кодексі"
-  },
-  "Как я веду проект по данным": {
-    en: "How I run a data project",
-    kk: "Деректер жобасын қалай жүргіземін"
-  },
-  "Пять эпизодов, через которые проходит каждая задача — от вопроса бизнеса до решения.": {
-    en: "Five episodes every task goes through — from a business question to a decision.",
-    kk: "Әр міндет өтетін бес эпизод — бизнес сұрағынан шешімге дейін."
-  },
-  "Эпизод": {
-    en: "Episode",
-    kk: "Эпизод"
-  },
-  "Вопрос": {
-    en: "Question",
-    kk: "Сұрақ"
-  },
-  "Уточняю бизнес-задачу, метрики успеха и ограничения — до того, как открыть данные.": {
-    en: "I clarify the business problem, success metrics and constraints — before opening the data.",
-    kk: "Деректерді ашпас бұрын бизнес-міндетті, табыс метрикаларын және шектеулерді нақтылаймын."
-  },
-  "Данные": {
-    en: "Data",
-    kk: "Деректер"
-  },
-  "Собираю, очищаю и проверяю качество данных, фиксирую источники и допущения.": {
-    en: "I collect and clean data, check its quality and document sources and assumptions.",
-    kk: "Деректерді жинаймын, тазалаймын, сапасын тексеремін, дереккөздер мен болжамдарды тіркеймін."
-  },
-  "Моделирование": {
-    en: "Modelling",
-    kk: "Модельдеу"
-  },
-  "EDA, статистические тесты и ML-модели. Ищу сигнал, а не подтверждение ожиданий.": {
-    en: "EDA, statistical tests and ML models. I look for signal, not for confirmation of expectations.",
-    kk: "EDA, статистикалық тесттер және ML-модельдер. Күтулерді растауды емес, сигналды іздеймін."
-  },
-  "Визуализация": {
-    en: "Visualization",
-    kk: "Визуализация"
-  },
-  "Дашборды и графики, которые читаются за секунды и отвечают на исходный вопрос.": {
-    en: "Dashboards and charts that read in seconds and answer the original question.",
-    kk: "Бірнеше секундта оқылатын және бастапқы сұраққа жауап беретін дашбордтар мен графиктер."
-  },
-  "Решение": {
-    en: "Decision",
-    kk: "Шешім"
-  },
-  "Вывод, рекомендация и следующий шаг — понятным языком для любой аудитории.": {
-    en: "A conclusion, a recommendation and the next step — in plain language for any audience.",
-    kk: "Қорытынды, ұсыныс және келесі қадам — кез келген аудиторияға түсінікті тілмен."
-  },
-  "<b>06</b>Арсенал": {
-    en: "<b>06</b>Arsenal",
-    kk: "<b>06</b>Арсенал"
-  },
-  "Навыки и инструменты": {
-    en: "Skills and tools",
-    kk: "Дағдылар мен құралдар"
-  },
-  "Кайбер-кристаллы, на которых держится ежедневная работа с данными.": {
-    en: "The kyber crystals that power my everyday work with data.",
-    kk: "Деректермен күнделікті жұмысқа қуат беретін кайбер-кристалдар."
-  },
-  "Программирование": {
-    en: "Programming",
-    kk: "Бағдарламалау"
-  },
-  "Основные языки для анализа и обработки данных.": {
-    en: "Core languages for data analysis and processing.",
-    kk: "Деректерді талдау мен өңдеуге арналған негізгі тілдер."
-  },
-  "Python-экосистема": {
-    en: "Python ecosystem",
-    kk: "Python экожүйесі"
-  },
-  "Обработка, моделирование и визуализация.": {
-    en: "Processing, modelling and visualization.",
-    kk: "Өңдеу, модельдеу және визуализация."
-  },
-  "Статистика и ML": {
-    en: "Statistics and ML",
-    kk: "Статистика және ML"
-  },
-  "Методы, которые превращают данные в доказательства.": {
-    en: "Methods that turn data into evidence.",
-    kk: "Деректерді дәлелге айналдыратын әдістер."
-  },
-  "Регрессия": {
-    en: "Regression",
-    kk: "Регрессия"
-  },
-  "Проверка гипотез": {
-    en: "Hypothesis testing",
-    kk: "Гипотезаларды тексеру"
-  },
-  "Временные ряды": {
-    en: "Time series",
-    kk: "Уақыттық қатарлар"
-  },
-  "Оценка моделей": {
-    en: "Model evaluation",
-    kk: "Модельдерді бағалау"
-  },
-  "BI и визуализация": {
-    en: "BI and visualization",
-    kk: "BI және визуализация"
-  },
-  "Дашборды и отчёты для принятия решений.": {
-    en: "Dashboards and reports for decision-making.",
-    kk: "Шешім қабылдауға арналған дашбордтар мен есептер."
-  },
-  "Excel: сводные таблицы": {
-    en: "Excel: pivot tables",
-    kk: "Excel: жиынтық кестелер"
-  },
-  "Excel: дашборды": {
-    en: "Excel: dashboards",
-    kk: "Excel: дашбордтар"
-  },
-  "Данные и среда": {
-    en: "Data and environment",
-    kk: "Деректер және орта"
-  },
-  "Базы данных и рабочие инструменты.": {
-    en: "Databases and everyday tools.",
-    kk: "Дерекқорлар және жұмыс құралдары."
-  },
-  "То, что делает анализ полезным для людей.": {
-    en: "What makes analysis useful to people.",
-    kk: "Талдауды адамдарға пайдалы ететін қасиеттер."
-  },
-  "Коммуникация результатов": {
-    en: "Communicating results",
-    kk: "Нәтижелерді жеткізу"
-  },
-  "Публичные выступления": {
-    en: "Public speaking",
-    kk: "Көпшілік алдында сөйлеу"
-  },
-  "Академическое письмо": {
-    en: "Academic writing",
-    kk: "Академиялық жазу"
-  },
-  "Командная работа": {
-    en: "Teamwork",
-    kk: "Командалық жұмыс"
-  },
-  "<b>07</b>Архив голокронов": {
-    en: "<b>07</b>Holocron archive",
-    kk: "<b>07</b>Голокрондар мұрағаты"
-  },
-  "Сертификаты и дополнительное обучение": {
-    en: "Certificates and further training",
-    kk: "Сертификаттар және қосымша оқу"
-  },
-  "Знания, подтверждённые университетами и международными организациями.": {
-    en: "Knowledge certified by universities and international organisations.",
-    kk: "Университеттер мен халықаралық ұйымдар растаған білім."
+  "Данные и ML": {
+    en: "Data and ML",
+    kk: "Деректер және ML"
+  },
+  "pandas, NumPy, scikit-learn, SHAP, feature engineering, оценка моделей": {
+    en: "pandas, NumPy, scikit-learn, SHAP, feature engineering, model evaluation",
+    kk: "pandas, NumPy, scikit-learn, SHAP, feature engineering, модельдерді бағалау"
+  },
+  "Статистика": {
+    en: "Statistics",
+    kk: "Статистика"
+  },
+  "регрессия, ANOVA, проверка гипотез, временные ряды": {
+    en: "regression, ANOVA, hypothesis testing, time series",
+    kk: "регрессия, ANOVA, гипотезаларды тексеру, уақыттық қатарлар"
+  },
+  "Графики и BI": {
+    en: "Charts and BI",
+    kk: "Графиктер және BI"
+  },
+  "Базы и среда": {
+    en: "Databases and tools",
+    kk: "Дерекқорлар және орта"
+  },
+  "Не только код": {
+    en: "Beyond code",
+    kk: "Кодтан тыс"
+  },
+  "объясняю сложное простыми словами, пишу отчёты, выступаю перед аудиторией": {
+    en: "explaining complex things in plain words, writing reports, speaking in front of an audience",
+    kk: "күрделіні қарапайым сөзбен түсіндіру, есеп жазу, аудитория алдында сөйлеу"
+  },
+  "07 · сертификаты": {
+    en: "07 · certificates",
+    kk: "07 · сертификаттар"
+  },
+  "Тропическая планета с архивом, где хранились самые ценные чертежи Империи. Здесь мои сертификаты.": {
+    en: "A tropical planet with an archive that held the Empire's most valuable plans. These are my certificates.",
+    kk: "Империяның ең құнды сызбалары сақталған мұрағаты бар тропикалық планета. Мұнда менің сертификаттарым."
   },
   "Линейное программирование, градиентные методы и оптимизация с ограничениями в Python.": {
     en: "Linear programming, gradient methods and constrained optimization in Python.",
     kk: "Сызықтық бағдарламалау, градиенттік әдістер және Python-да шектеулері бар оңтайландыру."
   },
-  "Очистка данных, сводные таблицы, статистические функции и дашборды.": {
-    en: "Data cleaning, pivot tables, statistical functions and dashboards.",
-    kk: "Деректерді тазалау, жиынтық кестелер, статистикалық функциялар және дашбордтар."
+  "Очистка данных, сводные таблицы, статистические функции, дашборды.": {
+    en: "Data cleaning, pivot tables, statistical functions, dashboards.",
+    kk: "Деректерді тазалау, жиынтық кестелер, статистикалық функциялар, дашбордтар."
   },
-  "Структуры данных, работа с файлами, web API и базами данных.": {
+  "Структуры данных, работа с файлами, веб-API и базы данных.": {
     en: "Data structures, working with files, web APIs and databases.",
-    kk: "Деректер құрылымдары, файлдармен, web API және дерекқорлармен жұмыс."
+    kk: "Деректер құрылымдары, файлдармен жұмыс, веб-API және дерекқорлар."
   },
-  "Английский уровня B2: чтение, письмо, аудирование и устная речь.": {
-    en: "B2-level English: reading, writing, listening and speaking.",
-    kk: "B2 деңгейіндегі ағылшын тілі: оқу, жазу, тыңдау және сөйлеу."
+  "Английский на уровне B2.": {
+    en: "English at B2 level.",
+    kk: "B2 деңгейіндегі ағылшын тілі."
   },
-  "Архив пополняется — актуальный список сертификатов в профиле LinkedIn.": {
-    en: "The archive keeps growing — the up-to-date list of certificates is on LinkedIn.",
-    kk: "Мұрағат толығып жатыр — сертификаттардың өзекті тізімі LinkedIn профилінде."
+  "Полный список в LinkedIn ↗": {
+    en: "Full list on LinkedIn ↗",
+    kk: "Толық тізім LinkedIn-де ↗"
   },
-  "Открыть LinkedIn ↗": {
-    en: "Open LinkedIn ↗",
-    kk: "LinkedIn ашу ↗"
+  "08 · учёба и языки": {
+    en: "08 · education and languages",
+    kk: "08 · оқу және тілдер"
   },
-  "<b>08</b>Академия": {
-    en: "<b>08</b>Academy",
-    kk: "<b>08</b>Академия"
+  "Спокойная планета озёр, лугов и дворцов. Здесь моя учёба.": {
+    en: "A calm planet of lakes, meadows and palaces. This is my education.",
+    kk: "Көлдер, шалғындар мен сарайлар планетасы. Мұнда менің оқуым."
   },
-  "Образование и языки": {
-    en: "Education and languages",
-    kk: "Білім және тілдер"
+  "Suleyman Demirel University, Каскелен · 2023–2027": {
+    en: "Suleyman Demirel University, Kaskelen · 2023–2027",
+    kk: "Suleyman Demirel University, Қаскелең · 2023–2027"
   },
-  "Бакалавриат · 2023 — 2027": {
-    en: "Bachelor’s degree · 2023 — 2027",
-    kk: "Бакалавриат · 2023 — 2027"
+  "Пройдено": {
+    en: "Completed",
+    kk: "Өтілді"
   },
-  "Suleyman Demirel University (SDU) · Каскелен, Казахстан<br>Сентябрь 2023 — июнь 2027 (ожидается)": {
-    en: "Suleyman Demirel University (SDU) · Kaskelen, Kazakhstan<br>September 2023 — June 2027 (expected)",
-    kk: "Suleyman Demirel University (SDU) · Қаскелең, Қазақстан<br>Қыркүйек 2023 — маусым 2027 (күтілуде)"
+  "Главные курсы: математический анализ, линейная алгебра, теория вероятностей, статистика, алгоритмы и программирование, базы данных, регрессионный анализ, обработка и визуализация данных, введение в машинное обучение.": {
+    en: "Key courses: calculus, linear algebra, probability theory, statistics, algorithms and programming, databases, regression analysis, data wrangling and visualization, introduction to machine learning.",
+    kk: "Негізгі курстар: математикалық талдау, сызықтық алгебра, ықтималдықтар теориясы, статистика, алгоритмдер және бағдарламалау, дерекқорлар, регрессиялық талдау, деректерді өңдеу және визуализациялау, машиналық оқытуға кіріспе."
   },
-  "Прогресс обучения": {
-    en: "Degree progress",
-    kk: "Оқу барысы"
+  "Казахский и русский: свободно.": {
+    en: "Kazakh and Russian: fluent.",
+    kk: "Қазақ және орыс тілдері: еркін."
   },
-  "Ключевые дисциплины": {
-    en: "Key courses",
-    kk: "Негізгі пәндер"
+  "Английский: B2, IELTS Academic 6.0 (British Council, 2023).": {
+    en: "English: B2, IELTS Academic 6.0 (British Council, 2023).",
+    kk: "Ағылшын тілі: B2, IELTS Academic 6.0 (British Council, 2023)."
   },
-  "Языки связи": {
-    en: "Languages",
-    kk: "Байланыс тілдері"
+  "09 · связь": {
+    en: "09 · contact",
+    kk: "09 · байланыс"
   },
-  "Казахский": {
-    en: "Kazakh",
-    kk: "Қазақ тілі"
+  "Лесная луна, где пряталась база повстанцев. Отсюда можно отправить мне сообщение.": {
+    en: "A forest moon where the Rebels hid their base. You can send me a message from here.",
+    kk: "Көтерілісшілер базасы жасырынған орманды ай. Осы жерден маған хабар жібере аласыз."
   },
-  "Свободно": {
-    en: "Fluent",
-    kk: "Еркін"
+  "Напишите мне": {
+    en: "Write to me",
+    kk: "Маған жазыңыз"
   },
-  "Русский": {
-    en: "Russian",
-    kk: "Орыс тілі"
+  "Открыт к проектам в Data Science и к исследовательским коллаборациям. Пишите на почту или в Telegram.": {
+    en: "Open to Data Science projects and research collaborations. Write to me by email or on Telegram.",
+    kk: "Data Science жобаларына және зерттеу ынтымақтастығына ашықпын. Поштаға немесе Telegram-ға жазыңыз."
   },
-  "Английский": {
-    en: "English",
-    kk: "Ағылшын тілі"
-  },
-  "Уровень английского подтверждён сертификатом IELTS Academic (British Council, 2023).": {
-    en: "English level certified by IELTS Academic (British Council, 2023).",
-    kk: "Ағылшын тілінің деңгейі IELTS Academic сертификатымен расталған (British Council, 2023)."
-  },
-  "<b>09</b>Канал связи открыт": {
-    en: "<b>09</b>Channel open",
-    kk: "<b>09</b>Байланыс арнасы ашық"
-  },
-  "Давайте обсудим вашу задачу с данными.": {
-    en: "Let’s talk about your data challenge.",
-    kk: "Деректерге қатысты міндетіңізді талқылайық."
-  },
-  "Открыт к профессиональному общению, исследовательским коллаборациям и интересным проектам в Data Science и машинном обучении.": {
-    en: "Open to professional networking, research collaborations and interesting projects in Data Science and machine learning.",
-    kk: "Кәсіби байланысқа, зерттеу ынтымақтастығына және Data Science пен машиналық оқыту саласындағы қызықты жобаларға ашықпын."
+  "Почта": {
+    en: "Email",
+    kk: "Пошта"
   },
   "Телефон": {
     en: "Phone",
     kk: "Телефон"
   },
-  "Да пребудет с вами сила данных.": {
-    en: "May the data be with you.",
-    kk: "Деректер күші сізбен бірге болсын."
+  "Алматы": {
+    en: "Almaty",
+    kk: "Алматы"
+  },
+  "Да пребудет с вами Сила.": {
+    en: "May the Force be with you.",
+    kk: "Күш сізбен бірге болсын."
   },
   "Вступительная заставка": {
-    en: "Intro sequence",
-    kk: "Кіріспе заставка"
+    en: "Intro",
+    kk: "Кіріспе"
   },
-  "Islam Kuttybaev — в начало": {
-    en: "Islam Kuttybaev — back to top",
-    kk: "Islam Kuttybaev — басына өту"
+  "Islam Kuttybaev, в начало": {
+    en: "Islam Kuttybaev, back to top",
+    kk: "Islam Kuttybaev, басына өту"
   },
-  "Разделы": {
-    en: "Sections",
-    kk: "Бөлімдер"
+  "Посмотреть заставку ещё раз": {
+    en: "Watch the intro again",
+    kk: "Кіріспені қайта көру"
   },
-  "Воспроизвести вступительную заставку": {
-    en: "Replay the intro",
-    kk: "Кіріспені қайта көрсету"
+  "Планеты": {
+    en: "Planets",
+    kk: "Планеталар"
   },
-  "Меню": {
-    en: "Menu",
-    kk: "Мәзір"
-  },
-  "Краткая карточка": {
-    en: "Summary card",
-    kk: "Қысқаша карточка"
-  },
-  "CV Ислама Куттыбаева — Data Scientist в ТОО «Adam Labs». Машинное обучение, статистика и анализ данных. Алматы, Казахстан.": {
-    en: "CV of Islam Kuttybaev — Data Scientist at Adam Labs LLP. Machine learning, statistics and data analysis. Almaty, Kazakhstan.",
-    kk: "Ислам Куттыбаевтың түйіндемесі — «Adam Labs» ЖШС-дағы Data Scientist. Машиналық оқыту, статистика және деректерді талдау. Алматы, Қазақстан."
+  "Ислам Куттыбаев, Data Scientist в ТОО «Adam Labs», Алматы. Резюме в виде карты галактики: опыт, проекты, навыки и контакты.": {
+    en: "Islam Kuttybaev, Data Scientist at Adam Labs LLP, Almaty. A CV laid out as a galaxy map: experience, projects, skills and contacts.",
+    kk: "Ислам Куттыбаев, «Adam Labs» ЖШС-дағы Data Scientist, Алматы. Галактика картасы түріндегі түйіндеме: тәжірибе, жобалар, дағдылар және байланыс."
   }
 };
