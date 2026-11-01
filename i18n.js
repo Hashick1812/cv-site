@@ -45,9 +45,13 @@ window.I18N = {
     en: "Skip ›",
     kk: "Өткізу ›"
   },
-  "Карта галактики": {
-    en: "Galaxy map",
-    kk: "Галактика картасы"
+  "Навигация": {
+    en: "Navigation",
+    kk: "Навигация"
+  },
+  "Терминал": {
+    en: "Terminal",
+    kk: "Терминал"
   },
   "Татуин": {
     en: "Tatooine",
@@ -85,9 +89,9 @@ window.I18N = {
     en: "Yavin IV",
     kk: "Явин IV"
   },
-  "Резюме · Алматы · 2026": {
-    en: "CV · Almaty · 2026",
-    kk: "Түйіндеме · Алматы · 2026"
+  "Бортовой журнал · Алматы · 2026": {
+    en: "Captain's log · Almaty · 2026",
+    kk: "Борт журналы · Алматы · 2026"
   },
   "ТОО «Adam Labs»": {
     en: "Adam Labs LLP",
@@ -97,21 +101,9 @@ window.I18N = {
     en: "I build models and dig into learning data. I'm a fourth-year Data Science and Statistics student at SDU, and I've been teaching maths and Python since 2023.",
     kk: "Модельдер құрып, оқу деректерін зерттеймін. SDU-да Data Science және статистика бойынша 4-курста оқимын, ал 2023 жылдан бері математика мен Python пәндерін оқытамын."
   },
-  "Открыть карту галактики": {
-    en: "Open the galaxy map",
-    kk: "Галактика картасын ашу"
-  },
-  "Написать мне": {
-    en: "Get in touch",
-    kk: "Маған жазу"
-  },
-  "Скачать PDF": {
-    en: "Download PDF",
-    kk: "PDF жүктеу"
-  },
-  "Девять планет, и на каждой своя часть резюме. Нажмите на любую, чтобы прыгнуть к ней через гиперпространство.": {
-    en: "Nine planets, each holding one part of my CV. Click any of them to jump there through hyperspace.",
-    kk: "Тоғыз планета, әрқайсысында түйіндеменің бір бөлігі. Гиперкеңістік арқылы секіру үшін кез келгенін басыңыз."
+  "Вы в кабине моего корабля. Выберите планету в иллюминаторе и прыгайте: на каждой своя часть резюме.": {
+    en: "You're in the cockpit of my ship. Pick a planet through the viewport and jump: each one holds a part of my CV.",
+    kk: "Сіз менің кемемнің кабинасындасыз. Иллюминатордан планета таңдап, секіріңіз: әрқайсысында түйіндеменің бір бөлігі бар."
   },
   "обо мне": {
     en: "about me",
@@ -148,6 +140,50 @@ window.I18N = {
   "связь": {
     en: "contact",
     kk: "байланыс"
+  },
+  "Написать мне": {
+    en: "Get in touch",
+    kk: "Маған жазу"
+  },
+  "Скачать PDF": {
+    en: "Download PDF",
+    kk: "PDF жүктеу"
+  },
+  "Навикомпьютер": {
+    en: "Navicomputer",
+    kk: "Навикомпьютер"
+  },
+  "Курс:": {
+    en: "Course:",
+    kk: "Бағыт:"
+  },
+  "не выбран": {
+    en: "not set",
+    kk: "таңдалмаған"
+  },
+  "Выберите планету в иллюминаторе.": {
+    en: "Pick a planet in the viewport.",
+    kk: "Иллюминатордан планета таңдаңыз."
+  },
+  "Прыжок в гиперпространство": {
+    en: "Jump to hyperspace",
+    kk: "Гиперкеңістікке секіру"
+  },
+  "Гипердвигатель: готов": {
+    en: "Hyperdrive: ready",
+    kk: "Гиперқозғалтқыш: дайын"
+  },
+  "Щиты: 100%": {
+    en: "Shields: 100%",
+    kk: "Қалқандар: 100%"
+  },
+  "Связь: открыта": {
+    en: "Comms: open",
+    kk: "Байланыс: ашық"
+  },
+  "↻ покрутите планету": {
+    en: "↻ drag to spin",
+    kk: "↻ планетаны айналдырыңыз"
   },
   "01 · обо мне": {
     en: "01 · about me",
@@ -224,6 +260,10 @@ window.I18N = {
   "Объясняю результаты команде через графики и короткие выводы.": {
     en: "Explain the results to the team with charts and short takeaways.",
     kk: "Нәтижелерді командаға графиктер мен қысқа қорытындылар арқылы түсіндіремін."
+  },
+  "Голограмма: регрессионная плоскость на синтетических данных": {
+    en: "Hologram: a regression plane fitted to synthetic data",
+    kk: "Голограмма: синтетикалық деректердегі регрессия жазықтығы"
   },
   "03 · исследование": {
     en: "03 · research",
@@ -381,6 +421,10 @@ window.I18N = {
     en: "explaining complex things in plain words, writing reports, speaking in front of an audience",
     kk: "күрделіні қарапайым сөзбен түсіндіру, есеп жазу, аудитория алдында сөйлеу"
   },
+  "Голопроектор: основные инструменты": {
+    en: "Holoprojector: core tools",
+    kk: "Голопроектор: негізгі құралдар"
+  },
   "07 · сертификаты": {
     en: "07 · certificates",
     kk: "07 · сертификаттар"
@@ -461,6 +505,30 @@ window.I18N = {
     en: "Phone",
     kk: "Телефон"
   },
+  "«Помогите мне, рекрутер. Вы моя единственная надежда.»": {
+    en: "“Help me, recruiter. You're my only hope.”",
+    kk: "«Көмектесіңіз, рекрутер. Сіз менің жалғыз үмітімсіз.»"
+  },
+  "10 · бортовой компьютер": {
+    en: "10 · onboard computer",
+    kk: "10 · борт компьютері"
+  },
+  "Командная строка корабля. Наберите help, а если любите «Звёздные войны», поищите секретные команды.": {
+    en: "The ship's command line. Type help, and if you love Star Wars, look for the secret commands.",
+    kk: "Кеменің командалық жолы. help деп теріңіз, ал «Жұлдызды соғыстарды» жақсы көрсеңіз, құпия командаларды іздеңіз."
+  },
+  "ISLAM-OS · бортовой терминал «Сокол»": {
+    en: "ISLAM-OS · Falcon onboard terminal",
+    kk: "ISLAM-OS · «Сұңқар» борт терминалы"
+  },
+  "Быстрые команды:": {
+    en: "Quick commands:",
+    kk: "Жылдам командалар:"
+  },
+  "Совет: клавиша ~ открывает терминал из любого места страницы.": {
+    en: "Tip: press ~ to open the terminal from anywhere on the page.",
+    kk: "Кеңес: ~ пернесі терминалды беттің кез келген жерінен ашады."
+  },
   "Алматы": {
     en: "Almaty",
     kk: "Алматы"
@@ -484,6 +552,14 @@ window.I18N = {
   "Планеты": {
     en: "Planets",
     kk: "Планеталар"
+  },
+  "Пункты назначения": {
+    en: "Destinations",
+    kk: "Баратын жерлер"
+  },
+  "Команда": {
+    en: "Command",
+    kk: "Команда"
   },
   "Ислам Куттыбаев, Data Scientist в ТОО «Adam Labs», Алматы. Резюме в виде карты галактики: опыт, проекты, навыки и контакты.": {
     en: "Islam Kuttybaev, Data Scientist at Adam Labs LLP, Almaty. A CV laid out as a galaxy map: experience, projects, skills and contacts.",

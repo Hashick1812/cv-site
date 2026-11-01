@@ -14,7 +14,7 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2303040a'/%3E%3Ccircle cx='16' cy='16' r='9' fill='%23e8b56d'/%3E%3Cpath d='M7 20c5 3 13 3 18 0' stroke='%23ffe81f' stroke-width='2' fill='none'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Syncopate:wght@700&family=Tektur:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Syncopate:wght@700&family=Tektur:wght@500;600;700&display=swap" rel="stylesheet">
   <script>
     /* Заставка показывается один раз за сессию; ?nointro отключает её (удобно для ссылок рекрутерам). */
     (function () {
@@ -46,6 +46,17 @@
     <canvas id="stars"></canvas>
   </div>
   <div class="jump-flash" aria-hidden="true"></div>
+  <svg class="sprite" aria-hidden="true" width="0" height="0">
+    <symbol id="g-python" viewBox="0 0 64 64"><path d="M31.6 4C21 4 21.7 8.6 21.7 8.6v4.8h10.1v1.4H17.6S10.8 14 10.8 24.7s5.9 10.3 5.9 10.3h3.6v-5s-.2-5.9 5.8-5.9h10s5.6.1 5.6-5.4V9.5S42.5 4 31.6 4zm-5.5 3.2a1.8 1.8 0 1 1 0 3.6 1.8 1.8 0 0 1 0-3.6z"/><path d="M32 60c10.6 0 9.9-4.6 9.9-4.6v-4.8H31.8v-1.4H46s6.8.8 6.8-9.9-5.9-10.3-5.9-10.3h-3.6v5s.2 5.9-5.8 5.9h-10s-5.6-.1-5.6 5.4v9.2S21.1 60 32 60zm5.5-3.2a1.8 1.8 0 1 1 0-3.6 1.8 1.8 0 0 1 0 3.6z" opacity=".75"/></symbol>
+    <symbol id="g-sql" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="4"><ellipse cx="32" cy="14" rx="19" ry="7"/><path d="M13 14v35c0 3.9 8.5 7 19 7s19-3.1 19-7V14M13 26c0 3.9 8.5 7 19 7s19-3.1 19-7M13 38c0 3.9 8.5 7 19 7s19-3.1 19-7"/></g></symbol>
+    <symbol id="g-r" viewBox="0 0 64 64"><ellipse cx="30" cy="27" rx="26" ry="17" fill="none" stroke="currentColor" stroke-width="5" opacity=".7"/><path d="M24 21h16c5 0 8.5 3 8.5 7.6S45 36 40 36h-1.5L48 54h-8l-8.8-18H30v18h-6zm6 6v4.2h9.2c1.6 0 2.6-.9 2.6-2.1S40.8 27 39.2 27z"/></symbol>
+    <symbol id="g-pandas" viewBox="0 0 64 64"><rect x="15" y="5" width="8" height="19"/><rect x="15" y="30" width="8" height="29" opacity=".8"/><rect x="28" y="22" width="8" height="8" opacity=".6"/><rect x="28" y="35" width="8" height="8" opacity=".9"/><rect x="41" y="5" width="8" height="29" opacity=".8"/><rect x="41" y="40" width="8" height="19"/></symbol>
+    <symbol id="g-numpy" viewBox="0 0 64 64"><path d="M32 5 55 17 32 29 9 17z"/><path d="M7 21l23 12v25L7 46z" opacity=".65"/><path d="M57 21 34 33v25l23-12z" opacity=".4"/></symbol>
+    <symbol id="g-sklearn" viewBox="0 0 64 64"><circle cx="24" cy="28" r="17" opacity=".5"/><circle cx="41" cy="28" r="13" opacity=".9"/><text x="32" y="59" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-weight="600">learn</text></symbol>
+    <symbol id="g-jupyter" viewBox="0 0 64 64"><path d="M9 23c6-11 40-11 46 0-8-6-38-6-46 0z"/><path d="M9 41c6 11 40 11 46 0-8 6-38 6-46 0z"/><circle cx="51" cy="10" r="3.2"/><circle cx="13" cy="55" r="3.8"/><circle cx="15" cy="11" r="2.2"/></symbol>
+    <symbol id="g-git" viewBox="0 0 64 64"><path d="M32 4 60 32 32 60 4 32z" opacity=".8"/><g fill="none" stroke="#03040a" stroke-width="3.4"><path d="M23 17 40 34M32 26v19"/></g><g fill="#03040a"><circle cx="32" cy="46" r="4.2"/><circle cx="40.5" cy="34.5" r="4.2"/><circle cx="32" cy="25.5" r="4.2"/></g></symbol>
+    <symbol id="g-ik" viewBox="0 0 132 64"><text x="66" y="50" text-anchor="middle" font-family="Syncopate, Arial Black, sans-serif" font-weight="700" font-size="52" letter-spacing="2">IK</text></symbol>
+  </svg>
 
   <!-- Вступительная заставка -->
   <div data-i18n-attr="aria-label" class="intro" id="intro" role="dialog" aria-modal="true" aria-label="Вступительная заставка">
@@ -79,8 +90,9 @@
         <span><span class="first">Islam </span><b>Kuttybaev</b></span>
       </a>
       <div class="nav-right">
-        <a data-i18n class="nav-link" href="#map" data-jump>Карта галактики</a>
-        <a data-i18n-attr="aria-label" class="icon-btn map-btn" href="#map" data-jump aria-label="Карта галактики">
+        <a data-i18n class="nav-link" href="#top" data-jump>Навигация</a>
+        <a data-i18n class="nav-link" href="#terminal" data-jump>Терминал</a>
+        <a data-i18n-attr="aria-label" class="icon-btn map-btn" href="#top" data-jump aria-label="Навигация">
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="8" cy="8" r="2.2" fill="currentColor"/><ellipse cx="8" cy="8" rx="6.8" ry="3" transform="rotate(-20 8 8)"/></svg>
         </a>
         <div class="lang-switch" role="group" aria-label="Language / Тіл / Язык" data-i18n-skip>
@@ -105,49 +117,75 @@
     <a href="#scarif" data-jump style="--c:#2fc6d8"><span data-i18n>Скариф</span><i></i></a>
     <a href="#naboo" data-jump style="--c:#77aaff"><span data-i18n>Набу</span><i></i></a>
     <a href="#yavin4" data-jump style="--c:#ffa25c"><span data-i18n>Явин IV</span><i></i></a>
+    <a href="#terminal" data-jump style="--c:#ffcf5a"><span data-i18n>Терминал</span><i></i></a>
   </nav>
 
   <div class="page">
     <main id="main">
 
-      <!-- Первый экран: Татуин и звёздный разрушитель -->
-      <section class="hero" id="top">
-        <img class="hero-ship" src="assets/star-destroyer-hero.png" alt="" width="960" height="411">
-        <div class="suns" aria-hidden="true"><i></i><i></i></div>
-        <div class="wrap hero-inner">
-          <p data-i18n class="hero-pre" style="--i:0">Резюме · Алматы · 2026</p>
+      <!-- Кабина корабля: главный экран -->
+      <section class="cockpit" id="top">
+        <div class="view" aria-hidden="true">
+          <img class="hero-ship" src="assets/star-destroyer-hero.png" alt="" width="960" height="411">
+          <div class="hero-planet"><canvas data-planet="tatooine" data-view="horizon" data-r="1.2" data-cx=".42" data-top=".54" data-light=".6,.5,.62"></canvas></div>
+          <div class="glare"></div>
+        </div>
+        <svg class="canopy" viewBox="0 0 1440 900" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="strut" x1="0" x2="1"><stop offset="0" stop-color="#05070c"/><stop offset=".55" stop-color="#1a2130"/><stop offset=".62" stop-color="#3a4558"/><stop offset="1" stop-color="#0a0d14"/></linearGradient>
+          </defs>
+          <path class="strut" d="M0 0h70L132 760H0z" fill="url(#strut)"/>
+          <path class="strut" d="M1440 0h-70l-62 760h132z" fill="url(#strut)"/>
+          <path class="strut" d="M0 0h1440v24c-260 18-460 26-720 26S260 42 0 24z" fill="url(#strut)"/>
+          <path class="strut sill" d="M0 742h1440v158H0z" fill="#05070c"/>
+          <path class="edge" d="M70 0 132 760M1370 0l-62 760M0 24c260 18 460 26 720 26s460-8 720-26" fill="none"/>
+          <g class="rivets"><circle cx="40" cy="120"/><circle cx="52" cy="300"/><circle cx="66" cy="480"/><circle cx="80" cy="660"/><circle cx="1400" cy="120"/><circle cx="1388" cy="300"/><circle cx="1374" cy="480"/><circle cx="1360" cy="660"/></g>
+        </svg>
+        <div class="reticle" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+
+        <div class="wrap pilot">
+          <p data-i18n class="hero-pre" style="--i:0">Бортовой журнал · Алматы · 2026</p>
           <h1 class="logo" style="--i:1"><span>Islam</span><span class="o">Kuttybaev</span></h1>
           <p class="hero-role" style="--i:2">Data Scientist · <span data-i18n class="co">ТОО «Adam Labs»</span></p>
           <p data-i18n class="hero-text" style="--i:3">Строю модели и разбираюсь в данных об обучении. Учусь на 4 курсе SDU по Data Science и статистике, а с 2023 года преподаю математику и Python.</p>
-          <div class="hero-actions" style="--i:4">
-            <a data-i18n class="btn primary" href="#map" data-jump>Открыть карту галактики</a>
-            <a data-i18n class="btn" href="#yavin4" data-jump>Написать мне</a>
-            <button data-i18n class="text-btn" type="button" data-print>Скачать PDF</button>
-          </div>
+          <p data-i18n class="pilot-tip" style="--i:4">Вы в кабине моего корабля. Выберите планету в иллюминаторе и прыгайте: на каждой своя часть резюме.</p>
         </div>
-        <div class="hero-planet" aria-hidden="true">
-          <canvas data-planet="tatooine" data-view="horizon" data-r="1.05" data-cx=".6" data-top=".72" data-light=".6,.5,.62"></canvas>
-        </div>
-      </section>
 
-      <!-- Карта галактики -->
-      <section class="map" id="map">
-        <div class="wrap">
-          <h2 data-i18n class="sec-title" data-reveal>Карта галактики</h2>
-          <p data-i18n class="sec-sub" data-reveal>Девять планет, и на каждой своя часть резюме. Нажмите на любую, чтобы прыгнуть к ней через гиперпространство.</p>
-          <div class="route-wrap" data-reveal>
-          <svg class="lane" aria-hidden="true"><path d=""/></svg>
-          <ol class="route">
-            <li><a class="stop" href="#tatooine" data-jump style="--s:92px;--y:-36px"><canvas data-planet="tatooine" data-max="240" aria-hidden="true"></canvas><span data-i18n class="stop-name">Татуин</span><span data-i18n class="stop-what">обо мне</span></a></li>
-            <li><a class="stop" href="#coruscant" data-jump style="--s:112px;--y:30px"><canvas data-planet="coruscant" data-max="260" aria-hidden="true"></canvas><span data-i18n class="stop-name">Корусант</span><span data-i18n class="stop-what">работа</span></a></li>
-            <li><a class="stop" href="#hoth" data-jump style="--s:80px;--y:-48px"><canvas data-planet="hoth" data-max="220" aria-hidden="true"></canvas><span data-i18n class="stop-name">Хот</span><span data-i18n class="stop-what">исследование</span></a></li>
-            <li><a class="stop" href="#dagobah" data-jump style="--s:88px;--y:22px"><canvas data-planet="dagobah" data-max="220" aria-hidden="true"></canvas><span data-i18n class="stop-name">Дагоба</span><span data-i18n class="stop-what">преподавание</span></a></li>
-            <li><a class="stop" href="#mustafar" data-jump style="--s:84px;--y:-30px"><canvas data-planet="mustafar" data-max="220" aria-hidden="true"></canvas><span data-i18n class="stop-name">Мустафар</span><span data-i18n class="stop-what">проекты</span></a></li>
-            <li><a class="stop" href="#ilum" data-jump style="--s:78px;--y:40px"><canvas data-planet="ilum" data-max="220" aria-hidden="true"></canvas><span data-i18n class="stop-name">Илум</span><span data-i18n class="stop-what">навыки</span></a></li>
-            <li><a class="stop" href="#scarif" data-jump style="--s:96px;--y:-26px"><canvas data-planet="scarif" data-max="240" aria-hidden="true"></canvas><span data-i18n class="stop-name">Скариф</span><span data-i18n class="stop-what">сертификаты</span></a></li>
-            <li><a class="stop" href="#naboo" data-jump style="--s:100px;--y:28px"><canvas data-planet="naboo" data-max="240" aria-hidden="true"></canvas><span data-i18n class="stop-name">Набу</span><span data-i18n class="stop-what">учёба и языки</span></a></li>
-            <li><a class="stop" href="#yavin4" data-jump style="--s:86px;--y:-38px"><canvas data-planet="yavin4" data-max="220" aria-hidden="true"></canvas><span data-i18n class="stop-name">Явин IV</span><span data-i18n class="stop-what">связь</span></a></li>
-          </ol>
+        <div data-i18n-attr="aria-label" class="dest-field" role="group" aria-label="Пункты назначения">
+        <button class="dest" type="button" data-target="tatooine" style="--x:9%;--y:44%;--s:58px;--c:#f0a95b"><span class="dest-orb"><canvas data-planet="tatooine" data-max="170" aria-hidden="true"></canvas></span><span data-i18n class="dest-name">Татуин</span><span data-i18n class="dest-what">обо мне</span></button>
+        <button class="dest" type="button" data-target="coruscant" style="--x:33%;--y:6%;--s:70px;--c:#b48cff"><span class="dest-orb"><canvas data-planet="coruscant" data-max="170" aria-hidden="true"></canvas></span><span data-i18n class="dest-name">Корусант</span><span data-i18n class="dest-what">работа</span></button>
+        <button class="dest" type="button" data-target="hoth" style="--x:61%;--y:16%;--s:44px;--c:#a8d2ff"><span class="dest-orb"><canvas data-planet="hoth" data-max="170" aria-hidden="true"></canvas></span><span data-i18n class="dest-name">Хот</span><span data-i18n class="dest-what">исследование</span></button>
+        <button class="dest" type="button" data-target="dagobah" style="--x:91%;--y:2%;--s:50px;--c:#8fbf6f"><span class="dest-orb"><canvas data-planet="dagobah" data-max="170" aria-hidden="true"></canvas></span><span data-i18n class="dest-name">Дагоба</span><span data-i18n class="dest-what">преподавание</span></button>
+        <button class="dest" type="button" data-target="mustafar" style="--x:41%;--y:52%;--s:54px;--c:#ff6a2a"><span class="dest-orb"><canvas data-planet="mustafar" data-max="170" aria-hidden="true"></canvas></span><span data-i18n class="dest-name">Мустафар</span><span data-i18n class="dest-what">проекты</span></button>
+        <button class="dest" type="button" data-target="ilum" style="--x:73%;--y:44%;--s:46px;--c:#5fe4ff"><span class="dest-orb"><canvas data-planet="ilum" data-max="170" aria-hidden="true"></canvas></span><span data-i18n class="dest-name">Илум</span><span data-i18n class="dest-what">навыки</span></button>
+        <button class="dest" type="button" data-target="scarif" style="--x:97%;--y:66%;--s:48px;--c:#2fc6d8"><span class="dest-orb"><canvas data-planet="scarif" data-max="170" aria-hidden="true"></canvas></span><span data-i18n class="dest-name">Скариф</span><span data-i18n class="dest-what">сертификаты</span></button>
+        <button class="dest" type="button" data-target="naboo" style="--x:17%;--y:92%;--s:56px;--c:#77aaff"><span class="dest-orb"><canvas data-planet="naboo" data-max="170" aria-hidden="true"></canvas></span><span data-i18n class="dest-name">Набу</span><span data-i18n class="dest-what">учёба и языки</span></button>
+        <button class="dest" type="button" data-target="yavin4" style="--x:63%;--y:90%;--s:50px;--c:#ffa25c"><span class="dest-orb"><canvas data-planet="yavin4" data-max="170" aria-hidden="true"></canvas></span><span data-i18n class="dest-name">Явин IV</span><span data-i18n class="dest-what">связь</span></button>
+        </div>
+
+        <div class="dash">
+          <div class="dash-inner">
+            <div class="dash-left">
+              <a data-i18n class="btn" href="#yavin4" data-jump>Написать мне</a>
+              <button data-i18n class="btn" type="button" data-print>Скачать PDF</button>
+            </div>
+            <div class="navcomp holo holo--blue">
+              <canvas class="holomap" aria-hidden="true"></canvas>
+              <div class="navinfo">
+                <p data-i18n class="nav-label">Навикомпьютер</p>
+                <p class="nav-course"><span data-i18n class="nav-k">Курс:</span> <span data-i18n class="nav-from">Татуин</span> <span aria-hidden="true">→</span> <b class="nav-to"><span data-i18n class="nav-none">не выбран</span><span class="nav-sel"></span></b></p>
+                <p class="nav-what"><span data-i18n class="nav-hint">Выберите планету в иллюминаторе.</span><span class="nav-sel-what"></span></p>
+                <button data-i18n class="btn primary jump-btn" type="button" disabled>Прыжок в гиперпространство</button>
+              </div>
+            </div>
+            <div class="dash-right">
+              <ul class="gauges">
+                <li><i class="led on"></i><span data-i18n>Гипердвигатель: готов</span></li>
+                <li><i class="led on"></i><span data-i18n>Щиты: 100%</span></li>
+                <li><i class="led blink"></i><span data-i18n>Связь: открыта</span></li>
+              </ul>
+              <a class="term-btn" href="#terminal" data-jump><span data-i18n>Терминал</span> <b aria-hidden="true">›_</b></a>
+            </div>
           </div>
         </div>
       </section>
@@ -155,7 +193,7 @@
       <!-- 01 Татуин: обо мне -->
       <section class="world" id="tatooine" data-tint="#f0a95b" style="--c:#f0a95b">
         <div class="wrap world-inner">
-          <div class="world-planet" aria-hidden="true"><canvas data-planet="tatooine" data-light="-.5,.5,.7"></canvas></div>
+          <div class="world-planet" aria-hidden="true"><canvas class="main-planet" data-planet="tatooine" data-light="-.5,.5,.7" data-drag></canvas><div class="orbit" style="--tilt:76deg;--dur:34s;--size:15%;--r:-12%"><div class="orbit-ring"><span class="moon"><canvas data-planet="moon" data-max="120"></canvas></span></div></div><span data-i18n class="drag-hint">↻ покрутите планету</span></div>
           <div class="world-body">
             <p data-i18n class="world-tag" data-reveal>01 · обо мне</p>
             <h2 data-i18n class="world-name" data-reveal>Татуин</h2>
@@ -179,7 +217,7 @@
       <!-- 02 Корусант: работа -->
       <section class="world flip" id="coruscant" data-tint="#b48cff" style="--c:#b48cff">
         <div class="wrap world-inner">
-          <div class="world-planet" aria-hidden="true"><canvas data-planet="coruscant" data-light=".55,.45,.7"></canvas></div>
+          <div class="world-planet" aria-hidden="true"><canvas class="main-planet" data-planet="coruscant" data-light=".55,.45,.7" data-drag></canvas><div class="orbit" style="--tilt:70deg;--dur:26s;--size:11%;--r:-8%"><div class="orbit-ring"><span class="moon"><canvas data-planet="moon" data-max="100"></canvas></span></div></div><span data-i18n class="drag-hint">↻ покрутите планету</span></div>
           <div class="world-body">
             <p data-i18n class="world-tag" data-reveal>02 · работа сейчас</p>
             <h2 data-i18n class="world-name" data-reveal>Корусант</h2>
@@ -196,6 +234,11 @@
                 <li data-i18n>Объясняю результаты команде через графики и короткие выводы.</li>
               </ul>
               <p class="tools">Python, SQL, pandas, scikit-learn, SHAP, PostgreSQL, Power BI</p>
+              <figure class="holo holo-viz holo--blue">
+                <canvas class="holo-scatter" aria-hidden="true"></canvas>
+                <span class="holo-beam" aria-hidden="true"></span><span class="holo-base" aria-hidden="true"></span>
+                <figcaption data-i18n>Голограмма: регрессионная плоскость на синтетических данных</figcaption>
+              </figure>
             </div>
           </div>
         </div>
@@ -204,7 +247,7 @@
       <!-- 03 Хот: исследование -->
       <section class="world" id="hoth" data-tint="#a8d2ff" style="--c:#a8d2ff">
         <div class="wrap world-inner">
-          <div class="world-planet" aria-hidden="true"><canvas data-planet="hoth" data-light="-.5,.5,.7"></canvas></div>
+          <div class="world-planet" aria-hidden="true"><canvas class="main-planet" data-planet="hoth" data-light="-.5,.5,.7" data-drag></canvas><div class="orbit" style="--tilt:80deg;--dur:40s;--size:13%;--r:-14%"><div class="orbit-ring"><span class="moon"><canvas data-planet="moonice" data-max="110"></canvas></span></div></div><span data-i18n class="drag-hint">↻ покрутите планету</span></div>
           <div class="world-body">
             <p data-i18n class="world-tag" data-reveal>03 · исследование</p>
             <h2 data-i18n class="world-name" data-reveal>Хот</h2>
@@ -226,7 +269,7 @@
       <!-- 04 Дагоба: преподавание -->
       <section class="world flip" id="dagobah" data-tint="#8fbf6f" style="--c:#8fbf6f">
         <div class="wrap world-inner">
-          <div class="world-planet" aria-hidden="true"><canvas data-planet="dagobah" data-light=".55,.45,.7"></canvas></div>
+          <div class="world-planet" aria-hidden="true"><canvas class="main-planet" data-planet="dagobah" data-light=".55,.45,.7" data-drag></canvas><span data-i18n class="drag-hint">↻ покрутите планету</span></div>
           <div class="world-body">
             <p data-i18n class="world-tag" data-reveal>04 · преподавание</p>
             <h2 data-i18n class="world-name" data-reveal>Дагоба</h2>
@@ -255,7 +298,7 @@
       <!-- 05 Мустафар: проекты -->
       <section class="world" id="mustafar" data-tint="#ff6a2a" style="--c:#ff6a2a">
         <div class="wrap world-inner">
-          <div class="world-planet" aria-hidden="true"><canvas data-planet="mustafar" data-light="-.5,.5,.7"></canvas></div>
+          <div class="world-planet" aria-hidden="true"><canvas class="main-planet" data-planet="mustafar" data-light="-.5,.5,.7" data-drag></canvas><span data-i18n class="drag-hint">↻ покрутите планету</span></div>
           <div class="world-body">
             <p data-i18n class="world-tag" data-reveal>05 · проекты</p>
             <h2 data-i18n class="world-name" data-reveal>Мустафар</h2>
@@ -277,7 +320,7 @@
       <!-- 06 Илум: навыки -->
       <section class="world flip" id="ilum" data-tint="#5fe4ff" style="--c:#5fe4ff">
         <div class="wrap world-inner">
-          <div class="world-planet" aria-hidden="true"><canvas data-planet="ilum" data-light=".55,.45,.7"></canvas></div>
+          <div class="world-planet" aria-hidden="true"><canvas class="main-planet" data-planet="ilum" data-light=".55,.45,.7" data-drag></canvas><span data-i18n class="drag-hint">↻ покрутите планету</span></div>
           <div class="world-body">
             <p data-i18n class="world-tag" data-reveal>06 · навыки</p>
             <h2 data-i18n class="world-name" data-reveal>Илум</h2>
@@ -290,6 +333,19 @@
               <dt data-i18n>Базы и среда</dt><dd>PostgreSQL, MySQL, Jupyter, Google Colab, Git, VS Code</dd>
               <dt data-i18n>Не только код</dt><dd data-i18n>объясняю сложное простыми словами, пишу отчёты, выступаю перед аудиторией</dd>
             </dl>
+            <div class="holotable" data-reveal>
+              <p data-i18n class="holotable-title">Голопроектор: основные инструменты</p>
+              <ul class="holo-grid">
+                <li class="holo holo--blue"><div class="holo-stage"><div class="holo-spin spin" data-layers="6" data-depth="12"><svg class="holo-layer" viewBox="0 0 64 64"><use href="#g-python"/></svg></div></div><span class="holo-beam" aria-hidden="true"></span><span class="holo-base" aria-hidden="true"></span><span class="holo-label">Python</span></li>
+                <li class="holo holo--cyan"><div class="holo-stage"><div class="holo-spin spin slow" data-layers="6" data-depth="12"><svg class="holo-layer" viewBox="0 0 64 64"><use href="#g-sql"/></svg></div></div><span class="holo-beam" aria-hidden="true"></span><span class="holo-base" aria-hidden="true"></span><span class="holo-label">SQL</span></li>
+                <li class="holo holo--violet"><div class="holo-stage"><div class="holo-spin wobble" data-layers="6" data-depth="12"><svg class="holo-layer" viewBox="0 0 64 64"><use href="#g-r"/></svg></div></div><span class="holo-beam" aria-hidden="true"></span><span class="holo-base" aria-hidden="true"></span><span class="holo-label">R</span></li>
+                <li class="holo holo--amber"><div class="holo-stage"><div class="holo-spin spin" data-layers="6" data-depth="12"><svg class="holo-layer" viewBox="0 0 64 64"><use href="#g-pandas"/></svg></div></div><span class="holo-beam" aria-hidden="true"></span><span class="holo-base" aria-hidden="true"></span><span class="holo-label">pandas</span></li>
+                <li class="holo holo--blue"><div class="holo-stage"><div class="holo-spin tumble" data-layers="6" data-depth="12"><svg class="holo-layer" viewBox="0 0 64 64"><use href="#g-numpy"/></svg></div></div><span class="holo-beam" aria-hidden="true"></span><span class="holo-base" aria-hidden="true"></span><span class="holo-label">NumPy</span></li>
+                <li class="holo holo--orange"><div class="holo-stage"><div class="holo-spin spin reverse" data-layers="6" data-depth="12"><svg class="holo-layer" viewBox="0 0 64 64"><use href="#g-sklearn"/></svg></div></div><span class="holo-beam" aria-hidden="true"></span><span class="holo-base" aria-hidden="true"></span><span class="holo-label">scikit-learn</span></li>
+                <li class="holo holo--amber"><div class="holo-stage"><div class="holo-spin wobble" data-layers="6" data-depth="12"><svg class="holo-layer" viewBox="0 0 64 64"><use href="#g-jupyter"/></svg></div></div><span class="holo-beam" aria-hidden="true"></span><span class="holo-base" aria-hidden="true"></span><span class="holo-label">Jupyter</span></li>
+                <li class="holo holo--red"><div class="holo-stage"><div class="holo-spin spin glitchy" data-layers="6" data-depth="12"><svg class="holo-layer" viewBox="0 0 64 64"><use href="#g-git"/></svg></div></div><span class="holo-beam" aria-hidden="true"></span><span class="holo-base" aria-hidden="true"></span><span class="holo-label">Git</span></li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -297,7 +353,7 @@
       <!-- 07 Скариф: сертификаты -->
       <section class="world" id="scarif" data-tint="#2fc6d8" style="--c:#2fc6d8">
         <div class="wrap world-inner">
-          <div class="world-planet" aria-hidden="true"><canvas data-planet="scarif" data-light="-.5,.5,.7"></canvas></div>
+          <div class="world-planet" aria-hidden="true"><canvas class="main-planet" data-planet="scarif" data-light="-.5,.5,.7" data-drag></canvas><span data-i18n class="drag-hint">↻ покрутите планету</span></div>
           <div class="world-body">
             <p data-i18n class="world-tag" data-reveal>07 · сертификаты</p>
             <h2 data-i18n class="world-name" data-reveal>Скариф</h2>
@@ -318,7 +374,7 @@
       <!-- 08 Набу: учёба и языки -->
       <section class="world flip" id="naboo" data-tint="#77aaff" style="--c:#77aaff">
         <div class="wrap world-inner">
-          <div class="world-planet" aria-hidden="true"><canvas data-planet="naboo" data-light=".55,.45,.7"></canvas></div>
+          <div class="world-planet" aria-hidden="true"><canvas class="main-planet" data-planet="naboo" data-light=".55,.45,.7" data-drag></canvas><div class="orbit" style="--tilt:72deg;--dur:30s;--size:12%;--r:-10%"><div class="orbit-ring"><span class="moon"><canvas data-planet="moon" data-max="110"></canvas></span></div></div><span data-i18n class="drag-hint">↻ покрутите планету</span></div>
           <div class="world-body">
             <p data-i18n class="world-tag" data-reveal>08 · учёба и языки</p>
             <h2 data-i18n class="world-name" data-reveal>Набу</h2>
@@ -346,7 +402,8 @@
         <div class="wrap world-inner">
           <div class="world-planet" aria-hidden="true">
             <canvas class="moon-back" data-planet="yavin" data-light="-.5,.5,.7"></canvas>
-            <canvas data-planet="yavin4" data-light="-.5,.5,.7"></canvas>
+            <canvas class="main-planet" data-planet="yavin4" data-light="-.5,.5,.7" data-drag></canvas>
+            <span data-i18n class="drag-hint">↻ покрутите планету</span>
           </div>
           <div class="world-body">
             <p data-i18n class="world-tag" data-reveal>09 · связь</p>
@@ -363,11 +420,35 @@
                 <li><a href="https://github.com/Hashick1812" target="_blank" rel="noopener"><span class="k">GitHub</span><span class="v">Hashick1812</span><span class="arr" aria-hidden="true">↗</span></a></li>
               </ul>
             </div>
-            <footer class="footer">
+            <figure class="holo holo-msg holo--blue" data-reveal>
+              <div class="holo-stage wide"><div class="holo-spin wobble" data-layers="7" data-depth="16"><svg class="holo-layer" viewBox="0 0 132 64"><use href="#g-ik"/></svg></div></div>
+              <span class="holo-beam" aria-hidden="true"></span><span class="holo-base" aria-hidden="true"></span>
+              <figcaption data-i18n class="holo-quote">«Помогите мне, рекрутер. Вы моя единственная надежда.»</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- 10 Терминал -->
+      <section class="world terminal-sec" id="terminal" data-tint="#ffcf5a" style="--c:#ffcf5a">
+        <div class="wrap">
+          <p data-i18n class="world-tag" data-reveal>10 · бортовой компьютер</p>
+          <h2 data-i18n class="world-name" data-reveal>Терминал</h2>
+          <p data-i18n class="lore" data-reveal>Командная строка корабля. Наберите help, а если любите «Звёздные войны», поищите секретные команды.</p>
+          <div class="term" data-reveal>
+            <div class="term-bar"><span class="term-leds" aria-hidden="true"><i></i><i></i><i></i></span><span data-i18n class="term-title">ISLAM-OS · бортовой терминал «Сокол»</span></div>
+            <div class="term-out" aria-live="polite"></div>
+            <form class="term-in" autocomplete="off">
+              <label class="term-prompt" for="term-input">islam@falcon:~$</label>
+              <input data-i18n-attr="aria-label" id="term-input" class="term-input" type="text" spellcheck="false" autocapitalize="off" aria-label="Команда">
+            </form>
+          </div>
+          <div class="term-quick" data-reveal><span data-i18n>Быстрые команды:</span><button type="button" data-cmd="help">help</button><button type="button" data-cmd="about">about</button><button type="button" data-cmd="skills">skills</button><button type="button" data-cmd="contact">contact</button><button type="button" data-cmd="order 66">order 66</button><button type="button" data-cmd="order 67">order 67</button></div>
+          <p data-i18n class="term-hint" data-reveal>Совет: клавиша ~ открывает терминал из любого места страницы.</p>
+          <footer class="footer">
               <span>© 2026 Islam Kuttybaev · <span data-i18n>Алматы</span></span>
               <span data-i18n class="force">Да пребудет с вами Сила.</span>
             </footer>
-          </div>
         </div>
       </section>
     </main>
@@ -376,6 +457,8 @@
   <script src="i18n.js"></script>
   <script src="assets/planets.js"></script>
   <script src="assets/music.js"></script>
+  <script src="assets/holo.js"></script>
   <script src="assets/site.js"></script>
+  <script src="assets/console.js"></script>
 </body>
 </html>

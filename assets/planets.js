@@ -18,6 +18,8 @@
     scarif:    { kind: 6, c1: [.25, .55, .28], c2: [.95, .88, .68], c3: [.04, .45, .58], atm: [.5, .88, 1], atmK: .85, cloud: .28, rot: .017, tilt: .3 },
     naboo:     { kind: 7, c1: [.22, .47, .2], c2: [.52, .62, .3], c3: [.08, .27, .56], atm: [.5, .72, 1], atmK: .8, cloud: .4, rot: .016, tilt: .35 },
     yavin4:    { kind: 8, c1: [.3, .55, .18], c2: [.14, .4, .14], c3: [.05, .22, .1], cloudC: [.9, .95, .9], atm: [.62, .9, .66], atmK: .7, cloud: .3, rot: .02, tilt: .25 },
+    moon:      { kind: 10, c1: [.62, .6, .58], c2: [.82, .8, .76], c3: [.35, .34, .33], atm: [.8, .8, .85], atmK: .15, rot: .03, tilt: .2 },
+    moonice:   { kind: 10, c1: [.66, .74, .82], c2: [.9, .94, 1], c3: [.4, .48, .58], atm: [.75, .85, 1], atmK: .25, rot: .03, tilt: .3 },
     yavin:     { kind: 9, c1: [.8, .38, .18], c2: [.96, .72, .48], c3: [.5, .18, .1], atm: [1, .62, .4], atmK: .45, rot: .008, tilt: .12 }
   };
 
@@ -54,7 +56,7 @@
   var FS_PLANET = [
     'precision highp float;',
     'uniform vec2 uCenter; uniform float uRadius,uGlow,uGlowMax,uZoom;',
-    'uniform float uTime,uRot,uTilt,uCloud,uAtmK,uSuns,uEmitAll; uniform int uKind;',
+    'uniform float uSpin,uTime,uRot,uTilt,uCloud,uAtmK,uSuns,uEmitAll; uniform int uKind;',
     'uniform vec3 uC1,uC2,uC3,uC4,uCloudC,uAtm,uL,uL2,uSeed;',
     NOISE,
     'vec3 surface(vec3 q,float lat,out vec3 emit,out float spec){',
@@ -109,6 +111,10 @@
     '  c=mix(c,uC1,smoothstep(0.1,0.6,fbm3(q*7.0+2.0))*0.5);',
     '  float rv=pow(1.0-abs(snoise(q*4.0+9.0)),18.0);',
     '  c=mix(c,vec3(0.1,0.24,0.3),rv*0.6); spec=rv*0.4;',
+    ' } else if(uKind==10){',
+    '  c=mix(uC1,uC2,smoothstep(-0.4,0.5,fbm3(q*2.5)));',
+    '  float cr=smoothstep(0.55,0.7,1.0-abs(snoise(q*7.0)));',
+    '  c=mix(c,uC3,cr*0.45);',
     ' } else {',
     '  float turb=fbm3(vec3(q.x*1.5,lat*5.0,q.z*1.5));',
     '  c=mix(uC1,uC2,0.5+0.5*sin((lat+turb*0.12)*20.0));',
@@ -124,7 +130,7 @@
     '  vec3 n=vec3(p,sqrt(1.0-r*r));',
     '  float ct=cos(uTilt),st=sin(uTilt);',
     '  vec3 t=vec3(ct*n.x-st*n.y,st*n.x+ct*n.y,n.z);',
-    '  float a=uTime*uRot,ca=cos(a),sa=sin(a);',
+    '  float a=uTime*uRot+uSpin,ca=cos(a),sa=sin(a);',
     '  vec3 q=vec3(ca*t.x+sa*t.z,t.y,-sa*t.x+ca*t.z);',
     '  float ndl=dot(n,L);',
     '  if(uSuns>1.5) ndl=max(ndl,dot(n,normalize(uL2))*0.9);',
@@ -211,7 +217,7 @@
     var dbg = gl.getExtension('WEBGL_debug_renderer_info');
     var who = dbg ? String(gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL)) : '';
     if (/swiftshader|llvmpipe|software|basic render/i.test(who)) { still = true; quality = .7; }
-    'uCenter uRadius uGlow uGlowMax uZoom uTime uRot uTilt uCloud uAtmK uSuns uEmitAll uKind uC1 uC2 uC3 uC4 uCloudC uAtm uL uL2 uSeed'.split(' ').forEach(function (n) { uP[n] = gl.getUniformLocation(progP, n); });
+    'uCenter uRadius uGlow uGlowMax uZoom uSpin uTime uRot uTilt uCloud uAtmK uSuns uEmitAll uKind uC1 uC2 uC3 uC4 uCloudC uAtm uL uL2 uSeed'.split(' ').forEach(function (n) { uP[n] = gl.getUniformLocation(progP, n); });
     'uRes uSeed'.split(' ').forEach(function (n) { uN[n] = gl.getUniformLocation(progN, n); });
     return true;
   }
@@ -269,7 +275,8 @@
     gl.uniform1f(uP.uGlowMax, it.horizon ? 4 : Math.min(it.w, it.h) / 2 / it.radius);
     gl.uniform1f(uP.uTime, t);
     gl.uniform1f(uP.uRot, c.rot || .02);
-    gl.uniform1f(uP.uTilt, c.tilt || 0);
+    gl.uniform1f(uP.uTilt, (c.tilt || 0) + it.tiltAdd);
+    gl.uniform1f(uP.uSpin, it.spin);
     gl.uniform1f(uP.uCloud, c.cloud || 0);
     gl.uniform1f(uP.uAtmK, c.atmK || .5);
     gl.uniform1f(uP.uSuns, c.suns || 1);
@@ -331,7 +338,8 @@
       el: el, cfg: cfg, ctx: el.getContext('2d'), seed: seedOf(name), visible: false,
       horizon: el.getAttribute('data-view') === 'horizon',
       hr: +el.getAttribute('data-r') || 1.1, hx: +el.getAttribute('data-cx') || .5, hy: +el.getAttribute('data-top') || .6,
-      L: vec(el.getAttribute('data-light'), [-.55, .45, .7])
+      L: vec(el.getAttribute('data-light'), [-.55, .45, .7]),
+      spin: 0, tiltAdd: 0, vel: 0
     };
     var l = it.L, m = Math.sqrt(l[0] * l[0] + l[1] * l[1] + l[2] * l[2]) || 1;
     it.L = [l[0] / m, l[1] / m, l[2] / m];
@@ -339,7 +347,37 @@
     el._planet = it;
     items.push(it);
     measure(it);
+    if (el.hasAttribute('data-drag')) draggable(it);
     if (reduce) render(it, 3);
+  }
+
+  /* Планету можно покрутить мышью или пальцем; после броска она плавно останавливается. */
+  function draggable(it) {
+    var el = it.el, down = false, lx = 0, ly = 0, lt = 0;
+    el.style.touchAction = 'pan-y';
+    el.style.cursor = 'grab';
+    el.addEventListener('pointerdown', function (e) {
+      down = true; lx = e.clientX; ly = e.clientY; lt = performance.now(); it.vel = 0;
+      el.setPointerCapture(e.pointerId); el.style.cursor = 'grabbing';
+    });
+    el.addEventListener('pointermove', function (e) {
+      if (!down) return;
+      var dx = e.clientX - lx, dy = e.clientY - ly, now = performance.now();
+      it.spin += dx * .012;
+      it.tiltAdd = Math.max(-.6, Math.min(.6, it.tiltAdd + dy * .004));
+      it.vel = dx * .012 / Math.max(8, now - lt) * 16;
+      lx = e.clientX; ly = e.clientY; lt = now;
+      if (still || reduce) render(it, (now - t0) / 1000);
+    });
+    function up() { down = false; el.style.cursor = 'grab'; coast(); }
+    el.addEventListener('pointerup', up);
+    el.addEventListener('pointercancel', up);
+    function coast() {
+      if (down || Math.abs(it.vel) < .0005) return;
+      it.spin += it.vel; it.vel *= .94;
+      if (still || reduce) render(it, (performance.now() - t0) / 1000);
+      requestAnimationFrame(coast);
+    }
   }
 
   var io = 'IntersectionObserver' in window ? new IntersectionObserver(function (entries) {
