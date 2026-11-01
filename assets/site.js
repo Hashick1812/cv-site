@@ -128,9 +128,8 @@
     }
     ctx.globalAlpha = 1;
   }
-  function loop(now) { if(!d.classList.contains('motion-paused')) draw(now); else last=now; raf = requestAnimationFrame(loop); }
+  function loop(now) { if (!d.classList.contains('hyperjump')) draw(now); else last = now; raf = requestAnimationFrame(loop); }
   function warp() { if (!reduce) warpStart = performance.now(); }
-  function tiltCamera(dist, dur) { if (!reduce) cam = { from: camY, to: camY + dist, start: performance.now(), dur: dur }; }
   var lastW = 0, rt = 0;
   addEventListener('resize', function () {
     clearTimeout(rt);
@@ -158,7 +157,8 @@
   function isOpen() { return d.classList.contains('intro-open'); }
   function whenIntroDone(fn) { if (isOpen()) afterIntro.push(fn); else fn(); }
   function elapsed() { return (performance.now() - introStart) / 1000; }
-  function showSound(on) { soundBtn.setAttribute('aria-pressed', String(on)); }
+  var soundTop = document.querySelector('[data-sound]');
+  function showSound(on) { soundBtn.setAttribute('aria-pressed', String(on)); if (soundTop) soundTop.setAttribute('aria-pressed', String(soundOn)); }
   function setSound(on) {
     soundOn = on; showSound(on);
     try { localStorage.setItem('ik-sound', on ? '1' : '0'); } catch (e) {}
@@ -192,7 +192,7 @@
     }, 400);
     setTimeout(function () { skipBtn.focus({ preventScroll: true }); }, 60);
   }
-  /* Финал: камера опускается от текста к кабине, приборы включаются. */
+  /* Финал: прыжок в гиперпространство, из которого выходим к планетам главного экрана. */
   function closeIntro() {
     if (!isOpen() || intro.classList.contains('leaving')) return;
     clearTimeout(introTimer);
@@ -200,13 +200,15 @@
     try { sessionStorage.setItem('ik-intro', '1'); } catch (e) {}
     intro.classList.add('leaving');
     M.stop(2.4);
-    tiltCamera(H * 5, 2600);
-    setTimeout(function () {
+    function done() {
       d.classList.remove('intro-open');
       intro.classList.remove('play', 'leaving');
-      arrive();
-      afterIntro.splice(0).forEach(function (fn) { fn(); });
-    }, 600);
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+    var played = window.Hyper && Hyper.play({ short: true, onMid: done, onEnd: function () {
+      arrive(); afterIntro.splice(0).forEach(function (fn) { fn(); });
+    } });
+    if (!played) setTimeout(function () { done(); arrive(); afterIntro.splice(0).forEach(function (fn) { fn(); }); }, 600);
   }
   soundBtn.addEventListener('click', function (e) { e.stopPropagation(); setSound(!soundOn); });
   intro.addEventListener('click', closeIntro);
@@ -243,7 +245,7 @@
         Object.keys(rail).forEach(function (k) { rail[k].classList.toggle('on', k === id); });
       });
     }, { rootMargin: '-45% 0px -50% 0px' });
-    document.querySelectorAll('.cockpit, .world').forEach(function (s) { spy.observe(s); });
+    document.querySelectorAll('.hero, .world').forEach(function (s) { spy.observe(s); });
   }
   function onScroll() {
     var y = window.scrollY || 0;
@@ -254,21 +256,24 @@
 
   /* ---------- Прыжок в гиперпространство ---------- */
   var jumping = false;
+  function land(el, id) {
+    el.scrollIntoView({ behavior: 'instant', block: 'start' });
+    el.querySelectorAll('[data-reveal]').forEach(function (r) { r.classList.add('in'); });
+    if (el.getAttribute('data-tint')) d.style.setProperty('--tint', el.getAttribute('data-tint'));
+    if (window.Scenes) Scenes.arrive(id);
+    try { history.replaceState(null, '', location.search + '#' + id); } catch (e) {}
+  }
   function jumpTo(id) {
     var el = document.getElementById(id);
     if (!el || jumping) return;
-    if (reduce || d.classList.contains('cv-mode') || d.classList.contains('motion-paused')) { el.scrollIntoView({behavior:'instant'}); return; }
+    if (reduce || !window.Hyper) { land(el, id); return; }
     jumping = true;
-    warp();
     d.classList.add('jumping');
-    document.dispatchEvent(new CustomEvent('hyperspace', {detail:id}));
-    setTimeout(function () {
-      el.scrollIntoView({ behavior: 'instant', block: 'start' });
-      el.querySelectorAll('[data-reveal]').forEach(function (r) { r.classList.add('in'); });
-      if (el.getAttribute('data-tint')) d.style.setProperty('--tint', el.getAttribute('data-tint'));
-      try { history.replaceState(null, '', location.search + '#' + id); } catch (e) {}
-    }, 1250);
-    setTimeout(function () { d.classList.remove('jumping'); jumping = false; }, 2200);
+    var ok = Hyper.play({
+      onMid: function () { land(el, id); },
+      onEnd: function () { d.classList.remove('jumping'); jumping = false; }
+    });
+    if (!ok) { d.classList.remove('jumping'); jumping = false; }
   }
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a[data-jump]');
@@ -277,30 +282,30 @@
     jumpTo(a.getAttribute('href').slice(1));
   });
 
-  /* ---------- Кабина: выбор пункта назначения ---------- */
+  /* ---------- Главный экран: планеты и гиперполоса между ними ---------- */
   var dests = Array.prototype.slice.call(document.querySelectorAll('.dest'));
-  var navTo = document.querySelector('.nav-sel'), navWhat = document.querySelector('.nav-sel-what');
-  var jumpBtn = document.querySelector('.jump-btn'), cockpit = document.querySelector('.cockpit');
-  var selected = null;
-  function renderNav() {
-    var b = selected && document.querySelector('.dest[data-target="' + selected + '"]');
-    cockpit.classList.toggle('has-dest', !!b);
-    navTo.innerHTML = b ? b.querySelector('.dest-name').innerHTML : '';
-    navWhat.innerHTML = b ? b.querySelector('.dest-what').innerHTML : '';
-    jumpBtn.disabled = !b;
-    dests.forEach(function (x) { x.classList.toggle('sel', x === b); x.setAttribute('aria-pressed', String(x === b)); });
-    if (window.Holo) Holo.setNav(selected);
+  dests.forEach(function (b) { b.addEventListener('click', function () { jumpTo(b.getAttribute('data-target')); }); });
+  var route = document.querySelector('.route'), lane = route && route.querySelector('.lane path');
+  function drawLane() {
+    if (!lane) return;
+    var box = route.getBoundingClientRect();
+    var pts = dests.map(function (b) { var r = b.querySelector('.dest-orb').getBoundingClientRect(); return [r.left + r.width / 2 - box.left, r.top + r.height / 2 - box.top]; });
+    /* одна строка — плавная кривая через центры планет; на телефоне (сетка) линия не нужна */
+    var oneRow = pts.every(function (p) { return Math.abs(p[1] - pts[0][1]) < 80; });
+    route.classList.toggle('lane-on', oneRow);
+    if (!oneRow) return lane.setAttribute('d', '');
+    var dd = 'M' + pts[0][0].toFixed(1) + ' ' + pts[0][1].toFixed(1);
+    for (var i = 0; i < pts.length - 1; i++) {
+      var p0 = pts[i - 1] || pts[i], p1 = pts[i], p2 = pts[i + 1], p3 = pts[i + 2] || p2;
+      dd += ' C' + (p1[0] + (p2[0] - p0[0]) / 6).toFixed(1) + ' ' + (p1[1] + (p2[1] - p0[1]) / 6).toFixed(1) + ' ' +
+        (p2[0] - (p3[0] - p1[0]) / 6).toFixed(1) + ' ' + (p2[1] - (p3[1] - p1[1]) / 6).toFixed(1) + ' ' + p2[0].toFixed(1) + ' ' + p2[1].toFixed(1);
+    }
+    lane.setAttribute('d', dd);
   }
-  dests.forEach(function (b) {
-    b.addEventListener('click', function () {
-      var id = b.getAttribute('data-target');
-      if (selected === id) return jumpTo(id); /* второй клик по выбранной планете — сразу прыжок */
-      selected = id; renderNav();
-    });
-  });
-  jumpBtn.addEventListener('click', function () { if (selected) jumpTo(selected); });
-  document.addEventListener('langchange', renderNav);
-  renderNav();
+  addEventListener('resize', drawLane);
+  document.addEventListener('langchange', drawLane);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(drawLane);
+  drawLane();
 
   /* ---------- Иногда вдалеке пролетает истребитель ---------- */
   var SHIPS = [
@@ -334,9 +339,19 @@
   document.querySelectorAll('[data-study-label]').forEach(function (el) { el.textContent = pct + '%'; });
   document.querySelectorAll('[data-print]').forEach(function (b) { b.addEventListener('click', function () { window.print(); }); });
 
-  /* Для терминала и пасхалок. */
+  /* ---------- Звук сайта (прыжки, голос джедая): по умолчанию выключен ---------- */
+  if (soundTop) {
+    soundTop.setAttribute('aria-pressed', String(soundOn));
+    soundTop.addEventListener('click', function () {
+      soundOn = !soundOn;
+      try { localStorage.setItem('ik-sound', soundOn ? '1' : '0'); } catch (e) {}
+      showSound(soundOn);
+    });
+  }
+
+  /* Для терминала, голограммы и пасхалок. */
   window.Site = {
     jumpTo: jumpTo, setLang: function (l) { setLang(l, true); }, lang: function () { return curLang; },
-    openIntro: function () { if (!reduce) openIntro(false); }, warp: warp, reduce: reduce
+    openIntro: function () { if (!reduce) openIntro(false); }, warp: warp, reduce: reduce, whenIntroDone: whenIntroDone
   };
 })();

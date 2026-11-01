@@ -104,48 +104,7 @@
     });
   });
 
-  /* Голокарта навикомпьютера: орбиты с планетами, курс от Татуина до выбранной точки. */
-  var nav = { sel: null, api: null };
-  var mapCanvas = document.querySelector('canvas.holomap');
-  if (mapCanvas) {
-    var dests = Array.prototype.map.call(document.querySelectorAll('.dest'), function (b, i) {
-      return { id: b.getAttribute('data-target'), color: getComputedStyle(b).getPropertyValue('--c').trim() || '#6fd6ff',
-               r: .28 + (i % 5) * .15, a: i * 2.39, sp: .00008 + (i % 3) * .00003 };
-    });
-    nav.api = animate(mapCanvas, function (ctx, w, h, t, c) {
-      ctx.clearRect(0, 0, w, h);
-      var cx = w / 2, cy = h / 2, R = Math.min(w / 2, h) * .92, flat = .42;
-      for (var k = 1; k <= 5; k++) {
-        ctx.strokeStyle = rgba(c, .14); ctx.lineWidth = 1;
-        ctx.beginPath(); ctx.ellipse(cx, cy, R * (.13 + k * .15), R * (.13 + k * .15) * flat, 0, 0, 6.283); ctx.stroke();
-      }
-      ctx.fillStyle = rgba(c, .9); ctx.beginPath(); ctx.arc(cx, cy, 3, 0, 6.283); ctx.fill();
-      var pos = {};
-      dests.forEach(function (d) {
-        var a = d.a + t * d.sp, x = cx + Math.cos(a) * R * d.r, y = cy + Math.sin(a) * R * d.r * flat;
-        pos[d.id] = [x, y];
-        ctx.fillStyle = d.color; ctx.globalAlpha = d.id === nav.sel ? 1 : .75;
-        ctx.beginPath(); ctx.arc(x, y, d.id === nav.sel ? 4.2 : 2.8, 0, 6.283); ctx.fill();
-        ctx.globalAlpha = 1;
-      });
-      var from = pos.tatooine, to = nav.sel && pos[nav.sel];
-      if (from) {
-        ctx.strokeStyle = rgba(c, .7); ctx.lineWidth = 1;
-        ctx.beginPath(); ctx.arc(from[0], from[1], 6 + Math.sin(t * .004) * 1.5, 0, 6.283); ctx.stroke();
-      }
-      if (from && to && nav.sel !== 'tatooine') {
-        ctx.setLineDash([4, 4]); ctx.lineDashOffset = -t * .02;
-        ctx.strokeStyle = 'rgba(255,232,31,.85)'; ctx.lineWidth = 1.4;
-        ctx.beginPath(); ctx.moveTo(from[0], from[1]); ctx.lineTo(to[0], to[1]); ctx.stroke();
-        ctx.setLineDash([]);
-        ctx.strokeStyle = 'rgba(255,232,31,.9)';
-        ctx.beginPath(); ctx.arc(to[0], to[1], 8, 0, 6.283); ctx.stroke();
-      }
-    });
-  }
-
   window.Holo = {
-    setNav: function (id) { nav.sel = id; if (nav.api) nav.api.redraw(); },
     /* Перечитать цвет голограмм (например, после приказа 66). */
     refresh: function () { apis.forEach(function (a) { a.redraw(); }); }
   };
