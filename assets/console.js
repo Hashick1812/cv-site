@@ -236,10 +236,11 @@
     });
   }
   var ALIAS = {
-    tatooine: ['татуин', 'tatooine'], coruscant: ['корусант', 'coruscant'], hoth: ['хот', 'hoth'], dagobah: ['дагоба', 'dagobah'],
+    tatooine: ['татуин', 'tatooine'], coruscant: ['корусант', 'coruscant'], hoth: ['хот', 'hoth'],
     mustafar: ['мустафар', 'mustafar'], ilum: ['илум', 'ilum'], scarif: ['скариф', 'scarif'], naboo: ['набу', 'naboo'],
     yavin4: ['явин', 'явин4', 'явин iv', 'yavin', 'yavin4', 'yavin iv', 'yavin 4', 'явин 4'],
-    terminal: ['терминал', 'terminal']
+    terminal: ['терминал', 'terminal'],
+    holocron: ['голокрон', 'holocron', 'голокрон связи']
   };
   function findPlanet(q) {
     q = q.trim().toLowerCase().replace(/\/$/, '');
@@ -248,6 +249,7 @@
       if (String(p.n) === q || p.id === q || p.name.toLowerCase() === q || (ALIAS[p.id] || []).indexOf(q) >= 0) hit = p;
     });
     if (!hit && ALIAS.terminal.indexOf(q) >= 0) hit = { id: 'terminal', name: q };
+    if (!hit && ALIAS.holocron.indexOf(q) >= 0) hit = { id: 'holocron', name: q };
     return hit;
   }
 

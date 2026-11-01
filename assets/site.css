@@ -106,7 +106,7 @@ a{color:inherit}
 .sec-title{margin:0;font:700 clamp(38px,5vw,68px)/1 var(--display);letter-spacing:.03em;text-transform:uppercase}
 .sec-sub{max-width:600px;margin:18px 0 0;color:var(--muted)}
 .route-wrap{position:relative;margin-top:70px}
-.route{position:relative;z-index:1;list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(9,minmax(0,1fr));align-items:center;min-height:320px}
+.route{position:relative;z-index:1;list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(8,minmax(0,1fr));align-items:center;min-height:320px}
 .lane{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
 .lane path{fill:none;stroke:rgba(255,232,31,.35);stroke-width:1.5;stroke-dasharray:3 9;animation:lane 30s linear infinite}
 @keyframes lane{to{stroke-dashoffset:-600}}
@@ -307,6 +307,65 @@ a{color:inherit}
 @keyframes sixseven{from{transform:translateY(-24px)}to{transform:translateY(24px)}}
 @keyframes juggle{from{transform:translateY(30px) rotate(-10deg)}to{transform:translateY(-30px) rotate(10deg)}}
 
+/* ---------- Звёздные разрушители у планет ---------- */
+.sd{position:absolute;left:var(--sx,0);top:var(--sy,0);width:calc(var(--sw,44%) * .9);aspect-ratio:330/130;height:auto;overflow:visible;pointer-events:none;color:var(--c);
+  transform:scaleX(var(--sf,1)) rotate(var(--sr,0deg));filter:drop-shadow(0 8px 12px rgba(0,0,0,.65));animation:sd-drift 28s ease-in-out infinite alternate}
+@keyframes sd-drift{to{translate:-4% 3%}}
+
+/* ---------- Проекты: технологии ---------- */
+.ptags{grid-column:1;display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.ptags i{padding:3px 8px;border:1px solid color-mix(in srgb,var(--c) 40%,transparent);color:color-mix(in srgb,var(--c) 75%,#fff);font:500 12px/1.3 var(--sans);font-style:normal;letter-spacing:.02em}
+.projects .parr{grid-row:1/4}
+
+/* ---------- Голокрон связи ---------- */
+.holocron-sec{padding-bottom:0}
+.hc-wrap{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(24px,5vw,80px);align-items:center}
+.holocron{--hc:#6fd6ff;--sz:clamp(118px,15vw,176px);position:relative;height:calc(var(--sz) * 2.3);display:grid;place-items:center;perspective:900px;cursor:pointer;outline:none;-webkit-tap-highlight-color:transparent}
+.holocron:focus-visible .hc-float{outline:2px solid var(--gold);outline-offset:24px}
+.sith .holocron{--hc:#ff4545}
+.hc-float{position:relative;width:var(--sz);height:var(--sz);transform-style:preserve-3d;animation:hc-bob 6s ease-in-out infinite}
+@keyframes hc-bob{50%{transform:translateY(-14px)}}
+.hc-cube{position:absolute;inset:0;transform-style:preserve-3d;animation:hc-spin 20s linear infinite}
+@keyframes hc-spin{from{transform:rotateX(-24deg) rotateY(0)}to{transform:rotateX(-24deg) rotateY(360deg)}}
+.hc-face{position:absolute;inset:0;border:1.5px solid color-mix(in srgb,var(--hc) 80%,#fff);
+  background:radial-gradient(circle at 50% 50%,color-mix(in srgb,var(--hc) 34%,transparent),transparent 66%),linear-gradient(135deg,color-mix(in srgb,var(--hc) 22%,rgba(4,8,18,.86)),rgba(4,8,18,.72));
+  box-shadow:0 0 22px color-mix(in srgb,var(--hc) 50%,transparent),inset 0 0 30px color-mix(in srgb,var(--hc) 32%,transparent);
+  transition:transform 1s cubic-bezier(.2,.8,.2,1),opacity .6s}
+.hc-face::before{content:"";position:absolute;inset:13%;border:1px solid color-mix(in srgb,var(--hc) 55%,transparent);
+  background:linear-gradient(color-mix(in srgb,var(--hc) 55%,transparent),color-mix(in srgb,var(--hc) 55%,transparent)) 50% 0/1px 100% no-repeat,linear-gradient(color-mix(in srgb,var(--hc) 55%,transparent),color-mix(in srgb,var(--hc) 55%,transparent)) 0 50%/100% 1px no-repeat}
+.hc-face::after{content:"";position:absolute;inset:31%;rotate:45deg;border:1.5px solid color-mix(in srgb,var(--hc) 85%,#fff);box-shadow:0 0 10px color-mix(in srgb,var(--hc) 60%,transparent)}
+.f1{transform:translateZ(calc(var(--sz) / 2))}
+.f2{transform:rotateY(180deg) translateZ(calc(var(--sz) / 2))}
+.f3{transform:rotateY(90deg) translateZ(calc(var(--sz) / 2))}
+.f4{transform:rotateY(-90deg) translateZ(calc(var(--sz) / 2))}
+.f5{transform:rotateX(90deg) translateZ(calc(var(--sz) / 2))}
+.f6{transform:rotateX(-90deg) translateZ(calc(var(--sz) / 2))}
+.hc-core{position:absolute;left:50%;top:50%;width:52%;height:52%;translate:-50% -50%;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,#fff 0,color-mix(in srgb,var(--hc) 75%,#fff) 18%,color-mix(in srgb,var(--hc) 38%,transparent) 48%,transparent 70%);animation:hc-core 2.8s ease-in-out infinite;transition:scale .8s}
+@keyframes hc-core{50%{opacity:.6;scale:.86}}
+.hc-shadow{position:absolute;left:50%;bottom:4%;width:64%;height:16px;translate:-50% 0;border-radius:50%;background:radial-gradient(closest-side,color-mix(in srgb,var(--hc) 45%,transparent),transparent);animation:hc-shadow 6s ease-in-out infinite}
+@keyframes hc-shadow{50%{scale:.8;opacity:.6}}
+.hc-proj{position:absolute;left:50%;top:-4%;translate:-50% 0;white-space:nowrap;font:600 clamp(13px,1.3vw,16px)/1 var(--sans);letter-spacing:.06em;color:color-mix(in srgb,var(--hc) 70%,#fff);
+  text-shadow:0 0 12px var(--hc);opacity:0;transition:opacity .6s .3s,translate .8s .3s;pointer-events:none;
+  -webkit-mask-image:repeating-linear-gradient(0deg,#000 0 2px,rgba(0,0,0,.45) 2px 3px);mask-image:repeating-linear-gradient(0deg,#000 0 2px,rgba(0,0,0,.45) 2px 3px)}
+.holocron.open .f1{transform:translateZ(calc(var(--sz) * .72))}
+.holocron.open .f2{transform:rotateY(180deg) translateZ(calc(var(--sz) * .72))}
+.holocron.open .f3{transform:rotateY(90deg) translateZ(calc(var(--sz) * .72))}
+.holocron.open .f4{transform:rotateY(-90deg) translateZ(calc(var(--sz) * .72))}
+.holocron.open .f5{transform:rotateX(90deg) translateZ(calc(var(--sz) * .72))}
+.holocron.open .f6{transform:rotateX(-90deg) translateZ(calc(var(--sz) * .72))}
+.holocron.open .hc-face{opacity:.9}
+.holocron.open .hc-core{scale:2.1}
+.holocron.open .hc-proj{opacity:1;translate:-50% -10px}
+.hc-text .lore{margin-bottom:26px}
+.hc-msg{position:relative;max-width:560px;padding:22px 24px;border:1px solid color-mix(in srgb,var(--c) 40%,transparent);background:linear-gradient(180deg,color-mix(in srgb,var(--c) 10%,transparent),transparent),rgba(3,6,14,.6);box-shadow:inset 0 0 40px color-mix(in srgb,var(--c) 8%,transparent)}
+.sith .hc-msg{--c:#ff4545}
+.hc-label{margin:0 0 8px;font:600 12px/1 var(--display);letter-spacing:.2em;text-transform:uppercase;color:var(--c)}
+.hc-mail{display:inline-block;font:600 clamp(20px,2.4vw,30px)/1.25 var(--sans);color:var(--text);text-decoration:none;overflow-wrap:anywhere;text-shadow:0 0 18px color-mix(in srgb,var(--c) 45%,transparent);transition:color .2s}
+.hc-mail:hover{color:var(--gold)}
+.hc-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+.holocron-sec .footer{margin-top:10vh}
+
 /* ---------- Навигация справа ---------- */
 .rail{position:fixed;right:22px;top:50%;z-index:50;display:flex;flex-direction:column;gap:13px;transform:translateY(-50%);transition:opacity .4s}
 .at-top .rail{opacity:0;pointer-events:none}
@@ -355,7 +414,7 @@ a{color:inherit}
 /* ---------- Адаптив ---------- */
 @media screen and (max-width:1100px){
   .rail{display:none}
-  .route{grid-template-columns:repeat(5,minmax(0,1fr));row-gap:34px}
+  .route{grid-template-columns:repeat(4,minmax(0,1fr));row-gap:34px}
   .lane{display:none}
   .stop{transform:none}
 }
@@ -370,6 +429,8 @@ a{color:inherit}
   .suns{right:2vw;bottom:24vh;transform:scale(.6);transform-origin:right bottom}
   .skills{grid-template-columns:1fr;gap:4px}
   .skills dd{margin-bottom:12px}
+  .hc-wrap{grid-template-columns:1fr;gap:0}
+  .holocron{height:calc(var(--sz) * 2.1)}
 }
 @media screen and (max-width:640px){
   :root{--gut:18px}
@@ -414,7 +475,7 @@ a{color:inherit}
   @page{size:A4;margin:12mm}
   html,body{background:#fff}
   body{font-size:10pt;line-height:1.5}
-  .sky,.intro,.topbar,.rail,.skip-link,.hyper,.hero-ship,.hero-planet,.suns,.map,.world-planet,.hero-actions,.more,.holo,.holotable,.term,.term-quick,.term-hint,.terminal-sec .world-tag,.terminal-sec .world-name,.terminal-sec .lore,.six-seven,.egg-flash{display:none!important}
+  .sky,.intro,.topbar,.rail,.skip-link,.hyper,.sd,.holocron,.hc-text,.ptags,.hero-ship,.hero-planet,.suns,.map,.world-planet,.hero-actions,.more,.holo,.holotable,.term,.term-quick,.term-hint,.terminal-sec .world-tag,.terminal-sec .world-name,.terminal-sec .lore,.six-seven,.egg-flash{display:none!important}
   .intro-open .page{visibility:visible}
   .reveal [data-reveal]{opacity:1!important;transform:none!important}
   *,*::before,*::after{animation:none!important;transition:none!important;box-shadow:none!important;text-shadow:none!important}

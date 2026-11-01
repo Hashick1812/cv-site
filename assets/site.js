@@ -338,6 +338,29 @@
   document.querySelectorAll('[data-study-label]').forEach(function (el) { el.textContent = pct + '%'; });
   document.querySelectorAll('[data-print]').forEach(function (b) { b.addEventListener('click', function () { window.print(); }); });
 
+  /* ---------- Голокрон связи: открывается по клику и сам, когда до него долистали ---------- */
+  var hc = document.querySelector('.holocron');
+  if (hc) {
+    var setHC = function (on) { hc.classList.toggle('open', on); hc.setAttribute('aria-pressed', String(on)); };
+    hc.addEventListener('click', function () { setHC(!hc.classList.contains('open')); });
+    hc.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setHC(!hc.classList.contains('open')); } });
+    if ('IntersectionObserver' in window) {
+      var hio = new IntersectionObserver(function (es) {
+        if (es[0].isIntersecting) { hio.disconnect(); setTimeout(function () { setHC(true); }, reduce ? 0 : 900); }
+      }, { threshold: .5 });
+      hio.observe(hc);
+    }
+  }
+  var COPIED = { ru: 'Скопировано ✓', en: 'Copied ✓', kk: 'Көшірілді ✓' };
+  document.querySelectorAll('[data-copy]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var txt = b.getAttribute('data-copy'), before = b.innerHTML;
+      var done = function () { b.textContent = COPIED[curLang] || COPIED.ru; setTimeout(function () { b.innerHTML = before; }, 1800); };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(done, function () { location.href = 'mailto:' + txt; });
+      else location.href = 'mailto:' + txt;
+    });
+  });
+
   /* Для терминала и пасхалок. */
   window.Site = {
     jumpTo: jumpTo, setLang: function (l) { setLang(l, true); }, lang: function () { return curLang; },

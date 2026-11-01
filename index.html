@@ -35,7 +35,7 @@
       if (lang !== 'ru') d.classList.add('i18n-pending');
     })();
   </script>
-  <link rel="stylesheet" href="assets/site.css">
+  <link rel="stylesheet" href="assets/site.css?v=20261101c">
 </head>
 <body>
   <a data-i18n class="skip-link" href="#main">Перейти к содержанию</a>
@@ -46,6 +46,26 @@
     <canvas id="stars"></canvas>
   </div>
   <svg class="sprite" aria-hidden="true" width="0" height="0">
+    <linearGradient id="sd-top" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c3cad3"/><stop offset=".5" stop-color="#8d96a2"/><stop offset="1" stop-color="#4f5762"/></linearGradient>
+    <linearGradient id="sd-top2" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8e97a3"/><stop offset=".5" stop-color="#666f7b"/><stop offset="1" stop-color="#3c434d"/></linearGradient>
+    <linearGradient id="sd-side" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2a3039"/><stop offset="1" stop-color="#454e5a"/></linearGradient>
+    <radialGradient id="sd-glow"><stop offset="0" stop-color="#e9fbff"/><stop offset=".3" stop-color="#7fd8ff"/><stop offset="1" stop-color="#3aa8ff" stop-opacity="0"/></radialGradient>
+    <symbol id="g-sd" viewBox="0 0 330 130">
+      <path d="M6 78 236 22l40 18z" fill="url(#sd-top)"/>
+      <path d="M6 78 276 40l40 18z" fill="url(#sd-top2)"/>
+      <path d="M6 78 316 58l-6 22z" fill="url(#sd-side)"/>
+      <path d="M6 78 316 58" stroke="currentColor" stroke-width="1.4" stroke-opacity=".8" fill="none"/>
+      <path d="M6 78 276 40" stroke="#dfe5ec" stroke-opacity=".55" stroke-width=".9" fill="none"/>
+      <path d="M50 70 238 27M80 70 300 49M120 67 306 54M150 60 266 33M200 61 312 55" stroke="#2f3640" stroke-opacity=".45" stroke-width=".7" fill="none"/>
+      <path d="M70 72h6v2h-6zM112 69h5v2h-5zM150 67h7v2h-7zM196 64h4v2h-4zM236 62h6v2h-6zM272 60h5v2h-5z" fill="#ffd89a" fill-opacity=".85"/>
+      <path d="M188 47 272 33l20 7-84 15z" fill="#b3bcc7"/><path d="M208 55 292 40v5l-84 15z" fill="#545c67"/>
+      <path d="M220 38 276 29l12 5-56 9z" fill="#c9d0d8"/><path d="M232 43 288 34v4l-56 9z" fill="#5c6570"/>
+      <path d="M250 16h12l3 16-16 1z" fill="#9ea7b2"/>
+      <path d="M236 12 278 8l2 5-42 4z" fill="#dbe1e8"/><path d="M238 17 280 13v2.5l-42 4z" fill="#555e69"/>
+      <circle cx="241" cy="7.5" r="3.4" fill="#e3e8ee"/><circle cx="275" cy="4.5" r="3.4" fill="#e3e8ee"/>
+      <circle cx="315" cy="62" r="9" fill="url(#sd-glow)"/><circle cx="313" cy="69" r="9" fill="url(#sd-glow)"/><circle cx="311" cy="76" r="8" fill="url(#sd-glow)"/>
+      <circle cx="315" cy="62" r="2" fill="#f2fdff"/><circle cx="313" cy="69" r="2" fill="#f2fdff"/><circle cx="311" cy="76" r="1.8" fill="#f2fdff"/>
+    </symbol>
     <symbol id="g-python" viewBox="0 0 64 64"><path d="M31.6 4C21 4 21.7 8.6 21.7 8.6v4.8h10.1v1.4H17.6S10.8 14 10.8 24.7s5.9 10.3 5.9 10.3h3.6v-5s-.2-5.9 5.8-5.9h10s5.6.1 5.6-5.4V9.5S42.5 4 31.6 4zm-5.5 3.2a1.8 1.8 0 1 1 0 3.6 1.8 1.8 0 0 1 0-3.6z"/><path d="M32 60c10.6 0 9.9-4.6 9.9-4.6v-4.8H31.8v-1.4H46s6.8.8 6.8-9.9-5.9-10.3-5.9-10.3h-3.6v5s.2 5.9-5.8 5.9h-10s-5.6-.1-5.6 5.4v9.2S21.1 60 32 60zm5.5-3.2a1.8 1.8 0 1 1 0-3.6 1.8 1.8 0 0 1 0 3.6z" opacity=".75"/></symbol>
     <symbol id="g-sql" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="4"><ellipse cx="32" cy="14" rx="19" ry="7"/><path d="M13 14v35c0 3.9 8.5 7 19 7s19-3.1 19-7V14M13 26c0 3.9 8.5 7 19 7s19-3.1 19-7M13 38c0 3.9 8.5 7 19 7s19-3.1 19-7"/></g></symbol>
     <symbol id="g-r" viewBox="0 0 64 64"><ellipse cx="30" cy="27" rx="26" ry="17" fill="none" stroke="currentColor" stroke-width="5" opacity=".7"/><path d="M24 21h16c5 0 8.5 3 8.5 7.6S45 36 40 36h-1.5L48 54h-8l-8.8-18H30v18h-6zm6 6v4.2h9.2c1.6 0 2.6-.9 2.6-2.1S40.8 27 39.2 27z"/></symbol>
@@ -66,7 +86,7 @@
         <p data-i18n class="ep">Эпизод IV</p>
         <h2 data-i18n>Новая модель</h2>
         <p data-i18n>Галактика тонет в данных. Отчёты спорят друг с другом, графики вводят в заблуждение, а решения принимают наугад.</p>
-        <p data-i18n>Молодой Data Scientist ИСЛАМ КУТТЫБАЕВ проходит последний, четвёртый год обучения в академии SDU. Его оружие: Python, SQL и статистика.</p>
+        <p data-i18n>Молодой Data Scientist ИСЛАМ КУТТЫБАЕВ проходит последний, четвёртый год обучения в академии SDU. Его оружие: Python, SQL и машинное обучение.</p>
         <p data-i18n>Теперь он служит в ТОО «ADAM LABS» и учит модели отличать сигнал от шума, чтобы люди могли учиться лучше…</p>
       </div>
     </div>
@@ -110,13 +130,13 @@
     <a href="#tatooine" data-jump style="--c:#f0a95b"><span data-i18n>Татуин</span><i></i></a>
     <a href="#coruscant" data-jump style="--c:#b48cff"><span data-i18n>Корусант</span><i></i></a>
     <a href="#hoth" data-jump style="--c:#a8d2ff"><span data-i18n>Хот</span><i></i></a>
-    <a href="#dagobah" data-jump style="--c:#8fbf6f"><span data-i18n>Дагоба</span><i></i></a>
     <a href="#mustafar" data-jump style="--c:#ff6a2a"><span data-i18n>Мустафар</span><i></i></a>
     <a href="#ilum" data-jump style="--c:#5fe4ff"><span data-i18n>Илум</span><i></i></a>
     <a href="#scarif" data-jump style="--c:#2fc6d8"><span data-i18n>Скариф</span><i></i></a>
     <a href="#naboo" data-jump style="--c:#77aaff"><span data-i18n>Набу</span><i></i></a>
     <a href="#yavin4" data-jump style="--c:#ffa25c"><span data-i18n>Явин IV</span><i></i></a>
     <a href="#terminal" data-jump style="--c:#ffcf5a"><span data-i18n>Терминал</span><i></i></a>
+    <a href="#holocron" data-jump style="--c:#6fd6ff"><span data-i18n>Голокрон</span><i></i></a>
   </nav>
 
   <div class="page">
@@ -130,7 +150,7 @@
           <p data-i18n class="hero-pre" style="--i:0">Резюме · Алматы · 2026</p>
           <h1 class="logo" style="--i:1"><span>Islam</span><span class="o">Kuttybaev</span></h1>
           <p class="hero-role" style="--i:2">Data Scientist · <span data-i18n class="co">ТОО «Adam Labs»</span></p>
-          <p data-i18n class="hero-text" style="--i:3">Строю модели и разбираюсь в данных об обучении. Учусь на 4 курсе SDU по Data Science и статистике, а с 2023 года преподаю математику и Python.</p>
+          <p data-i18n class="hero-text" style="--i:3">Работаю в IT: пишу на Python и SQL, строю ML-модели и пайплайны данных, от сбора и очистки до обученной модели и понятных выводов. Учусь на 4&nbsp;курсе SDU по Data Science и статистике.</p>
           <div class="hero-actions" style="--i:4">
             <a data-i18n class="btn primary" href="#map" data-jump>Открыть карту галактики</a>
             <a data-i18n class="btn" href="#yavin4" data-jump>Написать мне</a>
@@ -146,19 +166,18 @@
       <section class="map" id="map">
         <div class="wrap">
           <h2 data-i18n class="sec-title" data-reveal>Карта галактики</h2>
-          <p data-i18n class="sec-sub" data-reveal>Девять планет, и на каждой своя часть резюме. Нажмите на любую, чтобы прыгнуть к ней через гиперпространство.</p>
+          <p data-i18n class="sec-sub" data-reveal>Восемь планет, и на каждой своя часть резюме. Нажмите на любую, чтобы прыгнуть к ней через гиперпространство.</p>
           <div class="route-wrap" data-reveal>
           <svg class="lane" aria-hidden="true"><path d=""/></svg>
           <ol class="route">
             <li><a class="stop" href="#tatooine" data-jump style="--s:92px;--y:-36px"><canvas data-planet="tatooine" data-max="240" aria-hidden="true"></canvas><span data-i18n class="stop-name">Татуин</span><span data-i18n class="stop-what">обо мне</span></a></li>
             <li><a class="stop" href="#coruscant" data-jump style="--s:112px;--y:30px"><canvas data-planet="coruscant" data-max="260" aria-hidden="true"></canvas><span data-i18n class="stop-name">Корусант</span><span data-i18n class="stop-what">работа</span></a></li>
-            <li><a class="stop" href="#hoth" data-jump style="--s:80px;--y:-48px"><canvas data-planet="hoth" data-max="220" aria-hidden="true"></canvas><span data-i18n class="stop-name">Хот</span><span data-i18n class="stop-what">исследование</span></a></li>
-            <li><a class="stop" href="#dagobah" data-jump style="--s:88px;--y:22px"><canvas data-planet="dagobah" data-max="220" aria-hidden="true"></canvas><span data-i18n class="stop-name">Дагоба</span><span data-i18n class="stop-what">преподавание</span></a></li>
-            <li><a class="stop" href="#mustafar" data-jump style="--s:84px;--y:-30px"><canvas data-planet="mustafar" data-max="220" aria-hidden="true"></canvas><span data-i18n class="stop-name">Мустафар</span><span data-i18n class="stop-what">проекты</span></a></li>
-            <li><a class="stop" href="#ilum" data-jump style="--s:78px;--y:40px"><canvas data-planet="ilum" data-max="220" aria-hidden="true"></canvas><span data-i18n class="stop-name">Илум</span><span data-i18n class="stop-what">навыки</span></a></li>
-            <li><a class="stop" href="#scarif" data-jump style="--s:96px;--y:-26px"><canvas data-planet="scarif" data-max="240" aria-hidden="true"></canvas><span data-i18n class="stop-name">Скариф</span><span data-i18n class="stop-what">сертификаты</span></a></li>
-            <li><a class="stop" href="#naboo" data-jump style="--s:100px;--y:28px"><canvas data-planet="naboo" data-max="240" aria-hidden="true"></canvas><span data-i18n class="stop-name">Набу</span><span data-i18n class="stop-what">учёба и языки</span></a></li>
-            <li><a class="stop" href="#yavin4" data-jump style="--s:86px;--y:-38px"><canvas data-planet="yavin4" data-max="220" aria-hidden="true"></canvas><span data-i18n class="stop-name">Явин IV</span><span data-i18n class="stop-what">связь</span></a></li>
+            <li><a class="stop" href="#hoth" data-jump style="--s:80px;--y:-44px"><canvas data-planet="hoth" data-max="220" aria-hidden="true"></canvas><span data-i18n class="stop-name">Хот</span><span data-i18n class="stop-what">исследование</span></a></li>
+            <li><a class="stop" href="#mustafar" data-jump style="--s:84px;--y:24px"><canvas data-planet="mustafar" data-max="220" aria-hidden="true"></canvas><span data-i18n class="stop-name">Мустафар</span><span data-i18n class="stop-what">проекты</span></a></li>
+            <li><a class="stop" href="#ilum" data-jump style="--s:78px;--y:-34px"><canvas data-planet="ilum" data-max="220" aria-hidden="true"></canvas><span data-i18n class="stop-name">Илум</span><span data-i18n class="stop-what">навыки</span></a></li>
+            <li><a class="stop" href="#scarif" data-jump style="--s:96px;--y:36px"><canvas data-planet="scarif" data-max="240" aria-hidden="true"></canvas><span data-i18n class="stop-name">Скариф</span><span data-i18n class="stop-what">сертификаты</span></a></li>
+            <li><a class="stop" href="#naboo" data-jump style="--s:100px;--y:-26px"><canvas data-planet="naboo" data-max="240" aria-hidden="true"></canvas><span data-i18n class="stop-name">Набу</span><span data-i18n class="stop-what">учёба и языки</span></a></li>
+            <li><a class="stop" href="#yavin4" data-jump style="--s:86px;--y:28px"><canvas data-planet="yavin4" data-max="220" aria-hidden="true"></canvas><span data-i18n class="stop-name">Явин IV</span><span data-i18n class="stop-what">связь</span></a></li>
           </ol>
           </div>
         </div>
@@ -167,20 +186,20 @@
       <!-- 01 Татуин: обо мне -->
       <section class="world" id="tatooine" data-tint="#f0a95b" style="--c:#f0a95b">
         <div class="wrap world-inner">
-          <div class="world-planet" aria-hidden="true"><canvas class="main-planet" data-planet="tatooine" data-light="-.5,.5,.7" data-drag></canvas><div class="orbit" style="--tilt:76deg;--dur:34s;--size:15%;--r:-12%"><div class="orbit-ring"><span class="moon"><canvas data-planet="moon" data-max="120"></canvas></span></div></div><span data-i18n class="drag-hint">↻ покрутите планету</span></div>
+          <div class="world-planet" aria-hidden="true"><canvas class="main-planet" data-planet="tatooine" data-light="-.5,.5,.7" data-drag></canvas><div class="orbit" style="--tilt:76deg;--dur:34s;--size:15%;--r:-12%"><div class="orbit-ring"><span class="moon"><canvas data-planet="moon" data-max="120"></canvas></span></div></div><svg class="sd" style="--sx:0%;--sy:-2%;--sw:50%;--sr:-6deg" aria-hidden="true"><use href="#g-sd"/></svg><span data-i18n class="drag-hint">↻ покрутите планету</span></div>
           <div class="world-body">
             <p data-i18n class="world-tag" data-reveal>01 · обо мне</p>
             <h2 data-i18n class="world-name" data-reveal>Татуин</h2>
             <p data-i18n class="lore" data-reveal>Пустынная планета с двумя солнцами. Отсюда начинаются все большие истории, и моя тоже.</p>
             <div data-reveal>
               <h3 data-i18n>Привет, я Ислам</h3>
-              <p data-i18n>Я Data Scientist из Алматы. Работаю в ТОО «Adam Labs» и учусь на 4 курсе Suleyman Demirel University по направлению Data Science and Statistics. Выпуск летом 2027 года.</p>
-              <p data-i18n>До Adam Labs я четыре месяца был младшим исследовательским аналитиком в университете. С 2023 года преподаю: веду практику по математике и статистике в SDU и занимаюсь с учениками в Azat Academia.</p>
-              <p data-i18n>Больше всего меня интересуют прикладное машинное обучение, статистические исследования и данные в образовании.</p>
+              <p data-i18n>Я Data Scientist из Алматы: работаю в IT-компании ТОО «Adam Labs» и учусь на 4&nbsp;курсе Suleyman Demirel University по направлению Data Science and Statistics. Выпуск летом 2027 года.</p>
+              <p data-i18n>До Adam Labs четыре месяца работал младшим исследовательским аналитиком данных в университете. В свободное время делаю свои проекты: ML-модели, парсеры данных и веб-приложение на Streamlit. Весь код открыт на GitHub.</p>
+              <p data-i18n>Больше всего меня интересуют прикладное машинное обучение и NLP. Сейчас изучаю глубокое обучение и трансформеры.</p>
               <ul class="facts">
                 <li data-i18n><b>Алматы</b>Казахстан</li>
                 <li data-i18n><b>4 курс</b>SDU, выпуск 2027</li>
-                <li data-i18n><b>3+ года</b>преподаю</li>
+                <li data-i18n><b>5 проектов</b>открыты на GitHub</li>
                 <li data-i18n><b>B2</b>английский, IELTS 6.0</li>
               </ul>
             </div>
@@ -191,7 +210,7 @@
       <!-- 02 Корусант: работа -->
       <section class="world flip" id="coruscant" data-tint="#b48cff" style="--c:#b48cff">
         <div class="wrap world-inner">
-          <div class="world-planet" aria-hidden="true"><canvas class="main-planet" data-planet="coruscant" data-light=".55,.45,.7" data-drag></canvas><div class="orbit" style="--tilt:70deg;--dur:26s;--size:11%;--r:-8%"><div class="orbit-ring"><span class="moon"><canvas data-planet="moon" data-max="100"></canvas></span></div></div><span data-i18n class="drag-hint">↻ покрутите планету</span></div>
+          <div class="world-planet" aria-hidden="true"><canvas class="main-planet" data-planet="coruscant" data-light=".55,.45,.7" data-drag></canvas><div class="orbit" style="--tilt:70deg;--dur:26s;--size:11%;--r:-8%"><div class="orbit-ring"><span class="moon"><canvas data-planet="moon" data-max="100"></canvas></span></div></div><svg class="sd" style="--sx:-14%;--sy:60%;--sw:44%;--sr:4deg" aria-hidden="true"><use href="#g-sd"/></svg><span data-i18n class="drag-hint">↻ покрутите планету</span></div>
           <div class="world-body">
             <p data-i18n class="world-tag" data-reveal>02 · работа сейчас</p>
             <h2 data-i18n class="world-name" data-reveal>Корусант</h2>
@@ -221,7 +240,7 @@
       <!-- 03 Хот: исследование -->
       <section class="world" id="hoth" data-tint="#a8d2ff" style="--c:#a8d2ff">
         <div class="wrap world-inner">
-          <div class="world-planet" aria-hidden="true"><canvas class="main-planet" data-planet="hoth" data-light="-.5,.5,.7" data-drag></canvas><div class="orbit" style="--tilt:80deg;--dur:40s;--size:13%;--r:-14%"><div class="orbit-ring"><span class="moon"><canvas data-planet="moonice" data-max="110"></canvas></span></div></div><span data-i18n class="drag-hint">↻ покрутите планету</span></div>
+          <div class="world-planet" aria-hidden="true"><canvas class="main-planet" data-planet="hoth" data-light="-.5,.5,.7" data-drag></canvas><div class="orbit" style="--tilt:80deg;--dur:40s;--size:13%;--r:-14%"><div class="orbit-ring"><span class="moon"><canvas data-planet="moonice" data-max="110"></canvas></span></div></div><svg class="sd" style="--sx:52%;--sy:-6%;--sw:46%;--sr:-8deg;--sf:-1" aria-hidden="true"><use href="#g-sd"/></svg><span data-i18n class="drag-hint">↻ покрутите планету</span></div>
           <div class="world-body">
             <p data-i18n class="world-tag" data-reveal>03 · исследование</p>
             <h2 data-i18n class="world-name" data-reveal>Хот</h2>
@@ -240,50 +259,22 @@
         </div>
       </section>
 
-      <!-- 04 Дагоба: преподавание -->
-      <section class="world flip" id="dagobah" data-tint="#8fbf6f" style="--c:#8fbf6f">
+      <!-- 04 Мустафар: проекты -->
+      <section class="world flip" id="mustafar" data-tint="#ff6a2a" style="--c:#ff6a2a">
         <div class="wrap world-inner">
-          <div class="world-planet" aria-hidden="true"><canvas class="main-planet" data-planet="dagobah" data-light=".55,.45,.7" data-drag></canvas><span data-i18n class="drag-hint">↻ покрутите планету</span></div>
+          <div class="world-planet" aria-hidden="true"><canvas class="main-planet" data-planet="mustafar" data-light="-.5,.5,.7" data-drag></canvas><svg class="sd" style="--sx:-12%;--sy:66%;--sw:42%;--sr:6deg" aria-hidden="true"><use href="#g-sd"/></svg><span data-i18n class="drag-hint">↻ покрутите планету</span></div>
           <div class="world-body">
-            <p data-i18n class="world-tag" data-reveal>04 · преподавание</p>
-            <h2 data-i18n class="world-name" data-reveal>Дагоба</h2>
-            <p data-i18n class="lore" data-reveal>Туманное болото, где мастер Йода учил Люка. Здесь я сам учу других.</p>
-            <div data-reveal>
-              <h3 data-i18n>Teaching Assistant, математика и статистика</h3>
-              <p data-i18n class="meta">Suleyman Demirel University, Каскелен · с сентября 2023</p>
-              <ul class="list">
-                <li data-i18n>Веду еженедельную практику для групп по 15–25 студентов первого курса.</li>
-                <li data-i18n>Готовлю задания и материалы к занятиям.</li>
-                <li data-i18n>Проверяю работы, даю обратную связь и помогаю на экзаменах.</li>
-              </ul>
-              <h3 data-i18n>Репетитор по математике и Data Science</h3>
-              <p data-i18n class="meta">Azat Academia, Алматы · с января 2023</p>
-              <ul class="list">
-                <li data-i18n>Занимаюсь индивидуально и в группах: математика, статистика, Python и основы Data Science.</li>
-                <li data-i18n>Под каждого ученика составляю свой план занятий.</li>
-                <li data-i18n>Разбираем анализ данных на реальных датасетах.</li>
-              </ul>
-              <p data-i18n class="aside-note">«Учить значит учиться дважды». Йода такого не говорил, но мог бы.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 05 Мустафар: проекты -->
-      <section class="world" id="mustafar" data-tint="#ff6a2a" style="--c:#ff6a2a">
-        <div class="wrap world-inner">
-          <div class="world-planet" aria-hidden="true"><canvas class="main-planet" data-planet="mustafar" data-light="-.5,.5,.7" data-drag></canvas><span data-i18n class="drag-hint">↻ покрутите планету</span></div>
-          <div class="world-body">
-            <p data-i18n class="world-tag" data-reveal>05 · проекты</p>
+            <p data-i18n class="world-tag" data-reveal>04 · проекты</p>
             <h2 data-i18n class="world-name" data-reveal>Мустафар</h2>
             <p data-i18n class="lore" data-reveal>Огненная планета, где всё куётся в лаве. Здесь мои проекты.</p>
             <div data-reveal>
               <p data-i18n>Проекты по анализу данных и машинному обучению. Код открыт на GitHub.</p>
               <ul class="projects">
-                <li><a href="https://github.com/Hashick1812/Regression_Analysis_Housing" target="_blank" rel="noopener"><span class="pname">Regression Analysis Housing</span><span data-i18n class="pdesc">500 квартир Алматы, 11 признаков и сравнение пяти моделей регрессии. В репозитории: ноутбук, данные и результаты.</span><span class="parr" aria-hidden="true">↗</span></a></li>
-                <li><a href="https://github.com/Hashick1812/Spotify_songs" target="_blank" rel="noopener"><span class="pname">Spotify Songs</span><span data-i18n class="pdesc">Классификация 32 833 треков по 6 жанрам: подготовка признаков, SMOTE, PCA и сравнение моделей.</span><span class="parr" aria-hidden="true">↗</span></a></li>
-                <li><a href="https://github.com/Hashick1812/football-stats-project" target="_blank" rel="noopener"><span class="pname">Football Stats</span><span data-i18n class="pdesc">Анализ создания голевых моментов в пяти европейских лигах: сбор данных, очистка и визуализация SCA/GCA.</span><span class="parr" aria-hidden="true">↗</span></a></li>
-                <li><a href="https://github.com/Hashick1812/garbage-classification" target="_blank" rel="noopener"><span class="pname">Garbage Classification</span><span data-i18n class="pdesc">Классификация мусора с помощью машинного обучения.</span><span class="parr" aria-hidden="true">↗</span></a></li>
+                <li><a href="https://github.com/Hashick1812/garbage-classification" target="_blank" rel="noopener"><span class="pname">Garbage Classification</span><span data-i18n class="pdesc">Классификация изображений мусора: признаки HOG и LBP, сравнение SVM, Random Forest и KNN (лучшая — SVM с RBF-ядром, accuracy 0,68) и веб-приложение на Streamlit. Отдельная версия на нейросети EfficientNet-B0.</span><span class="ptags"><i>Python</i><i>OpenCV</i><i>scikit-learn</i><i>PyTorch</i><i>Streamlit</i></span><span class="parr" aria-hidden="true">↗</span></a></li>
+                <li><a href="https://github.com/Hashick1812/Spotify_songs" target="_blank" rel="noopener"><span class="pname">Spotify Genre Classification</span><span data-i18n class="pdesc">Классификация 32 833 треков по 6 жанрам по аудиопризнакам. Пайплайн: EDA, SMOTE, масштабирование, PCA, подбор гиперпараметров и сравнение моделей по Accuracy, F1 и ROC-AUC.</span><span class="ptags"><i>Python</i><i>scikit-learn</i><i>SMOTE</i><i>PCA</i><i>Plotly</i></span><span class="parr" aria-hidden="true">↗</span></a></li>
+                <li><a href="https://github.com/Hashick1812/Regression_Analysis_Housing" target="_blank" rel="noopener"><span class="pname">Almaty Housing Prices</span><span data-i18n class="pdesc">Предсказание цены квартир в Алматы: 500 квартир, 11 признаков, 7 районов. Сравнил пять моделей регрессии, лучшая по ошибке — Lasso (R² 0,80).</span><span class="ptags"><i>Python</i><i>pandas</i><i>scikit-learn</i><i>Seaborn</i></span><span class="parr" aria-hidden="true">↗</span></a></li>
+                <li><a href="https://github.com/Hashick1812/koshpendiler_book" target="_blank" rel="noopener"><span class="pname">Köshpendiler NLP + Krisha.kz</span><span data-i18n class="pdesc">NLP-анализ трилогии «Кочевники» Ильяса Есенберлина: извлечение текста из PDF, очистка и частотный анализ. Плюс парсинг 10 000 объявлений Krisha.kz через Selenium и анализ цен.</span><span class="ptags"><i>Python</i><i>NLP</i><i>pdfplumber</i><i>Selenium</i></span><span class="parr" aria-hidden="true">↗</span></a></li>
+                <li><a href="https://github.com/Hashick1812/football-stats-project" target="_blank" rel="noopener"><span class="pname">Football Analytics</span><span data-i18n class="pdesc">Собрал с FBref данные о ~1 800 игроках пяти топ-лиг Европы (сезон 2023/24) и разобрал, кто создаёт голевые моменты: метрики SCA и GCA по позициям, возрасту и лигам.</span><span class="ptags"><i>Python</i><i>pandas</i><i>Web scraping</i><i>Plotly</i></span><span class="parr" aria-hidden="true">↗</span></a></li>
               </ul>
               <a data-i18n class="more" href="https://github.com/Hashick1812?tab=repositories" target="_blank" rel="noopener">Все репозитории на GitHub ↗</a>
             </div>
@@ -291,20 +282,22 @@
         </div>
       </section>
 
-      <!-- 06 Илум: навыки -->
-      <section class="world flip" id="ilum" data-tint="#5fe4ff" style="--c:#5fe4ff">
+      <!-- 05 Илум: навыки -->
+      <section class="world" id="ilum" data-tint="#5fe4ff" style="--c:#5fe4ff">
         <div class="wrap world-inner">
-          <div class="world-planet" aria-hidden="true"><canvas class="main-planet" data-planet="ilum" data-light=".55,.45,.7" data-drag></canvas><span data-i18n class="drag-hint">↻ покрутите планету</span></div>
+          <div class="world-planet" aria-hidden="true"><canvas class="main-planet" data-planet="ilum" data-light=".55,.45,.7" data-drag></canvas><svg class="sd" style="--sx:2%;--sy:-4%;--sw:46%;--sr:-5deg" aria-hidden="true"><use href="#g-sd"/></svg><span data-i18n class="drag-hint">↻ покрутите планету</span></div>
           <div class="world-body">
-            <p data-i18n class="world-tag" data-reveal>06 · навыки</p>
+            <p data-i18n class="world-tag" data-reveal>05 · навыки</p>
             <h2 data-i18n class="world-name" data-reveal>Илум</h2>
             <p data-i18n class="lore" data-reveal>Ледяной мир, где джедаи находят кристаллы для световых мечей. Здесь мой набор инструментов.</p>
             <dl class="skills" data-reveal>
-              <dt data-i18n>Языки</dt><dd>Python, SQL, R</dd>
-              <dt data-i18n>Данные и ML</dt><dd data-i18n>pandas, NumPy, scikit-learn, SHAP, feature engineering, оценка моделей</dd>
-              <dt data-i18n>Статистика</dt><dd data-i18n>регрессия, ANOVA, проверка гипотез, временные ряды</dd>
-              <dt data-i18n>Графики и BI</dt><dd>Matplotlib, Seaborn, Plotly, Power BI, Excel</dd>
-              <dt data-i18n>Базы и среда</dt><dd>PostgreSQL, MySQL, Jupyter, Google Colab, Git, VS Code</dd>
+              <dt data-i18n>Языки</dt><dd>Python, SQL, R, Bash</dd>
+              <dt data-i18n>Машинное обучение</dt><dd>scikit-learn, XGBoost, LightGBM, PyTorch, SHAP, Optuna</dd>
+              <dt data-i18n>Данные и NLP</dt><dd>pandas, NumPy, NLTK, TF-IDF, Selenium, BeautifulSoup, pdfplumber</dd>
+              <dt data-i18n>Статистика</dt><dd data-i18n>регрессия, ANOVA, проверка гипотез, временные ряды (ARIMA, Holt-Winters)</dd>
+              <dt data-i18n>Графики и BI</dt><dd>Matplotlib, Seaborn, Plotly, Power BI, Tableau, Excel</dd>
+              <dt data-i18n>Базы данных</dt><dd>PostgreSQL, MySQL, SQLite, MongoDB</dd>
+              <dt data-i18n>Разработка</dt><dd>Git, Linux, Streamlit, Jupyter, Google Colab, VS Code, PyCharm</dd>
               <dt data-i18n>Не только код</dt><dd data-i18n>объясняю сложное простыми словами, пишу отчёты, выступаю перед аудиторией</dd>
             </dl>
             <div class="holotable" data-reveal>
@@ -324,12 +317,12 @@
         </div>
       </section>
 
-      <!-- 07 Скариф: сертификаты -->
-      <section class="world" id="scarif" data-tint="#2fc6d8" style="--c:#2fc6d8">
+      <!-- 06 Скариф: сертификаты -->
+      <section class="world flip" id="scarif" data-tint="#2fc6d8" style="--c:#2fc6d8">
         <div class="wrap world-inner">
-          <div class="world-planet" aria-hidden="true"><canvas class="main-planet" data-planet="scarif" data-light="-.5,.5,.7" data-drag></canvas><span data-i18n class="drag-hint">↻ покрутите планету</span></div>
+          <div class="world-planet" aria-hidden="true"><canvas class="main-planet" data-planet="scarif" data-light="-.5,.5,.7" data-drag></canvas><svg class="sd" style="--sx:54%;--sy:68%;--sw:42%;--sr:7deg;--sf:-1" aria-hidden="true"><use href="#g-sd"/></svg><span data-i18n class="drag-hint">↻ покрутите планету</span></div>
           <div class="world-body">
-            <p data-i18n class="world-tag" data-reveal>07 · сертификаты</p>
+            <p data-i18n class="world-tag" data-reveal>06 · сертификаты</p>
             <h2 data-i18n class="world-name" data-reveal>Скариф</h2>
             <p data-i18n class="lore" data-reveal>Тропическая планета с архивом, где хранились самые ценные чертежи Империи. Здесь мои сертификаты.</p>
             <div data-reveal>
@@ -345,12 +338,12 @@
         </div>
       </section>
 
-      <!-- 08 Набу: учёба и языки -->
-      <section class="world flip" id="naboo" data-tint="#77aaff" style="--c:#77aaff">
+      <!-- 07 Набу: учёба и языки -->
+      <section class="world" id="naboo" data-tint="#77aaff" style="--c:#77aaff">
         <div class="wrap world-inner">
-          <div class="world-planet" aria-hidden="true"><canvas class="main-planet" data-planet="naboo" data-light=".55,.45,.7" data-drag></canvas><div class="orbit" style="--tilt:72deg;--dur:30s;--size:12%;--r:-10%"><div class="orbit-ring"><span class="moon"><canvas data-planet="moon" data-max="110"></canvas></span></div></div><span data-i18n class="drag-hint">↻ покрутите планету</span></div>
+          <div class="world-planet" aria-hidden="true"><canvas class="main-planet" data-planet="naboo" data-light=".55,.45,.7" data-drag></canvas><div class="orbit" style="--tilt:72deg;--dur:30s;--size:12%;--r:-10%"><div class="orbit-ring"><span class="moon"><canvas data-planet="moon" data-max="110"></canvas></span></div></div><svg class="sd" style="--sx:0%;--sy:-4%;--sw:46%;--sr:-8deg" aria-hidden="true"><use href="#g-sd"/></svg><span data-i18n class="drag-hint">↻ покрутите планету</span></div>
           <div class="world-body">
-            <p data-i18n class="world-tag" data-reveal>08 · учёба и языки</p>
+            <p data-i18n class="world-tag" data-reveal>07 · учёба и языки</p>
             <h2 data-i18n class="world-name" data-reveal>Набу</h2>
             <p data-i18n class="lore" data-reveal>Спокойная планета озёр, лугов и дворцов. Здесь моя учёба.</p>
             <div data-reveal>
@@ -371,22 +364,23 @@
         </div>
       </section>
 
-      <!-- 09 Явин IV: связь -->
-      <section class="world" id="yavin4" data-tint="#ffa25c" style="--c:#ffa25c">
+      <!-- 08 Явин IV: связь -->
+      <section class="world flip" id="yavin4" data-tint="#ffa25c" style="--c:#ffa25c">
         <div class="wrap world-inner">
           <div class="world-planet" aria-hidden="true">
             <canvas class="moon-back" data-planet="yavin" data-light="-.5,.5,.7"></canvas>
             <canvas class="main-planet" data-planet="yavin4" data-light="-.5,.5,.7" data-drag></canvas>
-            <span data-i18n class="drag-hint">↻ покрутите планету</span>
+            <svg class="sd" style="--sx:50%;--sy:72%;--sw:42%;--sr:5deg;--sf:-1" aria-hidden="true"><use href="#g-sd"/></svg><span data-i18n class="drag-hint">↻ покрутите планету</span>
           </div>
           <div class="world-body">
-            <p data-i18n class="world-tag" data-reveal>09 · связь</p>
+            <p data-i18n class="world-tag" data-reveal>08 · связь</p>
             <h2 data-i18n class="world-name" data-reveal>Явин IV</h2>
             <p data-i18n class="lore" data-reveal>Лесная луна, где пряталась база повстанцев. Отсюда можно отправить мне сообщение.</p>
             <div data-reveal>
               <h3 data-i18n>Напишите мне</h3>
               <p data-i18n>Открыт к проектам в Data Science и к исследовательским коллаборациям. Пишите на почту или в Telegram.</p>
               <ul class="channels">
+                <li><a href="mailto:hashick1812@gmail.com"><span class="k">Gmail</span><span class="v">hashick1812@gmail.com</span><span class="arr" aria-hidden="true">→</span></a></li>
                 <li><a href="mailto:islam0402@list.ru"><span data-i18n class="k">Почта</span><span class="v">islam0402@list.ru</span><span class="arr" aria-hidden="true">→</span></a></li>
                 <li><a href="https://t.me/rule_46" target="_blank" rel="noopener"><span class="k">Telegram</span><span class="v">@rule_46</span><span class="arr" aria-hidden="true">↗</span></a></li>
                 <li><a href="tel:+77081930806"><span data-i18n class="k">Телефон</span><span class="v">+7 708 193 08 06</span><span class="arr" aria-hidden="true">→</span></a></li>
@@ -403,10 +397,10 @@
         </div>
       </section>
 
-      <!-- 10 Терминал -->
+      <!-- 09 Терминал -->
       <section class="world terminal-sec" id="terminal" data-tint="#ffcf5a" style="--c:#ffcf5a">
         <div class="wrap">
-          <p data-i18n class="world-tag" data-reveal>10 · бортовой компьютер</p>
+          <p data-i18n class="world-tag" data-reveal>09 · бортовой компьютер</p>
           <h2 data-i18n class="world-name" data-reveal>Терминал</h2>
           <p data-i18n class="lore" data-reveal>Командная строка корабля. Наберите help, а если любите «Звёздные войны», поищите секретные команды.</p>
           <div class="term" data-reveal>
@@ -419,6 +413,34 @@
           </div>
           <div class="term-quick" data-reveal><span data-i18n>Быстрые команды:</span><button type="button" data-cmd="help">help</button><button type="button" data-cmd="about">about</button><button type="button" data-cmd="skills">skills</button><button type="button" data-cmd="contact">contact</button><button type="button" data-cmd="order 66">order 66</button><button type="button" data-cmd="order 67">order 67</button></div>
           <p data-i18n class="term-hint" data-reveal>Совет: клавиша ~ открывает терминал из любого места страницы.</p>
+        </div>
+      </section>
+      <!-- 10 Голокрон: связь -->
+      <section class="world holocron-sec" id="holocron" data-tint="#6fd6ff" style="--c:#6fd6ff">
+        <div class="wrap">
+          <div class="hc-wrap">
+            <div data-i18n-attr="aria-label" class="holocron" role="button" tabindex="0" aria-pressed="false" aria-label="Открыть голокрон">
+              <div class="hc-float">
+                <div class="hc-cube"><i class="hc-face f1"></i><i class="hc-face f2"></i><i class="hc-face f3"></i><i class="hc-face f4"></i><i class="hc-face f5"></i><i class="hc-face f6"></i></div>
+                <span class="hc-core" aria-hidden="true"></span>
+              </div>
+              <span class="hc-proj" aria-hidden="true">hashick1812@gmail.com</span>
+              <span class="hc-shadow" aria-hidden="true"></span>
+            </div>
+            <div class="hc-text">
+              <p data-i18n class="world-tag" data-reveal>10 · голокрон</p>
+              <h2 data-i18n class="world-name" data-reveal>Голокрон</h2>
+              <p data-i18n class="lore" data-reveal>Древнее хранилище знаний джедаев. Коснитесь голокрона, и он откроет канал связи со мной.</p>
+              <div class="hc-msg" data-reveal>
+                <p data-i18n class="hc-label">Канал связи</p>
+                <a class="hc-mail" href="mailto:hashick1812@gmail.com">hashick1812@gmail.com</a>
+                <div class="hc-actions">
+                  <a data-i18n class="btn primary" href="mailto:hashick1812@gmail.com">Написать письмо</a>
+                  <button data-i18n class="btn" type="button" data-copy="hashick1812@gmail.com">Скопировать адрес</button>
+                </div>
+              </div>
+            </div>
+          </div>
           <footer class="footer">
               <span>© 2026 Islam Kuttybaev · <span data-i18n>Алматы</span></span>
               <span data-i18n class="force">Да пребудет с вами Сила.</span>
@@ -428,12 +450,12 @@
     </main>
   </div>
 
-  <script src="i18n.js"></script>
-  <script src="assets/planets.js"></script>
-  <script src="assets/music.js"></script>
-  <script src="assets/holo.js"></script>
-  <script src="assets/hyper.js"></script>
-  <script src="assets/site.js"></script>
-  <script src="assets/console.js"></script>
+  <script src="i18n.js?v=20261101c"></script>
+  <script src="assets/planets.js?v=20261101c"></script>
+  <script src="assets/music.js?v=20261101c"></script>
+  <script src="assets/holo.js?v=20261101c"></script>
+  <script src="assets/hyper.js?v=20261101c"></script>
+  <script src="assets/site.js?v=20261101c"></script>
+  <script src="assets/console.js?v=20261101c"></script>
 </body>
 </html>

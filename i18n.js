@@ -21,9 +21,9 @@ window.I18N = {
     en: "The galaxy is drowning in data. Reports contradict each other, charts mislead, and decisions are made at random.",
     kk: "Галактика деректерге батып барады. Есептер бір-біріне қайшы келеді, графиктер адастырады, ал шешімдер кездейсоқ қабылданады."
   },
-  "Молодой Data Scientist ИСЛАМ КУТТЫБАЕВ проходит последний, четвёртый год обучения в академии SDU. Его оружие: Python, SQL и статистика.": {
-    en: "A young data scientist, ISLAM KUTTYBAEV, is in his fourth and final year at the SDU academy. His weapons: Python, SQL and statistics.",
-    kk: "Жас Data Scientist ИСЛАМ КУТТЫБАЕВ SDU академиясындағы соңғы, төртінші оқу жылында. Оның қаруы: Python, SQL және статистика."
+  "Молодой Data Scientist ИСЛАМ КУТТЫБАЕВ проходит последний, четвёртый год обучения в академии SDU. Его оружие: Python, SQL и машинное обучение.": {
+    en: "A young data scientist, ISLAM KUTTYBAEV, is in his fourth and final year at the SDU academy. His weapons: Python, SQL and machine learning.",
+    kk: "Жас Data Scientist ИСЛАМ КУТТЫБАЕВ SDU академиясындағы соңғы, төртінші оқу жылында. Оның қаруы: Python, SQL және машиналық оқыту."
   },
   "Теперь он служит в ТОО «ADAM LABS» и учит модели отличать сигнал от шума, чтобы люди могли учиться лучше…": {
     en: "Now he serves at ADAM LABS LLP, teaching models to tell signal from noise so that people can learn better…",
@@ -65,10 +65,6 @@ window.I18N = {
     en: "Hoth",
     kk: "Хот"
   },
-  "Дагоба": {
-    en: "Dagobah",
-    kk: "Дагоба"
-  },
   "Мустафар": {
     en: "Mustafar",
     kk: "Мустафар"
@@ -89,6 +85,10 @@ window.I18N = {
     en: "Yavin IV",
     kk: "Явин IV"
   },
+  "Голокрон": {
+    en: "Holocron",
+    kk: "Голокрон"
+  },
   "Резюме · Алматы · 2026": {
     en: "CV · Almaty · 2026",
     kk: "Түйіндеме · Алматы · 2026"
@@ -97,9 +97,9 @@ window.I18N = {
     en: "Adam Labs LLP",
     kk: "«Adam Labs» ЖШС"
   },
-  "Строю модели и разбираюсь в данных об обучении. Учусь на 4 курсе SDU по Data Science и статистике, а с 2023 года преподаю математику и Python.": {
-    en: "I build models and dig into learning data. I'm a fourth-year Data Science and Statistics student at SDU, and I've been teaching maths and Python since 2023.",
-    kk: "Модельдер құрып, оқу деректерін зерттеймін. SDU-да Data Science және статистика бойынша 4-курста оқимын, ал 2023 жылдан бері математика мен Python пәндерін оқытамын."
+  "Работаю в IT: пишу на Python и SQL, строю ML-модели и пайплайны данных, от сбора и очистки до обученной модели и понятных выводов. Учусь на 4&nbsp;курсе SDU по Data Science и статистике.": {
+    en: "I work in IT: I write Python and SQL and build ML models and data pipelines, from collecting and cleaning data to a trained model and clear conclusions. Fourth-year Data Science and Statistics student at SDU.",
+    kk: "IT саласында жұмыс істеймін: Python мен SQL-де жазамын, ML-модельдер мен деректер пайплайндарын құрамын, деректерді жинау мен тазалаудан бастап оқытылған модель мен түсінікті қорытындыға дейін. SDU-да Data Science және статистика бойынша 4&nbsp;курста оқимын."
   },
   "Открыть карту галактики": {
     en: "Open the galaxy map",
@@ -113,9 +113,9 @@ window.I18N = {
     en: "Download PDF",
     kk: "PDF жүктеу"
   },
-  "Девять планет, и на каждой своя часть резюме. Нажмите на любую, чтобы прыгнуть к ней через гиперпространство.": {
-    en: "Nine planets, each holding one part of my CV. Click any of them to jump there through hyperspace.",
-    kk: "Тоғыз планета, әрқайсысында түйіндеменің бір бөлігі. Гиперкеңістік арқылы секіру үшін кез келгенін басыңыз."
+  "Восемь планет, и на каждой своя часть резюме. Нажмите на любую, чтобы прыгнуть к ней через гиперпространство.": {
+    en: "Eight planets, each holding one part of my CV. Click any of them to jump there through hyperspace.",
+    kk: "Сегіз планета, әрқайсысында түйіндеменің бір бөлігі. Гиперкеңістік арқылы секіру үшін кез келгенін басыңыз."
   },
   "обо мне": {
     en: "about me",
@@ -128,10 +128,6 @@ window.I18N = {
   "исследование": {
     en: "research",
     kk: "зерттеу"
-  },
-  "преподавание": {
-    en: "teaching",
-    kk: "оқыту"
   },
   "проекты": {
     en: "projects",
@@ -169,17 +165,17 @@ window.I18N = {
     en: "Hi, I'm Islam",
     kk: "Сәлем, мен Исламмын"
   },
-  "Я Data Scientist из Алматы. Работаю в ТОО «Adam Labs» и учусь на 4 курсе Suleyman Demirel University по направлению Data Science and Statistics. Выпуск летом 2027 года.": {
-    en: "I'm a data scientist based in Almaty. I work at Adam Labs LLP and I'm in my fourth year of Data Science and Statistics at Suleyman Demirel University, graduating in summer 2027.",
-    kk: "Мен Алматыда тұратын Data Scientist маманымын. «Adam Labs» ЖШС-да жұмыс істеймін және Suleyman Demirel University-де Data Science and Statistics бағыты бойынша 4-курста оқимын. 2027 жылдың жазында бітіремін."
+  "Я Data Scientist из Алматы: работаю в IT-компании ТОО «Adam Labs» и учусь на 4&nbsp;курсе Suleyman Demirel University по направлению Data Science and Statistics. Выпуск летом 2027 года.": {
+    en: "I'm a Data Scientist from Almaty: I work at the IT company Adam Labs LLP and I'm a fourth-year Data Science and Statistics student at Suleyman Demirel University, graduating in summer 2027.",
+    kk: "Мен Алматыдан шыққан Data Scientist-пін: «Adam Labs» ЖШС IT-компаниясында жұмыс істеймін және Сүлейман Демирел университетінде Data Science and Statistics бағыты бойынша 4&nbsp;курста оқимын. 2027 жылдың жазында бітіремін."
   },
-  "До Adam Labs я четыре месяца был младшим исследовательским аналитиком в университете. С 2023 года преподаю: веду практику по математике и статистике в SDU и занимаюсь с учениками в Azat Academia.": {
-    en: "Before Adam Labs I spent four months as a junior research analyst at the university. I've been teaching since 2023: I run maths and statistics practice sessions at SDU and tutor students at Azat Academia.",
-    kk: "Adam Labs-қа дейін университетте төрт ай кіші зерттеуші-аналитик болдым. 2023 жылдан бері оқытамын: SDU-да математика мен статистика бойынша практикалық сабақтар жүргіземін және Azat Academia-да оқушылармен жұмыс істеймін."
+  "До Adam Labs четыре месяца работал младшим исследовательским аналитиком данных в университете. В свободное время делаю свои проекты: ML-модели, парсеры данных и веб-приложение на Streamlit. Весь код открыт на GitHub.": {
+    en: "Before Adam Labs I spent four months as a junior research data analyst at the university. In my free time I build my own projects: ML models, data scrapers and a Streamlit web app. All the code is open on GitHub.",
+    kk: "Adam Labs-қа дейін университетте төрт ай кіші зерттеуші деректер талдаушысы болып жұмыс істедім. Бос уақытымда өз жобаларымды жасаймын: ML-модельдер, деректер парсерлері және Streamlit-тегі веб-қосымша. Бүкіл код GitHub-та ашық."
   },
-  "Больше всего меня интересуют прикладное машинное обучение, статистические исследования и данные в образовании.": {
-    en: "I'm most interested in applied machine learning, statistical research and data in education.",
-    kk: "Мені бәрінен бұрын қолданбалы машиналық оқыту, статистикалық зерттеулер және білім берудегі деректер қызықтырады."
+  "Больше всего меня интересуют прикладное машинное обучение и NLP. Сейчас изучаю глубокое обучение и трансформеры.": {
+    en: "I'm most interested in applied machine learning and NLP. Right now I'm learning deep learning and transformers.",
+    kk: "Мені ең алдымен қолданбалы машиналық оқыту мен NLP қызықтырады. Қазір терең оқыту мен трансформерлерді үйреніп жүрмін."
   },
   "<b>Алматы</b>Казахстан": {
     en: "<b>Almaty</b>Kazakhstan",
@@ -189,9 +185,9 @@ window.I18N = {
     en: "<b>4th year</b>SDU, class of 2027",
     kk: "<b>4-курс</b>SDU, 2027 түлегі"
   },
-  "<b>3+ года</b>преподаю": {
-    en: "<b>3+ years</b>of teaching",
-    kk: "<b>3+ жыл</b>оқытамын"
+  "<b>5 проектов</b>открыты на GitHub": {
+    en: "<b>5 projects</b>open on GitHub",
+    kk: "<b>5 жоба</b>GitHub-та ашық"
   },
   "<b>B2</b>английский, IELTS 6.0": {
     en: "<b>B2</b>English, IELTS 6.0",
@@ -265,61 +261,9 @@ window.I18N = {
     en: "Prepared the charts, the methodology section and the summary of results.",
     kk: "Графиктерді, әдістеме бөлімін және нәтижелер қорытындысын дайындадым."
   },
-  "04 · преподавание": {
-    en: "04 · teaching",
-    kk: "04 · оқыту"
-  },
-  "Туманное болото, где мастер Йода учил Люка. Здесь я сам учу других.": {
-    en: "A misty swamp where Master Yoda trained Luke. This is where I teach others.",
-    kk: "Йода шебер Люкті оқытқан тұманды батпақ. Мұнда мен өзім басқаларды оқытамын."
-  },
-  "Teaching Assistant, математика и статистика": {
-    en: "Teaching Assistant, Mathematics and Statistics",
-    kk: "Teaching Assistant, математика және статистика"
-  },
-  "Suleyman Demirel University, Каскелен · с сентября 2023": {
-    en: "Suleyman Demirel University, Kaskelen · since September 2023",
-    kk: "Suleyman Demirel University, Қаскелең · 2023 жылдың қыркүйегінен бері"
-  },
-  "Веду еженедельную практику для групп по 15–25 студентов первого курса.": {
-    en: "Run weekly practice sessions for groups of 15–25 first-year students.",
-    kk: "15–25 бірінші курс студентінен тұратын топтарға апта сайын практикалық сабақ өткіземін."
-  },
-  "Готовлю задания и материалы к занятиям.": {
-    en: "Prepare assignments and materials for the sessions.",
-    kk: "Сабақтарға тапсырмалар мен материалдар дайындаймын."
-  },
-  "Проверяю работы, даю обратную связь и помогаю на экзаменах.": {
-    en: "Grade work, give feedback and help during exams.",
-    kk: "Жұмыстарды тексеріп, кері байланыс беремін және емтихандарда көмектесемін."
-  },
-  "Репетитор по математике и Data Science": {
-    en: "Maths and Data Science tutor",
-    kk: "Математика және Data Science репетиторы"
-  },
-  "Azat Academia, Алматы · с января 2023": {
-    en: "Azat Academia, Almaty · since January 2023",
-    kk: "Azat Academia, Алматы · 2023 жылдың қаңтарынан бері"
-  },
-  "Занимаюсь индивидуально и в группах: математика, статистика, Python и основы Data Science.": {
-    en: "One-to-one and group lessons: maths, statistics, Python and Data Science basics.",
-    kk: "Жеке және топпен сабақ беремін: математика, статистика, Python және Data Science негіздері."
-  },
-  "Под каждого ученика составляю свой план занятий.": {
-    en: "I make a separate plan for every student.",
-    kk: "Әр оқушыға жеке сабақ жоспарын құрамын."
-  },
-  "Разбираем анализ данных на реальных датасетах.": {
-    en: "We practise data analysis on real datasets.",
-    kk: "Деректерді талдауды нақты датасеттерде үйренеміз."
-  },
-  "«Учить значит учиться дважды». Йода такого не говорил, но мог бы.": {
-    en: "“To teach is to learn twice.” Yoda never said it, but he could have.",
-    kk: "«Үйрету — екі рет үйрену». Йода мұны айтпаған, бірақ айтуы мүмкін еді."
-  },
-  "05 · проекты": {
-    en: "05 · projects",
-    kk: "05 · жобалар"
+  "04 · проекты": {
+    en: "04 · projects",
+    kk: "04 · жобалар"
   },
   "Огненная планета, где всё куётся в лаве. Здесь мои проекты.": {
     en: "A fiery planet where everything is forged in lava. These are my projects.",
@@ -329,29 +273,33 @@ window.I18N = {
     en: "Data analysis and machine learning projects. The code is open on GitHub.",
     kk: "Деректерді талдау және машиналық оқыту жобалары. Коды GitHub-та ашық."
   },
-  "500 квартир Алматы, 11 признаков и сравнение пяти моделей регрессии. В репозитории: ноутбук, данные и результаты.": {
-    en: "500 Almaty apartments, 11 features and a comparison of five regression models. The repository has the notebook, data and results.",
-    kk: "Алматыдағы 500 пәтер, 11 белгі және бес регрессия моделін салыстыру. Репозиторийде: ноутбук, деректер және нәтижелер."
+  "Классификация изображений мусора: признаки HOG и LBP, сравнение SVM, Random Forest и KNN (лучшая — SVM с RBF-ядром, accuracy 0,68) и веб-приложение на Streamlit. Отдельная версия на нейросети EfficientNet-B0.": {
+    en: "Garbage image classification: HOG and LBP features, a comparison of SVM, Random Forest and KNN (best: SVM with an RBF kernel, accuracy 0.68) and a Streamlit web app. A separate version runs on an EfficientNet-B0 neural network.",
+    kk: "Қоқыс суреттерін жіктеу: HOG және LBP белгілері, SVM, Random Forest және KNN салыстыру (ең үздігі — RBF ядролы SVM, accuracy 0,68) және Streamlit-тегі веб-қосымша. Жеке нұсқасы EfficientNet-B0 нейрожелісінде."
   },
-  "Классификация 32 833 треков по 6 жанрам: подготовка признаков, SMOTE, PCA и сравнение моделей.": {
-    en: "Classifying 32,833 tracks into 6 genres: feature preparation, SMOTE, PCA and model comparison.",
-    kk: "32 833 тректі 6 жанрға жіктеу: белгілерді дайындау, SMOTE, PCA және модельдерді салыстыру."
+  "Классификация 32 833 треков по 6 жанрам по аудиопризнакам. Пайплайн: EDA, SMOTE, масштабирование, PCA, подбор гиперпараметров и сравнение моделей по Accuracy, F1 и ROC-AUC.": {
+    en: "Classifying 32,833 tracks into 6 genres from audio features. Pipeline: EDA, SMOTE, scaling, PCA, hyperparameter tuning and model comparison by Accuracy, F1 and ROC-AUC.",
+    kk: "32 833 тректі аудиобелгілер бойынша 6 жанрға жіктеу. Пайплайн: EDA, SMOTE, масштабтау, PCA, гиперпараметрлерді таңдау және модельдерді Accuracy, F1 және ROC-AUC бойынша салыстыру."
   },
-  "Анализ создания голевых моментов в пяти европейских лигах: сбор данных, очистка и визуализация SCA/GCA.": {
-    en: "Analysis of chance creation in five European leagues: data collection, cleaning and SCA/GCA visualisation.",
-    kk: "Еуропаның бес лигасындағы гол мүмкіндіктерін құруды талдау: деректерді жинау, тазалау және SCA/GCA визуализациясы."
+  "Предсказание цены квартир в Алматы: 500 квартир, 11 признаков, 7 районов. Сравнил пять моделей регрессии, лучшая по ошибке — Lasso (R² 0,80).": {
+    en: "Predicting apartment prices in Almaty: 500 apartments, 11 features, 7 districts. I compared five regression models; the lowest error came from Lasso (R² 0.80).",
+    kk: "Алматыдағы пәтер бағасын болжау: 500 пәтер, 11 белгі, 7 аудан. Бес регрессия моделін салыстырдым, қатесі ең азы — Lasso (R² 0,80)."
   },
-  "Классификация мусора с помощью машинного обучения.": {
-    en: "Garbage classification with machine learning.",
-    kk: "Машиналық оқыту арқылы қоқысты жіктеу."
+  "NLP-анализ трилогии «Кочевники» Ильяса Есенберлина: извлечение текста из PDF, очистка и частотный анализ. Плюс парсинг 10 000 объявлений Krisha.kz через Selenium и анализ цен.": {
+    en: "NLP analysis of Ilyas Yessenberlin's trilogy «The Nomads»: text extraction from PDF, cleaning and frequency analysis. Plus scraping 10,000 Krisha.kz listings with Selenium and analysing prices.",
+    kk: "Ілияс Есенберлиннің «Көшпенділер» трилогиясын NLP-талдау: PDF-тен мәтін алу, тазалау және жиілік талдауы. Сонымен қатар Selenium арқылы Krisha.kz-тегі 10 000 хабарландыруды жинау және бағаларды талдау."
+  },
+  "Собрал с FBref данные о ~1 800 игроках пяти топ-лиг Европы (сезон 2023/24) и разобрал, кто создаёт голевые моменты: метрики SCA и GCA по позициям, возрасту и лигам.": {
+    en: "Scraped FBref data on ~1,800 players from Europe's top five leagues (2023/24 season) and analysed who creates chances: SCA and GCA metrics by position, age and league.",
+    kk: "FBref-тен Еуропаның бес үздік лигасындағы ~1 800 ойыншы туралы деректерді (2023/24 маусымы) жинап, гол мүмкіндіктерін кім жасайтынын талдадым: позиция, жас және лига бойынша SCA және GCA метрикалары."
   },
   "Все репозитории на GitHub ↗": {
     en: "All repositories on GitHub ↗",
     kk: "GitHub-тағы барлық репозиторийлер ↗"
   },
-  "06 · навыки": {
-    en: "06 · skills",
-    kk: "06 · дағдылар"
+  "05 · навыки": {
+    en: "05 · skills",
+    kk: "05 · дағдылар"
   },
   "Ледяной мир, где джедаи находят кристаллы для световых мечей. Здесь мой набор инструментов.": {
     en: "An ice world where the Jedi find crystals for their lightsabers. This is my toolkit.",
@@ -361,29 +309,33 @@ window.I18N = {
     en: "Languages",
     kk: "Тілдер"
   },
-  "Данные и ML": {
-    en: "Data and ML",
-    kk: "Деректер және ML"
+  "Машинное обучение": {
+    en: "Machine learning",
+    kk: "Машиналық оқыту"
   },
-  "pandas, NumPy, scikit-learn, SHAP, feature engineering, оценка моделей": {
-    en: "pandas, NumPy, scikit-learn, SHAP, feature engineering, model evaluation",
-    kk: "pandas, NumPy, scikit-learn, SHAP, feature engineering, модельдерді бағалау"
+  "Данные и NLP": {
+    en: "Data and NLP",
+    kk: "Деректер және NLP"
   },
   "Статистика": {
     en: "Statistics",
     kk: "Статистика"
   },
-  "регрессия, ANOVA, проверка гипотез, временные ряды": {
-    en: "regression, ANOVA, hypothesis testing, time series",
-    kk: "регрессия, ANOVA, гипотезаларды тексеру, уақыттық қатарлар"
+  "регрессия, ANOVA, проверка гипотез, временные ряды (ARIMA, Holt-Winters)": {
+    en: "regression, ANOVA, hypothesis testing, time series (ARIMA, Holt-Winters)",
+    kk: "регрессия, ANOVA, гипотезаларды тексеру, уақыттық қатарлар (ARIMA, Holt-Winters)"
   },
   "Графики и BI": {
     en: "Charts and BI",
     kk: "Графиктер және BI"
   },
-  "Базы и среда": {
-    en: "Databases and tools",
-    kk: "Дерекқорлар және орта"
+  "Базы данных": {
+    en: "Databases",
+    kk: "Дерекқорлар"
+  },
+  "Разработка": {
+    en: "Development",
+    kk: "Әзірлеу"
   },
   "Не только код": {
     en: "Beyond code",
@@ -397,9 +349,9 @@ window.I18N = {
     en: "Holoprojector: core tools",
     kk: "Голопроектор: негізгі құралдар"
   },
-  "07 · сертификаты": {
-    en: "07 · certificates",
-    kk: "07 · сертификаттар"
+  "06 · сертификаты": {
+    en: "06 · certificates",
+    kk: "06 · сертификаттар"
   },
   "Тропическая планета с архивом, где хранились самые ценные чертежи Империи. Здесь мои сертификаты.": {
     en: "A tropical planet with an archive that held the Empire's most valuable plans. These are my certificates.",
@@ -425,9 +377,9 @@ window.I18N = {
     en: "Full list on LinkedIn ↗",
     kk: "Толық тізім LinkedIn-де ↗"
   },
-  "08 · учёба и языки": {
-    en: "08 · education and languages",
-    kk: "08 · оқу және тілдер"
+  "07 · учёба и языки": {
+    en: "07 · education and languages",
+    kk: "07 · оқу және тілдер"
   },
   "Спокойная планета озёр, лугов и дворцов. Здесь моя учёба.": {
     en: "A calm planet of lakes, meadows and palaces. This is my education.",
@@ -453,9 +405,9 @@ window.I18N = {
     en: "English: B2, IELTS Academic 6.0 (British Council, 2023).",
     kk: "Ағылшын тілі: B2, IELTS Academic 6.0 (British Council, 2023)."
   },
-  "09 · связь": {
-    en: "09 · contact",
-    kk: "09 · байланыс"
+  "08 · связь": {
+    en: "08 · contact",
+    kk: "08 · байланыс"
   },
   "Лесная луна, где пряталась база повстанцев. Отсюда можно отправить мне сообщение.": {
     en: "A forest moon where the Rebels hid their base. You can send me a message from here.",
@@ -481,9 +433,9 @@ window.I18N = {
     en: "“Help me, recruiter. You're my only hope.”",
     kk: "«Көмектесіңіз, рекрутер. Сіз менің жалғыз үмітімсіз.»"
   },
-  "10 · бортовой компьютер": {
-    en: "10 · onboard computer",
-    kk: "10 · борт компьютері"
+  "09 · бортовой компьютер": {
+    en: "09 · onboard computer",
+    kk: "09 · борт компьютері"
   },
   "Командная строка корабля. Наберите help, а если любите «Звёздные войны», поищите секретные команды.": {
     en: "The ship's command line. Type help, and if you love Star Wars, look for the secret commands.",
@@ -500,6 +452,26 @@ window.I18N = {
   "Совет: клавиша ~ открывает терминал из любого места страницы.": {
     en: "Tip: press ~ to open the terminal from anywhere on the page.",
     kk: "Кеңес: ~ пернесі терминалды беттің кез келген жерінен ашады."
+  },
+  "10 · голокрон": {
+    en: "10 · holocron",
+    kk: "10 · голокрон"
+  },
+  "Древнее хранилище знаний джедаев. Коснитесь голокрона, и он откроет канал связи со мной.": {
+    en: "An ancient Jedi vault of knowledge. Touch the holocron and it will open a channel to me.",
+    kk: "Джедайлардың ежелгі білім қоймасы. Голокронды түртіңіз, ол менімен байланыс арнасын ашады."
+  },
+  "Канал связи": {
+    en: "Comms channel",
+    kk: "Байланыс арнасы"
+  },
+  "Написать письмо": {
+    en: "Send an email",
+    kk: "Хат жазу"
+  },
+  "Скопировать адрес": {
+    en: "Copy address",
+    kk: "Мекенжайды көшіру"
   },
   "Алматы": {
     en: "Almaty",
@@ -528,6 +500,10 @@ window.I18N = {
   "Команда": {
     en: "Command",
     kk: "Команда"
+  },
+  "Открыть голокрон": {
+    en: "Open the holocron",
+    kk: "Голокронды ашу"
   },
   "Ислам Куттыбаев, Data Scientist в ТОО «Adam Labs», Алматы. Резюме в виде карты галактики: опыт, проекты, навыки и контакты.": {
     en: "Islam Kuttybaev, Data Scientist at Adam Labs LLP, Almaty. A CV laid out as a galaxy map: experience, projects, skills and contacts.",
